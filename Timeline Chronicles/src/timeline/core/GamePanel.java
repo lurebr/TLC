@@ -5,9 +5,12 @@
 package timeline.core;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
+import timeline.entity.GameObject;
+import timeline.entity.behavior.isDrawable;
 
 /**
  *
@@ -18,5 +21,15 @@ public class GamePanel extends JPanel{
         this.setVisible(true);
         this.setBackground(Color.BLUE);
         this.setSize(800, 600);
+    }
+    
+    public void draw(Graphics2D g2d){
+        GameMain.mapa.draw(g2d);
+        for(GameObject obj: GameMain.objetos){
+            if(obj instanceof isDrawable){
+                isDrawable objd = (isDrawable) obj;   
+                objd.draw(g2d);
+            }
+        }
     }
 }

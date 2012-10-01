@@ -54,33 +54,43 @@ public class GameMain extends JFrame {
       this.setUndecorated(true);
       
       setDefaultCloseOperation(EXIT_ON_CLOSE);
+      setIgnoreRepaint(true);
       setResizable(false);
       setSize(800, 600);
       
-      Container cp = getContentPane();
-      cp.setLayout(new GridLayout(2,0));
+      CarregaComponentes();
+      CarregaCursor();
+        
+       this.setVisible(true);
+       this.createBufferStrategy(2);
+       strategy = this.getBufferStrategy();
       
-      
-      gameMenu = new ControlerGameMenu();
-      cp.add(gamePanel, BorderLayout.PAGE_START);
-      cp.add(gameMenu.getTela(), BorderLayout.PAGE_END);
-
+        AddListerner();
+        carregarLevel(1);
+        rodarGameLoop();
+    }
+    
+    private void CarregaCursor(){
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Point cursorHotSpot = new Point(0,0);
         BufferedImage cursor =  Image.getInstance().getResourceImage("resource/system/cursor/cursor.png");
         Cursor c = toolkit.createCustomCursor(cursor,cursorHotSpot,"Cursor");
         this.setCursor(c);
-        
-      this.setVisible(true);
-      this.createBufferStrategy(2);
-      strategy = getBufferStrategy();
+    }
+    
+    private void CarregaComponentes(){
+      Container cp = getContentPane();
+      cp.setLayout(new GridLayout(2,0));
       
+      gameMenu = new ControlerGameMenu();
+      cp.add(gamePanel, BorderLayout.PAGE_START);
+      cp.add(gameMenu.getTela(), BorderLayout.PAGE_END);
+    }
+    
+    private void AddListerner(){
       mouse = new Mouse();
       this.addMouseListener(mouse);
       this.addMouseMotionListener(mouse);
-      
-        carregarLevel(1);
-        rodarGameLoop();
     }
     
     private void update(){
@@ -101,16 +111,7 @@ public class GameMain extends JFrame {
     private void draw(){
         Graphics g = strategy.getDrawGraphics();
         Graphics2D g2d = (Graphics2D)g;
-        g2d.setColor(Color.white);
-        g2d.fillRect(0, 0, 200, 200);
-        
-        mapa.draw(g);
-        for(GameObject obj: objetos){
-            if(obj instanceof isDrawable){
-                isDrawable objd = (isDrawable) obj;   
-                objd.draw(g);
-            }
-        }
+        gamePanel.draw(g2d);
         drawMouse(g2d);
         g2d.dispose();
         strategy.show();
