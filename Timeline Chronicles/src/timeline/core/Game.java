@@ -4,6 +4,7 @@
  */
 package timeline.core;
 
+import timeline.core.ExternalMenu.ExternalMenu;
 import timeline.jogador.Jogador;
 
 /**
@@ -16,7 +17,8 @@ public class Game {
     
     public Game() {
         if (logar()) {
-            GameStart();
+            ExternalMenu e = new ExternalMenu();
+            e.setVisible(true);
         }
     }
 
@@ -28,7 +30,4 @@ public class Game {
         return true;
     }
 
-    public void GameStart() {
-        GameMain game = GameMain.getInstance();
-    }
 }

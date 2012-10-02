@@ -22,8 +22,9 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import timeline.Image.Image;
-import timeline.core.menu.ControlerGameMenu;
-import timeline.core.menu.testMenu;
+import timeline.core.internalMenu.ControlerGameMenu;
+import timeline.core.internalMenu.DebugPane;
+import timeline.core.internalMenu.testMenu;
 import timeline.entity.GameObject;
 import timeline.entity.Map;
 import timeline.entity.Minion;
@@ -41,16 +42,17 @@ public class GameMain extends JFrame {
    public static int fps;
    public static int frameCount;
    public static GamePanel gamePanel = new GamePanel();
-   //public static ControlerGameMenu gameMenu;
-   public static testMenu gameMenu;
+   public static ControlerGameMenu gameMenu;
+   //public static testMenu gameMenu;
    public static enumState state;
+   public static DebugPane debug = new DebugPane();
    public static Map mapa;
    public static ArrayList<GameObject> objetos;
    public static Mouse mouse;
    BufferStrategy strategy;
            
     private GameMain(){
-        initialize();
+        
     }
     
     private void initialize(){
@@ -83,12 +85,14 @@ public class GameMain extends JFrame {
     
     private void CarregaComponentes(){
       Container cp = getContentPane();
-      cp.setLayout(new GridLayout(2,0));
+      cp.setLayout(new GridLayout(3,0));
       
-      //gameMenu = new ControlerGameMenu();
-      gameMenu = new testMenu();
+      gameMenu = new ControlerGameMenu();
+      //gameMenu = new testMenu();
+      cp.add(debug);
       cp.add(gamePanel, BorderLayout.NORTH);
-      cp.add(gameMenu, BorderLayout.SOUTH);
+      cp.add(gameMenu.getTela(), BorderLayout.SOUTH);
+      
     }
     
     private void AddListerner(){
@@ -139,7 +143,7 @@ public class GameMain extends JFrame {
          {
             update();
             draw();
-            try {Thread.sleep(1);} catch(Exception e) {} 
+            try {Thread.sleep(1);} catch(Exception e) {System.out.println(e.getMessage());} 
          }
       }
       this.dispose();
@@ -157,8 +161,12 @@ public class GameMain extends JFrame {
       loop.start();
     }
 
-    public void setState(enumState enumState) {
+    public void setGameState(enumState enumState) {
         this.state = enumState;
+        debug.draw();
+    }
+    public enumState getGameState() {
+        return this.state;
     }
     
     public void carregarLevel(int level){
@@ -225,6 +233,11 @@ public class GameMain extends JFrame {
         posy = Math.round(posy/32)*32;
         Tower t = new Tower("resource/object/tower/tower.png",posx, posy);
         objetos.add(t);
+    }
+
+    public void GameStart() {
+        initialize();
+        setGameState(enumState.start);
     }
 
 }

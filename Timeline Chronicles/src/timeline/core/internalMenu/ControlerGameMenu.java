@@ -2,13 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package timeline.core.menu;
+package timeline.core.internalMenu;
 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import timeline.core.GameMain;
 import timeline.core.enumState;
 
@@ -35,6 +36,9 @@ public class ControlerGameMenu implements ActionListener {
             }
         }else if (e.getSource() == tela.btnSair){
             GameMain.getInstance().setGameState(enumState.gameover);
+        }else if (e.getSource() == tela.b1){
+             JOptionPane.showMessageDialog(null,"oi");
+            JOptionPane.showMessageDialog(null,GameMain.getInstance().getGameState().name());
         }
     }
 
