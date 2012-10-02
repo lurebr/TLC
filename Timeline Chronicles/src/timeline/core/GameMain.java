@@ -9,8 +9,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Cursor;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.MouseInfo;
 import java.awt.Point;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import timeline.Image.Image;
 import timeline.core.menu.ControlerGameMenu;
+import timeline.core.menu.testMenu;
 import timeline.entity.GameObject;
 import timeline.entity.Map;
 import timeline.entity.Minion;
@@ -38,7 +41,8 @@ public class GameMain extends JFrame {
    public static int fps;
    public static int frameCount;
    public static GamePanel gamePanel = new GamePanel();
-   public static ControlerGameMenu gameMenu;
+   //public static ControlerGameMenu gameMenu;
+   public static testMenu gameMenu;
    public static enumState state;
    public static Map mapa;
    public static ArrayList<GameObject> objetos;
@@ -52,9 +56,8 @@ public class GameMain extends JFrame {
     private void initialize(){
       
       this.setUndecorated(true);
-      
       setDefaultCloseOperation(EXIT_ON_CLOSE);
-      setIgnoreRepaint(true);
+      //setIgnoreRepaint(true);
       setResizable(false);
       setSize(800, 600);
       
@@ -82,9 +85,10 @@ public class GameMain extends JFrame {
       Container cp = getContentPane();
       cp.setLayout(new GridLayout(2,0));
       
-      gameMenu = new ControlerGameMenu();
-      cp.add(gamePanel, BorderLayout.PAGE_START);
-      cp.add(gameMenu.getTela(), BorderLayout.PAGE_END);
+      //gameMenu = new ControlerGameMenu();
+      gameMenu = new testMenu();
+      cp.add(gamePanel, BorderLayout.NORTH);
+      cp.add(gameMenu, BorderLayout.SOUTH);
     }
     
     private void AddListerner(){
@@ -109,12 +113,13 @@ public class GameMain extends JFrame {
     }
     
     private void draw(){
-        Graphics g = strategy.getDrawGraphics();
-        Graphics2D g2d = (Graphics2D)g;
-        gamePanel.draw(g2d);
-        drawMouse(g2d);
-        g2d.dispose();
-        strategy.show();
+       // Graphics g = strategy.getDrawGraphics();
+       // Graphics2D g2d = (Graphics2D)g;
+        gamePanel.draw();
+      //  drawMouse(g2d);
+        //gameMenu.paintComponents(g);
+       // g2d.dispose();
+       // strategy.show();
     }
     
     public static GameMain getInstance(){
@@ -210,7 +215,7 @@ public class GameMain extends JFrame {
         int posx = Math.round(mx/32)*32;
         int posy = Math.round(my/32)*32;
         
-        g2d.drawImage(Image.getInstance().getResourceImage("resource/object/tower/tower.png"),posx,posy,null);
+        //g2d.drawImage(Image.getInstance().getResourceImage("resource/object/tower/tower.png"),posx,posy,null);
         
         System.out.println(MouseInfo.getPointerInfo().getLocation().y);
     }
