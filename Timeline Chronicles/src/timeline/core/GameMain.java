@@ -6,13 +6,9 @@ package timeline.core;
 
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Cursor;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.MouseInfo;
 import java.awt.Point;
@@ -24,12 +20,10 @@ import javax.swing.JFrame;
 import timeline.Image.Image;
 import timeline.core.internalMenu.ControlerGameMenu;
 import timeline.core.internalMenu.DebugPane;
-import timeline.core.internalMenu.testMenu;
 import timeline.entity.GameObject;
 import timeline.entity.Map;
 import timeline.entity.Minion;
 import timeline.entity.Tower;
-import timeline.entity.behavior.isDrawable;
 
 /**
  *
