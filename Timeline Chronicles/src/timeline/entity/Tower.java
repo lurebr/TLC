@@ -30,6 +30,7 @@ import timeline.entity.behavior.isSelectable;
 public class Tower extends GameObject implements isAttacker, isDrawable, isColide, isSelectable {
 private boolean selected ;
 private int range;
+private double preco;
         
     public Tower(String caminho,int posX, int posY){
         BufferedImage imagem = Image.getInstance().getResourceImage(caminho);
@@ -39,6 +40,12 @@ private int range;
         super.localizacao.setY(posY);
         super.tamanho.setHeight(imagem.getHeight());
         super.tamanho.setWidth(imagem.getWidth());
+        range = 400;
+    }
+    
+    public Tower(String caminho, double preco){
+        
+        this.preco = preco;
         range = 400;
     }
      

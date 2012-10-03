@@ -18,12 +18,13 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import timeline.Image.Image;
-import timeline.core.internalMenu.ControlerGameMenu;
+import timeline.core.internalMenu.gameControls.ControlerGameControls;
 import timeline.core.internalMenu.DebugPane;
 import timeline.entity.GameObject;
 import timeline.entity.Map;
 import timeline.entity.Minion;
 import timeline.entity.Tower;
+import timeline.jogador.Jogador;
 
 /**
  *
@@ -36,14 +37,14 @@ public class GameMain extends JFrame {
    public static int fps;
    public static int frameCount;
    public static GamePanel gamePanel = new GamePanel();
-   public static ControlerGameMenu gameMenu;
+   public static ControlerGameControls gameMenu;
    //public static testMenu gameMenu;
    public static enumState state;
    public static DebugPane debug = new DebugPane();
    public static Map mapa;
    public static ArrayList<GameObject> objetos;
    public static Mouse mouse;
-   BufferStrategy strategy;
+   public static Jogador jogador;
            
     private GameMain(){
         
@@ -61,8 +62,8 @@ public class GameMain extends JFrame {
       CarregaCursor();
         
        this.setVisible(true);
-       this.createBufferStrategy(2);
-       strategy = this.getBufferStrategy();
+      // this.createBufferStrategy(2);
+      // strategy = this.getBufferStrategy();
       
         AddListerner();
         carregarLevel(1);
@@ -81,7 +82,11 @@ public class GameMain extends JFrame {
       Container cp = getContentPane();
       cp.setLayout(new GridLayout(3,0));
       
-      gameMenu = new ControlerGameMenu();
+      ArrayList<Tower> towers = new ArrayList<Tower>();
+      Tower t = new Tower("", 10);
+      towers.add(t);
+      gameMenu = new ControlerGameControls<Tower>(towers);
+      
       //gameMenu = new testMenu();
       cp.add(debug);
       cp.add(gamePanel, BorderLayout.NORTH);
@@ -229,7 +234,8 @@ public class GameMain extends JFrame {
         objetos.add(t);
     }
 
-    public void GameStart() {
+    public void GameStart(Jogador jogador) {
+        this.jogador = jogador;
         initialize();
         setGameState(enumState.start);
     }

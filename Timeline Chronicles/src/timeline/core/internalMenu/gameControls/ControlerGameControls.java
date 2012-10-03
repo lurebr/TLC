@@ -2,28 +2,35 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package timeline.core.internalMenu;
+package timeline.core.internalMenu.gameControls;
 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Dictionary;
 import javax.swing.JOptionPane;
 import timeline.core.GameMain;
 import timeline.core.enumState;
+import timeline.entity.Tower;
 
 /**
  *
  * @author Desenv01
  */
-public class ControlerGameMenu implements ActionListener {
+public class ControlerGameControls<T> implements ActionListener {
     
-    private GameMenu tela;
-
-    public ControlerGameMenu(){
+    private GameControl tela;
+    private ArrayList<T> listaTorres;
+    public ControlerGameControls(ArrayList<T> shop){
+        this.listaTorres = shop;
         iniciaTela();
         addListener();
+        iniciaJogador();
+        iniciaLoja();
+        
     }
     
     @Override
@@ -41,13 +48,14 @@ public class ControlerGameMenu implements ActionListener {
             JOptionPane.showMessageDialog(null,GameMain.getInstance().getGameState().name());
         }
     }
-
+    private void iniciaJogador(){
+        tela.lblGold.setText(Integer.toString(GameMain.jogador.getGold()));
+        tela.lblNomeUsuario.setText(GameMain.jogador.getNick());
+    }
     private void iniciaTela() {
-        tela = new GameMenu();
+        tela = new GameControl();
         tela.setBackground(Color.red);
-        //tela.setSize(500, 150);
         tela.setVisible(true);
-        //tela.setSize();
     }
 
     private void addListener() {
@@ -55,8 +63,12 @@ public class ControlerGameMenu implements ActionListener {
         tela.btnSair.addActionListener(this);
     }
 
-    public GameMenu getTela() {
+    public GameControl getTela() {
         return tela;
+    }
+
+    private void iniciaLoja() {
+        
     }
     
 }

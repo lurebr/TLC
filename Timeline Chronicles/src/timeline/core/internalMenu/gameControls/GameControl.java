@@ -2,18 +2,18 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package timeline.core.internalMenu;
+package timeline.core.internalMenu.gameControls;
 
 /**
  *
  * @author Desenv01
  */
-public class GameMenu extends javax.swing.JPanel {
+public class GameControl extends javax.swing.JPanel {
 
     /**
      * Creates new form GameMenu
      */
-    public GameMenu() {
+    public GameControl() {
         initComponents();
     }
 

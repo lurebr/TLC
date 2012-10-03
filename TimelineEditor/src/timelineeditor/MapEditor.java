@@ -11,6 +11,7 @@
 package timelineeditor;
 
 import java.awt.Cursor;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
@@ -24,13 +25,26 @@ import timelineeditor.Image;
  * @author Lennon
  */
 public class MapEditor extends javax.swing.JFrame {
-
+        int levelmapa[][] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},  
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
      ImageIcon image;
+     int val;
      boolean inside;
              
     /** Creates new form Editor */
     public MapEditor() {
         initComponents();
+        this.setLocation(0, 0);
     }
 
     /** This method is called from within the constructor to
@@ -49,12 +63,13 @@ public class MapEditor extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         pnlMenuTopo = new javax.swing.JPanel();
         pnlContainer = new javax.swing.JPanel();
-        pnlMapa = new javax.swing.JPanel();
+        canvas1 = new java.awt.Canvas();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         btnSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/object/block/grass.JPG"))); // NOI18N
@@ -97,61 +112,70 @@ public class MapEditor extends javax.swing.JFrame {
                 .addContainerGap(696, Short.MAX_VALUE))
         );
 
+        jLabel1.getAccessibleContext().setAccessibleDescription("1");
+        jLabel2.getAccessibleContext().setAccessibleDescription("2");
+
         jtabTerreno.addTab("Terreno", pnlTerreno);
 
         javax.swing.GroupLayout pnlPaletaLayout = new javax.swing.GroupLayout(pnlPaleta);
         pnlPaleta.setLayout(pnlPaletaLayout);
         pnlPaletaLayout.setHorizontalGroup(
             pnlPaletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jtabTerreno, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+            .addComponent(jtabTerreno)
         );
         pnlPaletaLayout.setVerticalGroup(
             pnlPaletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jtabTerreno, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+            .addComponent(jtabTerreno)
         );
 
         javax.swing.GroupLayout pnlMenuTopoLayout = new javax.swing.GroupLayout(pnlMenuTopo);
         pnlMenuTopo.setLayout(pnlMenuTopoLayout);
         pnlMenuTopoLayout.setHorizontalGroup(
             pnlMenuTopoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1246, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         pnlMenuTopoLayout.setVerticalGroup(
             pnlMenuTopoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 48, Short.MAX_VALUE)
         );
 
-        pnlMapa.setBackground(new java.awt.Color(255, 255, 255));
-        pnlMapa.setPreferredSize(new java.awt.Dimension(1024, 768));
-        pnlMapa.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnlContainer.setBackground(new java.awt.Color(255, 255, 255));
+        pnlContainer.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        pnlContainer.setMaximumSize(new java.awt.Dimension(1024, 768));
+        pnlContainer.setMinimumSize(new java.awt.Dimension(1024, 768));
+        pnlContainer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlMapaMouseEntered(evt);
+                pnlContainerMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlMapaMouseExited(evt);
+                pnlContainerMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout pnlMapaLayout = new javax.swing.GroupLayout(pnlMapa);
-        pnlMapa.setLayout(pnlMapaLayout);
-        pnlMapaLayout.setHorizontalGroup(
-            pnlMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1024, Short.MAX_VALUE)
-        );
-        pnlMapaLayout.setVerticalGroup(
-            pnlMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 768, Short.MAX_VALUE)
-        );
+        canvas1.setBackground(new java.awt.Color(255, 255, 255));
+        canvas1.setMaximumSize(new java.awt.Dimension(1024, 768));
+        canvas1.setMinimumSize(new java.awt.Dimension(1024, 768));
+        canvas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                canvas1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                canvas1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                canvas1MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlContainerLayout = new javax.swing.GroupLayout(pnlContainer);
         pnlContainer.setLayout(pnlContainerLayout);
         pnlContainerLayout.setHorizontalGroup(
             pnlContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
         );
         pnlContainerLayout.setVerticalGroup(
             pnlContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Arquivo");
@@ -177,7 +201,7 @@ public class MapEditor extends javax.swing.JFrame {
                 .addComponent(pnlContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlPaleta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addComponent(pnlMenuTopo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -194,23 +218,39 @@ public class MapEditor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pnlMapaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMapaMouseEntered
-        inside = true;
-        CarregaCursor();
-    }//GEN-LAST:event_pnlMapaMouseEntered
-
-    private void pnlMapaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMapaMouseExited
-        inside = false;
-        CarregaCursor();
-    }//GEN-LAST:event_pnlMapaMouseExited
-
     private void changeTerrain(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeTerrain
        image = (ImageIcon) ((JLabel) evt.getSource()).getIcon();
+       val = Integer.valueOf(((JLabel) evt.getSource()).getAccessibleContext().getAccessibleDescription());
     }//GEN-LAST:event_changeTerrain
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void canvas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseClicked
+        if(image != null){
+            int x = (int)evt.getX()/32;
+            int y = (int)evt.getY()/32;
+            Graphics2D g2d = (Graphics2D) canvas1.getGraphics();
+            g2d.drawImage(image.getImage(), x*32, y*32,32,32,null);
+        }
+    }//GEN-LAST:event_canvas1MouseClicked
+
+    private void canvas1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseEntered
+        
+    }//GEN-LAST:event_canvas1MouseEntered
+
+    private void canvas1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseExited
+        
+    }//GEN-LAST:event_canvas1MouseExited
+
+    private void pnlContainerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlContainerMouseEntered
+                CarregaCursor();        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlContainerMouseEntered
+
+    private void pnlContainerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlContainerMouseExited
+                CarregaCursor();        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlContainerMouseExited
     private void CarregaCursor(){
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Point cursorHotSpot = new Point(0,0);
@@ -224,7 +264,9 @@ public class MapEditor extends javax.swing.JFrame {
         this.setCursor(c);
     }
     
+    private void iniciaMapa(){
 
+    }
     /**
      * @param args the command line arguments
      */
@@ -262,13 +304,13 @@ public class MapEditor extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnSair;
+    private java.awt.Canvas canvas1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTabbedPane jtabTerreno;
     private javax.swing.JPanel pnlContainer;
-    private javax.swing.JPanel pnlMapa;
     private javax.swing.JPanel pnlMenuTopo;
     private javax.swing.JPanel pnlPaleta;
     private javax.swing.JPanel pnlTerreno;

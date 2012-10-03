@@ -10,9 +10,6 @@
  */
 package timeline.core.ExternalMenu;
 
-import java.awt.CardLayout;
-import timeline.core.GameMain;
-
 /**
  *
  * @author Lennon
@@ -138,40 +135,32 @@ public class ExternalMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(pnlMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+            .addComponent(pnlMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        mostraTela("cPrincipal");
+
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnOpcoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcoesActionPerformed
-        mostraTela("cOpcoes");
+
     }//GEN-LAST:event_btnOpcoesActionPerformed
 
     private void btnIniciarJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarJogoActionPerformed
-        GameStart();    
+  
     }//GEN-LAST:event_btnIniciarJogoActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        this.dispose();
+
     }//GEN-LAST:event_btnSairActionPerformed
-    public void GameStart() {
-       GameMain game = GameMain.getInstance();
-       this.setVisible(false);
-       game.GameStart();
-    }
-    private void mostraTela(String nome){
-        CardLayout card = (CardLayout) pnlMenu.getLayout();
-        card.show(pnlMenu, nome);
-    }
+
     /**
      * @param args the command line arguments
      */
@@ -208,14 +197,14 @@ public class ExternalMenu extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCreditos;
-    private javax.swing.JButton btnIniciarJogo;
-    private javax.swing.JButton btnOpcoes;
-    private javax.swing.JButton btnSair;
-    private javax.swing.JButton btnVoltar;
+    protected javax.swing.JButton btnCreditos;
+    protected javax.swing.JButton btnIniciarJogo;
+    protected javax.swing.JButton btnOpcoes;
+    protected javax.swing.JButton btnSair;
+    protected javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel pnlMenu;
-    private javax.swing.JPanel pnlOpcoes;
-    private javax.swing.JPanel pnlPrincipal;
+    protected javax.swing.JPanel pnlMenu;
+    protected javax.swing.JPanel pnlOpcoes;
+    protected javax.swing.JPanel pnlPrincipal;
     // End of variables declaration//GEN-END:variables
 }
