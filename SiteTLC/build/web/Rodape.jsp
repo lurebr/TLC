@@ -4,18 +4,24 @@
     Author     : Glauber
 --%>
 
-      <script src="../COWBOYSFROMHELLLLLLL/js/jquery.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-transition.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-alert.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-modal.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-dropdown.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-scrollspy.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-tab.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-tooltip.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-popover.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-button.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-collapse.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-carousel.js"></script>
-    <script src="../COWBOYSFROMHELLLLLLL/js/bootstrap-typeahead.js"></script>
+     <footer class="footer">
+      <div class="container">
+          <p> TLC. © 2012 </p>
+      </div>
+    </footer>
+
+    <script src="../SiteTLC/js/jquery.js"></script>
+    <script src="../SiteTLC/js/bootstrap-transition.js"></script>
+    <script src="../SiteTLC/js/bootstrap-alert.js"></script>
+    <script src="../SiteTLC/js/bootstrap-modal.js"></script>
+    <script src="../SiteTLC/js/bootstrap-dropdown.js"></script>
+    <script src="../SiteTLC/js/bootstrap-scrollspy.js"></script>
+    <script src="../SiteTLC/js/bootstrap-tab.js"></script>
+    <script src="../SiteTLC/js/bootstrap-tooltip.js"></script>
+    <script src="../SiteTLC/js/bootstrap-popover.js"></script>
+    <script src="../SiteTLC/js/bootstrap-button.js"></script>
+    <script src="../SiteTLC/js/bootstrap-collapse.js"></script>
+    <script src="../SiteTLC/js/bootstrap-carousel.js"></script>
+    <script src="../SiteTLC/js/bootstrap-typeahead.js"></script>
    </body>
 </html>

@@ -16,14 +16,15 @@
 
     
    
-    <link href="../COWBOYSFROMHELLLLLLL/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../SiteTLC/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 40px;
       }
     </style>
-    <link href="../COWBOYSFROMHELLLLLLL/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../SiteTLC/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../SiteTLC/css/TLCcss.css" rel="stylesheet" type="text/css" />
     
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -40,11 +41,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <a class="brand" href="#">Timeline Chronicles</a>
+            <a class="brand" href="/SiteTLC/PaginaPrincipal.jsp">Timeline Chronicles</a>
                    <div class="nav-collapse collapse">
                           <ul class="nav">
                       <li class="active">
-                          <a href="#">Home</a>
+                          <a href="/SiteTLC/PaginaPrincipal.jsp">Home</a>
                       </li>
                       <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -64,7 +65,7 @@
                           </ul>
                       </li>
                       <li>
-                          <a href="#">Forum</a>
+                          <a href="http://timelinechronicles.forumeiros.com/" alt="Forum TLC" >Forum</a>
                       </li>
                       <li>
                           <a href="#">About</a>
