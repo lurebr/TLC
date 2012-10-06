@@ -23,9 +23,9 @@ public class Mouse implements MouseListener, MouseMotionListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (colide(e.getX(), e.getY())){
+      //  if (colide(e.getX(), e.getY())){
             GameMain.getInstance().addTower(e.getX(), e.getY());
-        }
+     //   }
     }
     private boolean colide(int x, int y){
         

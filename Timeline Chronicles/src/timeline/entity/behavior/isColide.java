@@ -5,6 +5,7 @@
 package timeline.entity.behavior;
 
 import java.awt.geom.Dimension2D;
+import timeline.entity.atributes.Dimensao;
 import timeline.entity.atributes.Localizacao;
 
 /**
@@ -12,7 +13,7 @@ import timeline.entity.atributes.Localizacao;
  * @author Desenv01
  */
 public interface isColide {
-    public void colide(isColide obj);
+    public boolean colide(isColide obj);
     public Localizacao getLocation();
-    public Dimension2D getDimension();
+    public Dimensao getDimension();
 }

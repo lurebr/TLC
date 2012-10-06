@@ -96,8 +96,8 @@ public class GameMain extends JFrame {
     
     private void AddListerner(){
       mouse = new Mouse();
-      this.addMouseListener(mouse);
-      this.addMouseMotionListener(mouse);
+      gamePanel.addMouseListener(mouse);
+      gamePanel.addMouseMotionListener(mouse);
     }
     
     private void update(){
@@ -142,7 +142,7 @@ public class GameMain extends JFrame {
          {
             update();
             draw();
-            try {Thread.sleep(1);} catch(Exception e) {System.out.println(e.getMessage());} 
+            try {Thread.sleep(80);} catch(Exception e) {System.out.println(e.getMessage());} 
          }
       }
       this.dispose();
@@ -200,17 +200,16 @@ public class GameMain extends JFrame {
         
     }
     
-    private int timespawn=200;
+    private int timespawn=500;
     private int numMinion=200;
     
     private void minionSpawner(){
         if (numMinion==0){return;}
-        if(timespawn == 200){
+        if(timespawn == 500){
             Minion m = new  Minion("resource/object/minion/minion.gif", mapa.getCaminho(), mapa.spawnLocation.getX(),mapa.spawnLocation.getY());
             objetos.add(m);
             timespawn = 0;
-            numMinion--;
-            
+            numMinion--;   
         }
         timespawn++;
     }
@@ -224,7 +223,7 @@ public class GameMain extends JFrame {
         
         //g2d.drawImage(Image.getInstance().getResourceImage("resource/object/tower/tower.png"),posx,posy,null);
         
-        System.out.println(MouseInfo.getPointerInfo().getLocation().y);
+       // System.out.println(MouseInfo.getPointerInfo().getLocation().y);
     }
     
     public void addTower(int posx, int posy){

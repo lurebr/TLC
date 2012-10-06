@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import sun.awt.image.OffScreenImage;
+import sun.security.acl.OwnerImpl;
 import timeline.entity.GameObject;
 import timeline.entity.behavior.isDrawable;
 
@@ -30,18 +31,23 @@ public class GamePanel extends Canvas {
     }
     
     public void draw(){
+       
         if(strategy == null){
             this.createBufferStrategy(2);
             strategy = this.getBufferStrategy();
         }
+        
         Graphics2D g2d = (Graphics2D) strategy.getDrawGraphics();
         GameMain.mapa.draw(g2d);
+        
+       
         for(GameObject obj: GameMain.objetos){
             if(obj instanceof isDrawable){
                 isDrawable objd = (isDrawable) obj;   
                 objd.draw(g2d);
             }
         }
+        
         g2d.dispose();
         strategy.show();
     }

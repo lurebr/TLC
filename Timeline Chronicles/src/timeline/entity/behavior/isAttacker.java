@@ -9,5 +9,5 @@ package timeline.entity.behavior;
  * @author Desenv01
  */
 public interface isAttacker {
-    public void attack(isAttackable alvo);
+    public boolean attack(isAttackable alvo);
 }

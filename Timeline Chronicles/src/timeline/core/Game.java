@@ -14,7 +14,7 @@ import timeline.jogador.Jogador;
  */
 public class Game {
 
-    public static Jogador jogador;
+    public static Jogador jogador; 
     
     public Game() {
         if (logar()) {

@@ -28,7 +28,7 @@ public class Jogador {
         this.nick = nick;
     }
 
-    /**
+    /** 
      * @return the id
      */
     public int getId() {

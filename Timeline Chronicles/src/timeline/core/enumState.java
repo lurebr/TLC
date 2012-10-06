@@ -7,7 +7,7 @@ package timeline.core;
 /**
  *
  * @author Desenv01
- */
+ */ 
 public enum enumState {
     start,
     pause,

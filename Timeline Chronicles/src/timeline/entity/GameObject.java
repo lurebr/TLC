@@ -6,6 +6,7 @@ package timeline.entity;
 
 import java.awt.geom.Dimension2D;
 import timeline.Image.Animacao;
+import timeline.entity.atributes.Atributo;
 import timeline.entity.atributes.Dimensao;
 import timeline.entity.atributes.Localizacao;
 
@@ -16,6 +17,7 @@ import timeline.entity.atributes.Localizacao;
 public abstract class GameObject {
     public Localizacao localizacao = new Localizacao();
     public Dimensao tamanho = new Dimensao();
+    public Atributo atributo = new Atributo();
     protected Animacao animacao;
     
     public abstract void update(); 

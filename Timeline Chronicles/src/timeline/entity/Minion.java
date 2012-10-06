@@ -16,6 +16,7 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import timeline.Image.Animacao;
 import timeline.Image.Image;
 import timeline.core.GameMain;
+import timeline.entity.atributes.Dimensao;
 import timeline.entity.atributes.Localizacao;
 import timeline.entity.behavior.isAttackable;
 import timeline.entity.behavior.isColide;
@@ -97,18 +98,13 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     }
 
     @Override
-    public void colide(isColide obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public Localizacao getLocation() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.localizacao;
     }
 
     @Override
-    public Dimension2D getDimension() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Dimensao getDimension() {
+        return super.tamanho;
     }
     
         public eDirecao getDirecao(int posicao) {
@@ -126,6 +122,11 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
                 default:
                    return eDirecao.cima;
             }
+    }
+
+    @Override
+    public boolean colide(isColide obj) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }
