@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<tlc>
+	<tower id=1>
+		<name>Fire Tower</name>
+		<atk>7</atk>
+		<preco>50</preco>
+		<img>resource/objeto/torre/arrowTower.jpg</img>
+	</tower>
+	<tower id=2>
+		<name>Fire Tower</name>
+		<atk>17</atk>
+		<preco>70</preco>
+		<img>resource/objeto/torre/fireTower.jpg</img>
+	</tower>
+	<tower id=3>
+		<name>iceTower</name>
+		<atk>14</atk>
+		<preco>60</preco>
+		<img>resource/objeto/torre/iceTower.jpg</img>
+	</tower>
+</tlc>

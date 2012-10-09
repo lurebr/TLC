@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<tlc>
+	<monster id=1>
+		<name>gosma</name>
+		<hp>10</hp>
+		<img>resource/objeto/minion/gosma.jpg</img>
+	</monster>
+	<monster id=2>
+		<name>gigante</name>
+		<hp>30</hp>
+		<img>resource/objeto/minion/gigante.jpg</img>
+	</monster>
+	<monster id=3>
+		<name>gasparzinho</name>
+		<hp>10</hp>
+		<img>resource/objeto/minion/gasparzinho.jpg</img>
+	</monster>
+	<monster id=4>
+		<name>monstropapapa</name>
+		<hp>70</hp>
+		<img>resource/objeto/minion/monstropapapa.jpg</img>
+	</monster>
+</tlc>

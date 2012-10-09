@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<tlc>
+	<level id=1>
+		<background>1</background>
+		<character>2</character>
+		<message>1</message>
+		<message>2</message>
+		<background>2</background>
+		<message>3</message>
+		<sound>3</sound>
+		<message>4</message>
+		<sound>0</sound> <!-- Sem som -->
+		<video>1</video>
+		<message>5</message>
+		<map>1</map>
+	</level>
+</tlc>

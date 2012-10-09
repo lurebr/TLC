@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<tlc>
+	<string id=1>
+		<text>Play</text>
+	</string>
+	<string id=2>
+		<text>Option</text>
+	</string>
+	<string id=3>
+		<text>Credit</text>
+	</string>
+	<string id=4>
+		<text>Exit</text>
+	</string>
+</tlc>

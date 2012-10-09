@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<tlc>
+	<message id=1>
+		<text>Bem vindos ao inicio do jogo. Meu nome é Fulano de Tal e estou aqui para ensinalo a jogar essa joça.</text>
+	</message>
+	<message id=2>
+		<text>Agora irei mostrar meu poder de kami-sama e irei mudar o background. pazim pazim papapa!</text>
+	</message>
+	<message id=3>
+		<text>Bwhaha! agora sinta o poder deste som!</text>
+	</message>
+	<message id=4>
+		<text>Hehehehe... veja isso!</text>
+	</message>
+	<message id=5>
+		<text>vamos começar logo essa joça :|</text>
+	</message>
+</tlc>
