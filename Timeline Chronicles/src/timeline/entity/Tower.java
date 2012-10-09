@@ -10,10 +10,12 @@ import java.awt.Shape;
 import java.awt.geom.Dimension2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.media.j3d.Sound;
 import timeline.Image.Animacao;
 import timeline.Image.Image;
 import timeline.core.GameMain;
@@ -37,7 +39,7 @@ private isAttackable alvo;
 
     public Tower(String caminho,int posX, int posY){
         BufferedImage imagem = Image.getInstance().getResourceImage(caminho);
-
+        
         super.animacao = new Animacao(imagem);
         super.localizacao.setX(posX);
         super.localizacao.setY(posY);
