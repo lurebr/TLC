@@ -6,16 +6,7 @@ package timeline.entity;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Shape;
-import java.awt.geom.Dimension2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.media.j3d.Sound;
 import timeline.Image.Animacao;
 import timeline.Image.Image;
 import timeline.core.GameMain;
@@ -36,6 +27,7 @@ private boolean selected ;
 private int range;
 private double preco;
 private isAttackable alvo;
+private int c;
 
     public Tower(String caminho,int posX, int posY){
         BufferedImage imagem = Image.getInstance().getResourceImage(caminho);
@@ -66,6 +58,7 @@ private isAttackable alvo;
             if(obj instanceof isColide ){
                 if (colide((isColide)obj)){
                     if(alvo == null && obj instanceof isAttackable){
+                        c = 50;
                         attack((isAttackable) obj);
                     }
                 }
@@ -77,9 +70,16 @@ private isAttackable alvo;
     @Override
     public boolean attack(isAttackable alvo) {
         if(!colide((isColide)alvo)){
+            System.out.println("ja tem alvo");
             return false;
         }
-        
+        if(c == 50){
+            System.out.println("NovoProjetil");
+            Projetil p = new Projetil(alvo);
+            GameMain.objetos.add(p);
+            c = 0;
+        }
+        c++;
         return true;
     }
 

@@ -16,6 +16,7 @@ import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 import javax.swing.JFrame;
 import timeline.Image.Image;
 import timeline.core.internalMenu.gameControls.ControlerGameControls;
@@ -42,7 +43,8 @@ public class GameMain extends JFrame {
    public static enumState state;
    public static DebugPane debug = new DebugPane();
    public static Map mapa;
-   public static ArrayList<GameObject> objetos;
+     
+   public static CopyOnWriteArrayList<GameObject> objetos;
    public static Mouse mouse;
    public static Jogador jogador;
            
@@ -196,7 +198,7 @@ public class GameMain extends JFrame {
        
         
         mapa = new Map(levelmapa, levelcaminho);
-        objetos = new ArrayList<GameObject>();
+        objetos = new CopyOnWriteArrayList<GameObject>();
         
     }
     

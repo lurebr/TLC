@@ -4,8 +4,11 @@
  */
 package timeline.entity;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.geom.Dimension2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
@@ -69,6 +72,11 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     @Override
     public void draw(Graphics g) {
          super.animacao.draw(g, super.localizacao.getX(), super.localizacao.getY());
+         Rectangle rec = new Rectangle();
+         g.drawRect(super.localizacao.getX(),super.localizacao.getY()- 20 , super.tamanho.getWidth(),10);
+         g.setColor(Color.green);
+         g.fillRect(super.localizacao.getX(),super.localizacao.getY()- 20 , super.tamanho.getWidth(),10);
+         g.setColor(Color.black);
     }
 
     @Override
@@ -127,6 +135,16 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     @Override
     public boolean colide(isColide obj) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Localizacao getLocalizacao() {
+        return super.localizacao;
+    }
+
+    @Override
+    public Dimensao getTamanho() {
+        return super.tamanho;
     }
     
 }

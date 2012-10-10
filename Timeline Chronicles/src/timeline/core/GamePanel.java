@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
@@ -40,7 +41,11 @@ public class GamePanel extends Canvas {
         Graphics2D g2d = (Graphics2D) strategy.getDrawGraphics();
         GameMain.mapa.draw(g2d);
         
-       
+
+           // ArrayList<GameObject> clone = new ArrayList<GameObject>(GameMain.objetos);
+            
+         
+        
         for(GameObject obj: GameMain.objetos){
             if(obj instanceof isDrawable){
                 isDrawable objd = (isDrawable) obj;   

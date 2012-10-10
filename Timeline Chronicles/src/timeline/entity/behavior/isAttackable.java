@@ -4,10 +4,15 @@
  */
 package timeline.entity.behavior;
 
+import timeline.entity.atributes.Dimensao;
+import timeline.entity.atributes.Localizacao;
+
 /**
  *
  * @author Desenv01
  */
 public interface isAttackable {
     public void calculaDano(int dano);
+    public Localizacao getLocalizacao();
+    public Dimensao getTamanho(); 
 }
