@@ -33,7 +33,8 @@ public class DebugPane extends Canvas {
        g2d.clearRect(0, 0, this.getWidth(), this.getHeight());
        Font f = new Font("Arial", 10, 30);
        g2d.setFont(f);
-       g2d.drawString("Estado do jogo: " + GameMain.getInstance().getGameState().toString(),50,50);
+       g2d.drawString("Estado do jogo: " + GameMain.getInstance().getGameState().toString() + " objLista:" + GameMain.objetos.size() ,50,50);
+       
        //g2d.drawString(, 1, 1);
        g2d.dispose();
        strategy.show();

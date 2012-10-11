@@ -15,4 +15,5 @@ public interface isAttackable {
     public void calculaDano(int dano);
     public Localizacao getLocalizacao();
     public Dimensao getTamanho(); 
+    public boolean isAlive();
 }

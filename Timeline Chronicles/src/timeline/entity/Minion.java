@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import timeline.Image.Animacao;
 import timeline.Image.Image;
+import timeline.core.Game;
 import timeline.core.GameMain;
 import timeline.entity.atributes.Dimensao;
 import timeline.entity.atributes.Localizacao;
@@ -38,6 +39,8 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     private int[] movimento;
     private int posAtual;
     private int count;
+    private boolean vivo;
+    private int gold;
     
      public Minion(String caminhoImagem,int[] movimento,int posX, int posY){
         this.movimento= movimento;
@@ -48,35 +51,69 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
         super.localizacao.setY(posY);
         super.tamanho.setHeight(imagem.getHeight());
         super.tamanho.setWidth(imagem.getWidth());
+        super.atributo.setVidaMax(100);
+        super.atributo.setVida(100);
+        this.vivo = true;
+        this.gold= 10;
      }
 
     @Override
     public void update() {
-        direcaoAtual= getDirecao(movimento[posAtual]);
-        count++;
-        if(count==32 && posAtual < movimento.length-1){
-            posAtual++;
-            count = 0;
+        
+        if(this.vivo){
+            if(this.atributo.getVida() <= 0){
+                this.vivo = false;
+            }
+            direcaoAtual= getDirecao(movimento[posAtual]);
+            count++;
+            if(count==32 && posAtual < movimento.length-1){
+                posAtual++;
+                count = 0;
+            }
+            if(posAtual == movimento.length-1){
+                direcaoAtual = getDirecao(0);
+            }
+            move();        
         }
-        if(posAtual == movimento.length-1){
-            direcaoAtual = getDirecao(0);
-        }
-        move();        
     }
 
     @Override
     public void calculaDano(int dano) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.atributo.setVida(this.atributo.getVida() -dano);
+            if(this.atributo.getVida() <= 0){
+                this.vivo = false;
+                Game.jogador.setGold(Game.jogador.getGold() + this.gold);
+            }
     }
 
     @Override
     public void draw(Graphics g) {
+        if (this.vivo){
          super.animacao.draw(g, super.localizacao.getX(), super.localizacao.getY());
          Rectangle rec = new Rectangle();
          g.drawRect(super.localizacao.getX(),super.localizacao.getY()- 20 , super.tamanho.getWidth(),10);
-         g.setColor(Color.green);
+         g.setColor(Color.gray);
          g.fillRect(super.localizacao.getX(),super.localizacao.getY()- 20 , super.tamanho.getWidth(),10);
+         
+         int percent;
+         percent = Math.abs(super.atributo.getVida()*100)/super.atributo.getVidaMax();
+         System.out.println("Percent: " + percent + "%");
+         if(percent >= 70){
+             g.setColor(Color.green);
+         }else if(percent >= 50){
+             g.setColor(Color.yellow);
+         }else{
+             g.setColor(Color.red);
+         }
+         int vidaAtual;
+         vidaAtual = (int) (((float)percent/(float)100)*super.tamanho.getWidth());
+         System.out.println(percent + " " + (float)(percent/100) + " " + super.tamanho.getWidth() + " " + vidaAtual);
+         g.drawRect(super.localizacao.getX(),super.localizacao.getY()- 20 ,vidaAtual,10);
+         g.fillRect(super.localizacao.getX(),super.localizacao.getY()- 20 , vidaAtual,10);
+         
          g.setColor(Color.black);
+      
+        }
     }
 
     @Override
@@ -105,16 +142,7 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
         move();
     }
 
-    @Override
-    public Localizacao getLocation() {
-        return this.localizacao;
-    }
-
-    @Override
-    public Dimensao getDimension() {
-        return super.tamanho;
-    }
-    
+   
         public eDirecao getDirecao(int posicao) {
             switch (posicao){
                 case 0:
@@ -145,6 +173,11 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     @Override
     public Dimensao getTamanho() {
         return super.tamanho;
+    }
+
+    @Override
+    public boolean isAlive() {
+        return vivo;
     }
     
 }

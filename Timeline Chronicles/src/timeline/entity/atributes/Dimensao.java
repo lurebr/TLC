@@ -11,6 +11,15 @@ package timeline.entity.atributes;
 public class Dimensao {
     private int width;
     private int height;
+    
+    public Dimensao(){
+         
+    }
+
+    public Dimensao(Dimensao tamanho) {
+        this.width = tamanho.width;
+        this.height = tamanho.height;
+    }
 
     /**
      * @return the width
@@ -38,6 +47,10 @@ public class Dimensao {
      */
     public void setHeight(int height) {
         this.height = height;
+    }
+    
+    public String toString(){
+        return "Height: " + this.height + " Width: " + this.width;
     }
 
     

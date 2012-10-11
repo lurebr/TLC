@@ -14,6 +14,6 @@ import timeline.entity.atributes.Localizacao;
  */
 public interface isColide {
     public boolean colide(isColide obj);
-    public Localizacao getLocation();
-    public Dimensao getDimension();
+    public Localizacao getLocalizacao();
+    public Dimensao getTamanho();
 }

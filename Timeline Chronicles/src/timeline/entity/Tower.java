@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import timeline.Image.Animacao;
 import timeline.Image.Image;
 import timeline.core.GameMain;
+import timeline.entity.atributes.Atributo;
 import timeline.entity.atributes.Dimensao;
 import timeline.entity.atributes.Localizacao;
 import timeline.entity.behavior.isAttackable;
@@ -27,7 +28,7 @@ private boolean selected ;
 private int range;
 private double preco;
 private isAttackable alvo;
-private int c;
+private int c = 100;
 
     public Tower(String caminho,int posX, int posY){
         BufferedImage imagem = Image.getInstance().getResourceImage(caminho);
@@ -58,8 +59,9 @@ private int c;
             if(obj instanceof isColide ){
                 if (colide((isColide)obj)){
                     if(alvo == null && obj instanceof isAttackable){
-                        c = 50;
-                        attack((isAttackable) obj);
+                        if(attack((isAttackable) obj)){
+                           //break; 
+                        }
                     }
                 }
             }
@@ -69,15 +71,17 @@ private int c;
 
     @Override
     public boolean attack(isAttackable alvo) {
-        if(!colide((isColide)alvo)){
-            System.out.println("ja tem alvo");
+        if(!colide((isColide)alvo) ||! alvo.isAlive()){
+            //count++System.out.println("ja tem alvo");
+            this.alvo = null;
             return false;
         }
-        if(c == 50){
-            System.out.println("NovoProjetil");
-            Projetil p = new Projetil(alvo);
-            GameMain.objetos.add(p);
+        //System.out.println(c);
+        if(c == 100){
             c = 0;
+            //System.out.println("NovoProjetil");
+            Projetil p = new Projetil(alvo,this);
+            GameMain.objetos.add(p);
         }
         c++;
         return true;
@@ -96,32 +100,35 @@ private int c;
 
     @Override
     public boolean colide(isColide obj) {
-        if(obj.getLocation().getX() >= this.localizacao.getX() - this.range &&  obj.getLocation().getX() <= + this.localizacao.getX() + this.range && 
-           obj.getLocation().getY() >= this.localizacao.getY() - this.range &&  obj.getLocation().getY() <= + this.localizacao.getY() + this.range     
+        if(obj.getLocalizacao().getX() >= this.localizacao.getX() - this.range &&  obj.getLocalizacao().getX() <= + this.localizacao.getX() + this.range && 
+           obj.getLocalizacao().getY() >= this.localizacao.getY() - this.range &&  obj.getLocalizacao().getY() <= + this.localizacao.getY() + this.range     
                 ){
-            System.out.println("colidiu");
+           //System.out.println("colidiu");
             return true;
         }else{
-            System.out.println("N Colidiu");
+           // System.out.println("N Colidiu");
         }
             
         return false;
     }
 
     @Override
-    public Localizacao getLocation() {
-        return this.localizacao;
+    public void Select(int x, int y) {
+        this.selected = true;
+    }
+    @Override
+    public Localizacao getLocalizacao() {
+        return super.localizacao;
     }
 
     @Override
-    public Dimensao getDimension() {
+    public Dimensao getTamanho() {
         return super.tamanho;
     }
 
     @Override
-    public void Select(int x, int y) {
-        this.selected = true;
+    public Atributo getAtributo() {
+        return super.atributo;
     }
-
 
 }

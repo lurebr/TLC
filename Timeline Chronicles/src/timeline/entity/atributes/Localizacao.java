@@ -12,6 +12,15 @@ public class Localizacao{
     private int x;
     private int y;
 
+    public Localizacao(){
+        
+    }
+            
+    public Localizacao(Localizacao localizacao) {
+        this.x = localizacao.x;
+        this.y = localizacao.y;
+    }
+
     /**
      * @return the x
      */
@@ -38,6 +47,10 @@ public class Localizacao{
      */
     public void setY(int y) {
         this.y = y;
+    }
+    
+    public String toString(){
+        return "X: " + this.x + " Y: " + this.y;
     }
     
 }

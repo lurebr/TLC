@@ -106,14 +106,15 @@ public class GameMain extends JFrame {
         minionSpawner();
         
         for(GameObject obj: objetos){
-            if(obj instanceof Minion){
-                Minion objM = (Minion) obj;
-                objM.update();
-            }
-            if(obj instanceof Tower){
-                Tower objT = (Tower) obj;
-                objT.update();
-            }
+            //if(obj instanceof Minion){
+            //    Minion objM = (Minion) obj;
+            //    objM.update();
+            //}
+            //if(obj instanceof Tower){
+            //    Tower objT = (Tower) obj;
+            //    objT.update();
+            //}
+            obj.update();
         }
     }
     
@@ -121,6 +122,7 @@ public class GameMain extends JFrame {
        // Graphics g = strategy.getDrawGraphics();
        // Graphics2D g2d = (Graphics2D)g;
         gamePanel.draw();
+        debug.draw();
       //  drawMouse(g2d);
         //gameMenu.paintComponents(g);
        // g2d.dispose();
@@ -145,6 +147,8 @@ public class GameMain extends JFrame {
             update();
             draw();
             try {Thread.sleep(80);} catch(Exception e) {System.out.println(e.getMessage());} 
+         }else{
+             System.out.println("Pausado");
          }
       }
       this.dispose();
@@ -164,7 +168,7 @@ public class GameMain extends JFrame {
 
     public void setGameState(enumState enumState) {
         this.state = enumState;
-        debug.draw();
+        
     }
     public enumState getGameState() {
         return this.state;
@@ -202,12 +206,12 @@ public class GameMain extends JFrame {
         
     }
     
-    private int timespawn=500;
+    private int timespawn=100;
     private int numMinion=200;
     
     private void minionSpawner(){
         if (numMinion==0){return;}
-        if(timespawn == 500){
+        if(timespawn == 100){
             Minion m = new  Minion("resource/object/minion/minion.gif", mapa.getCaminho(), mapa.spawnLocation.getX(),mapa.spawnLocation.getY());
             objetos.add(m);
             timespawn = 0;
@@ -232,6 +236,8 @@ public class GameMain extends JFrame {
         posx = Math.round(posx/32)*32;
         posy = Math.round(posy/32)*32;
         Tower t = new Tower("resource/object/tower/tower.png",posx, posy);
+        t.atributo.setDanoMinimo(10);
+        t.atributo.setDanoMaximo(25);
         objetos.add(t);
     }
 

@@ -12,6 +12,15 @@ public class Atributo {
     private int danoMinimo;
     private int danoMaximo;
     private int vida;
+    private int vidaMax;
+
+    public Atributo() {}
+    public Atributo(Atributo atributo) {
+        this.danoMaximo = atributo.danoMaximo;
+        this.danoMinimo = atributo.danoMinimo;
+        this.vida = atributo.vida;
+        this.vidaMax = atributo.vidaMax;
+    }
 
     /**
      * @return the danoMinimo
@@ -53,5 +62,19 @@ public class Atributo {
      */
     public void setVida(int vida) {
         this.vida = vida;
+    }
+
+    /**
+     * @return the vidaMax
+     */
+    public int getVidaMax() {
+        return vidaMax;
+    }
+
+    /**
+     * @param vidaMax the vidaMax to set
+     */
+    public void setVidaMax(int vidaMax) {
+        this.vidaMax = vidaMax;
     }
 }
