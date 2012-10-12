@@ -9,7 +9,10 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Toolkit;
@@ -58,7 +61,7 @@ public class GameMain extends JFrame {
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       //setIgnoreRepaint(true);
       setResizable(false);
-      setSize(800, 600);
+      setSize(800, 824);
       
       CarregaComponentes();
       CarregaCursor();
@@ -82,17 +85,33 @@ public class GameMain extends JFrame {
     
     private void CarregaComponentes(){
       Container cp = getContentPane();
-      cp.setLayout(new GridLayout(3,0));
+      GridBagConstraints cons = new GridBagConstraints();  
+        GridBagLayout layout = new GridBagLayout();  
+        cp.setLayout(layout);
+        cons.fill = GridBagConstraints.BOTH;
+        cons.weightx = 1;
+        cons.insets = new Insets(10,10,10,10);
+
+
       
       ArrayList<Tower> towers = new ArrayList<Tower>();
       Tower t = new Tower("", 10);
       towers.add(t);
       gameMenu = new ControlerGameControls<Tower>(towers);
       
-      //gameMenu = new testMenu();
-      cp.add(debug);
-      cp.add(gamePanel, BorderLayout.NORTH);
-      cp.add(gameMenu.getTela(), BorderLayout.SOUTH);
+      
+      cons.gridy = 1;  
+      cons.gridx = 0;  
+      cons.weighty = 100;
+      cp.add(debug, cons);
+      cons.gridy = 2;  
+      cons.gridx = 0;  
+      cons.weighty = 600;
+      cp.add(gamePanel, cons);
+      cons.gridy = 3;  
+      cons.gridx = 0;  
+      cons.weighty = 1;
+      cp.add(gameMenu.getTela(), cons);
       
     }
     
@@ -196,9 +215,15 @@ public class GameMain extends JFrame {
                              {1,1,1,1,1,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1},
                              {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1},
                              {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1},
+                             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1},
+                             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1},
+                             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1},
+                             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1},
+                             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1},
+                             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1},
                              {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,1}};
         
-         int levelcaminho[] = {2,4,4,4,2,2,2,2,2,2,2,1,1,1,1,1,1,1,4,4,4,4,4,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4,1,1,1,1,1,1,1,4,4,4,4,3,3,3,3,2,2,2,2,2,2,2,4,4,4,4,2,2,2,2};
+         int levelcaminho[] = {2,4,4,4,2,2,2,2,2,2,2,1,1,1,1,1,1,1,4,4,4,4,4,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4,1,1,1,1,1,1,1,4,4,4,4,3,3,3,3,2,2,2,2,2,2,2,4,4,4,4,2,2,2,2,2,2,2,2,2,2};
        
         
         mapa = new Map(levelmapa, levelcaminho);
