@@ -7,7 +7,7 @@ package test;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import timeline.core.GameMain;
+import Timeline.Core.GameMain;
 
 /**
  *
