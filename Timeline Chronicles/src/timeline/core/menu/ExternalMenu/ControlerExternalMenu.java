@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Timeline.Core.Menu.ExternalMenu;
+package timeline.Core.menu.ExternalMenu;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
@@ -13,8 +13,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;       
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
-import Timeline.Core.GameMain;
-import Timeline.Jogador.Jogador;
+import timeline.Core.GameMain;
+import timeline.Jogador.Jogador;
 
 /**
  * 

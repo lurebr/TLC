@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Timeline.Core;
+package timeline.Core;
 
 /**
  *
@@ -17,4 +17,6 @@ public class Parametro {
       public final static double TARGET_TIME_BETWEEN_RENDERS = 1000000000 / TARGET_FPS;
       public static final int SPRITE_HEIGHT = 32;
       public static final int SPRITE_WIDTH = 32;
+      public static final int SCREEN_HEIGHT = 768;
+      public static final int SCREEN_WIDTH = 1024;
 }

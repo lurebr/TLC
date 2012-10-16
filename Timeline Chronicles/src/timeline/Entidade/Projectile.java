@@ -7,7 +7,7 @@ package Timeline.Entidade;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
-import Timeline.Core.GameMain;
+import timeline.Core.GameMain;
 import Timeline.Entidade.Atributo.Atributo;
 import Timeline.Entidade.Atributo.Tamanho;
 import Timeline.Entidade.Atributo.Posicao;
@@ -16,6 +16,7 @@ import Timeline.Entidade.Behavior.isAttackable;
 import Timeline.Entidade.Behavior.isAttacker;
 import Timeline.Entidade.Behavior.isColide;
 import Timeline.Entidade.Behavior.isDrawable;
+import timeline.Util.Matematica.Matematica;
 
 /**
  *
@@ -31,7 +32,8 @@ public class Projectile extends GameObject implements isDrawable, isAttack, isCo
     private int dano;
     private int count = 0;
     private boolean calculou;
-    Projectile(isAttackable alvo, isAttacker atacante) {
+    
+    public Projectile(isAttackable alvo, isAttacker atacante) {
         this.alvo = alvo;
         acertou = false;        
         this.atacante = atacante;
@@ -102,10 +104,8 @@ public class Projectile extends GameObject implements isDrawable, isAttack, isCo
     @Override
     public int getDamage() {
         int danoTotal;
-        Random r = new Random();
-        danoTotal = r.nextInt (super.atributo.getDanoMaximo() - super.atributo.getDanoMinimo()) + super.atributo.getDanoMinimo(); 
-        dano =danoTotal;
-                
+        danoTotal = Matematica.getInstance().getRandom(super.atributo.getDanoMinimo() , super.atributo.getDanoMaximo() );
+        dano = danoTotal; 
         return danoTotal;
     }
 
@@ -128,5 +128,6 @@ public class Projectile extends GameObject implements isDrawable, isAttack, isCo
     public Tamanho getTamanho() {
         return super.tamanho;
     }
+
     
 }

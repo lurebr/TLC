@@ -9,7 +9,8 @@ package Timeline.Enumerador;
  * @author Desenv01
  */ 
 public enum EnumEstado {
-    start,
+    jogando,
+    iniciandoLevel,
     pause,
-    gameover
+    gameover;
 }

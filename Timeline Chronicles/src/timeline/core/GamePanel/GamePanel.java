@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Timeline.Core.GamePanel;
+package timeline.Core.GamePanel;
 
-import Timeline.Core.GameMain;
+import timeline.Core.GameMain;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -18,6 +18,7 @@ import sun.awt.image.OffScreenImage;
 import sun.security.acl.OwnerImpl;
 import Timeline.Entidade.GameObject;
 import Timeline.Entidade.Behavior.isDrawable;
+import timeline.Core.Level.LevelLoader;
 
 /**
  *
@@ -40,7 +41,7 @@ public class GamePanel extends Canvas {
         }
         
         Graphics2D g2d = (Graphics2D) strategy.getDrawGraphics();
-        GameMain.mapa.draw(g2d);
+        LevelLoader.getInstance().getMap().draw(g2d);
         
 
            // ArrayList<GameObject> clone = new ArrayList<GameObject>(GameMain.objetos);

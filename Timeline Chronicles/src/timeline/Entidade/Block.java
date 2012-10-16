@@ -43,13 +43,13 @@ public class Block extends GameObject implements isDrawable {
     private String getCaminho(int i) {
         switch (i){
             case 1:
-                return "resource/object/block/grass.JPG";
+                return "ressource/object/block/grass.JPG";
             case 2:
-                return "resource/object/block/earth.JPG";
+                return "ressource/object/block/earth.JPG";
             case 3:
-                return "resource/object/block/grass.JPG";
+                return "ressource/object/block/grass.JPG";
             case 4:
-                return "resource/object/block/grass.JPG";                
+                return "ressource/object/block/grass.JPG";                
             default:
                 return "";
         }
@@ -63,5 +63,6 @@ public class Block extends GameObject implements isDrawable {
     public void draw(Graphics g) {
         super.animacao.draw(g, posY*altura, posX * largura);
     }
+
     
 }

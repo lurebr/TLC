@@ -8,7 +8,7 @@
  *
  * Created on 02/10/2012, 01:49:01
  */
-package Timeline.Core.Menu.ExternalMenu;
+package timeline.Core.menu.ExternalMenu;
 
 /**
  *

@@ -2,14 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Timeline.Core.Menu.InternalMenu;
+package timeline.Core.menu.internalMenu;
 
 import java.awt.Canvas;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import sun.io.ConversionBufferFullException;
-import Timeline.Core.GameMain;
+import timeline.Core.GameMain;
 import Timeline.Enumerador.EnumEstado;
 
 /**
@@ -22,7 +22,7 @@ public class DebugPane extends Canvas {
     public DebugPane(){
       this.setVisible(true);
       this.setSize(100,100);
-    } 
+    }  
     
     public void draw(){
         if(strategy == null){

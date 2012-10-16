@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Timeline.Core.Menu.InternalMenu.GameControls;
+package timeline.Core.menu.internalMenu.gameControls;
 
 /**
  *

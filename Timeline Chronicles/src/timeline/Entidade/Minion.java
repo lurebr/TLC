@@ -18,8 +18,8 @@ import javax.imageio.ImageIO;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import Timeline.Imagem.Animacao;
 import Timeline.Imagem.Imagem;
-import Timeline.Chronicles.Game;
-import Timeline.Core.GameMain;
+import timeline.Chronicles.Game;
+import timeline.Core.GameMain;
 import Timeline.Entidade.Atributo.Tamanho;
 import Timeline.Entidade.Atributo.Posicao;
 import Timeline.Entidade.Behavior.isAttackable;
@@ -27,6 +27,8 @@ import Timeline.Entidade.Behavior.isColide;
 import Timeline.Entidade.Behavior.isDrawable;
 import Timeline.Entidade.Behavior.isWalkable;
 import Timeline.Enumerador.EnumDirecao;
+import timeline.Core.Parametro;
+import timeline.Util.Componente.BarraDeVida;
 
 /**
  *
@@ -41,20 +43,25 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     private int count;
     private boolean vivo;
     private int gold;
-    
-     public Minion(String caminhoImagem,int[] movimento,int posX, int posY){
-        this.movimento= movimento;
+    private BarraDeVida barraDeVida;
+            
+     public Minion(String caminhoImagem, int gold, int vidaMax){        
+        this.movimento= null;
         posAtual = 0;
+        
         BufferedImage imagem = Imagem.getInstance().getResourceImage(caminhoImagem);
         super.animacao = new Animacao(imagem);
-        super.localizacao.setX(posX);
-        super.localizacao.setY(posY);
-        super.tamanho.setHeight(imagem.getHeight());
-        super.tamanho.setWidth(imagem.getWidth());
-        super.atributo.setVidaMax(100);
-        super.atributo.setVida(100);
+
+        super.tamanho.setHeight(Parametro.SPRITE_HEIGHT);
+        super.tamanho.setWidth(Parametro.SPRITE_WIDTH);        
+        super.localizacao.setX(0);
+        super.localizacao.setY(0);
+
+        super.atributo.setVidaMax(vidaMax);
+        super.atributo.setVida(vidaMax);
+        this.barraDeVida = new BarraDeVida(super.atributo.getVidaMax());
         this.vivo = true;
-        this.gold= 10;
+        this.gold= gold;
      }
 
     @Override
@@ -90,52 +97,34 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     public void draw(Graphics g) {
         if (this.vivo){
          super.animacao.draw(g, super.localizacao.getX(), super.localizacao.getY());
-         Rectangle rec = new Rectangle();
-         g.drawRect(super.localizacao.getX(),super.localizacao.getY()- 20 , super.tamanho.getWidth(),10);
-         g.setColor(Color.gray);
-         g.fillRect(super.localizacao.getX(),super.localizacao.getY()- 20 , super.tamanho.getWidth(),10);
-         
-         int percent;
-         percent = Math.abs(super.atributo.getVida()*100)/super.atributo.getVidaMax();
-         System.out.println("Percent: " + percent + "%");
-         if(percent >= 70){
-             g.setColor(Color.green);
-         }else if(percent >= 50){
-             g.setColor(Color.yellow);
-         }else{
-             g.setColor(Color.red);
-         }
-         int vidaAtual;
-         vidaAtual = (int) (((float)percent/(float)100)*super.tamanho.getWidth());
-         System.out.println(percent + " " + (float)(percent/100) + " " + super.tamanho.getWidth() + " " + vidaAtual);
-         g.drawRect(super.localizacao.getX(),super.localizacao.getY()- 20 ,vidaAtual,10);
-         g.fillRect(super.localizacao.getX(),super.localizacao.getY()- 20 , vidaAtual,10);
-         
-         g.setColor(Color.black);
-      
+         this.barraDeVida.draw(g, super.localizacao.getX(), super.localizacao.getY(), super.tamanho.getWidth(), super.tamanho.getHeight(), super.atributo.getVida());
         }
     }
 
     @Override
     public void move() {
+        System.out.println(direcaoAtual);
         switch(direcaoAtual){
                 case cima:
                    super.localizacao.setY(super.localizacao.getY()-1);
+                   super.animacao.mudarEstilo(3);
                     break;
                 case baixo:
                    super.localizacao.setY(super.localizacao.getY()+1);
+                   super.animacao.mudarEstilo(0);
                     break;
                 case direita:
                    super.localizacao.setX(super.localizacao.getX()-1);
+                   super.animacao.mudarEstilo(1);
                     break;
                 case esquerda:
                    super.localizacao.setX(super.localizacao.getX()+1);
+                   super.animacao.mudarEstilo(2);
                     break;
                 case parado:
                     break;
         }
     }
-
     @Override
     public void move(EnumDirecao direcao) {
         this.direcaoAtual = direcao;
@@ -179,5 +168,13 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     public boolean isAlive() {
         return vivo;
     }
-    
+
+    /**
+     * @param movimento the movimento to set
+     */
+    public void setMovimento(int[] movimento) {
+        this.movimento = movimento;
+    }
+
+   
 }

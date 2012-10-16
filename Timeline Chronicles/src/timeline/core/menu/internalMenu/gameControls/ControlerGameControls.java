@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Timeline.Core.Menu.InternalMenu.GameControls;
+package timeline.Core.menu.internalMenu.gameControls;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import javax.swing.JOptionPane;
-import Timeline.Core.GameMain;
+import timeline.Core.GameMain;
 import Timeline.Enumerador.EnumEstado;
 import Timeline.Entidade.Tower;
 
@@ -37,7 +37,7 @@ public class ControlerGameControls<T> implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == tela.btnPausar){
             if(GameMain.getInstance().getGameState() == EnumEstado.pause){
-                GameMain.getInstance().setGameState(EnumEstado.start);
+                GameMain.getInstance().setGameState(EnumEstado.jogando);
             }else{
                 GameMain.getInstance().setGameState(EnumEstado.pause);
             }

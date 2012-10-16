@@ -9,7 +9,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import Timeline.Imagem.Animacao;
 import Timeline.Imagem.Imagem;
-import Timeline.Core.GameMain;
+import timeline.Core.GameMain;
 import Timeline.Entidade.Atributo.Atributo;
 import Timeline.Entidade.Atributo.Tamanho;
 import Timeline.Entidade.Atributo.Posicao;

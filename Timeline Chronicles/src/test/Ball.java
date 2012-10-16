@@ -5,7 +5,7 @@
 package test;
 
 import java.awt.Graphics;
-import Timeline.Core.GameMain;
+import timeline.Core.GameMain;
 
 /**
  *

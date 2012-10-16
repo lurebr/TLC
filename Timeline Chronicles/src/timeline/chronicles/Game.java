@@ -2,11 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Timeline.Chronicles;
+package timeline.Chronicles;
 
-import Timeline.Core.Menu.ExternalMenu.ControlerExternalMenu;
-import Timeline.Core.Menu.ExternalMenu.DefaultExternalMenu;
-import Timeline.Jogador.Jogador;
+import timeline.Core.menu.ExternalMenu.ControlerExternalMenu;
+import timeline.Core.menu.ExternalMenu.DefaultExternalMenu;
+import timeline.Jogador.Jogador;
 
 /**
  *

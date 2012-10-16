@@ -6,7 +6,7 @@ package Timeline.Entidade;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
-import Timeline.Core.Parametro;
+import timeline.Core.Parametro;
 import Timeline.Entidade.Atributo.Posicao;
 import Timeline.Entidade.Behavior.isDrawable;
 import Timeline.Enumerador.EnumDirecao;
@@ -55,4 +55,5 @@ public class Map implements isDrawable{
      public int[] getCaminho(){
         return this.movimento;
     }
+
 }
