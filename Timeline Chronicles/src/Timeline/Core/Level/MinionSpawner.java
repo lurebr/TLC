@@ -37,9 +37,14 @@ public class MinionSpawner {
            tempoAtual++;
        }
     }
-
+    
     private void spawn(Minion minion) { 
         minion.setMovimento(LevelLoader.getInstance().getMap().getCaminho());
+        minion.setPosicaoInicial(LevelLoader.getInstance().getMap().getSpawnLocation());
         GameMain.objetos.add(minion);
+    }
+    
+    public String getTempoSpawn(){
+        return "Tempo Spawn:" + tempoAtual + "/" + tempoSpawn;
     }
 }

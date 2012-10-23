@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <tlc>
-	<level id=1>
+	<level id="1">
 		<background>1</background>
 		<character>2</character>
 		<message>1</message>

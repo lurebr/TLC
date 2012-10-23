@@ -10,6 +10,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import sun.io.ConversionBufferFullException;
 import Timeline.Core.GameMain;
+import Timeline.Core.Level.LevelLoader;
 import Timeline.Enumerador.EnumEstado;
 
 /**
@@ -33,7 +34,7 @@ public class DebugPane extends Canvas {
        g2d.clearRect(0, 0, this.getWidth(), this.getHeight());
        Font f = new Font("Arial", 10, 30);
        g2d.setFont(f);
-       g2d.drawString("Estado do jogo: " + GameMain.getInstance().getGameState().toString() + " objLista:" + GameMain.objetos.size() ,50,50);
+       g2d.drawString("Estado do jogo: " + GameMain.getInstance().getGameState().toString() + " objLista:" + GameMain.objetos.size() + " vida:" + LevelLoader.getInstance().getLevel().getVida() + " " + LevelLoader.getInstance().getSpawner().getTempoSpawn(),50,50);
        
        //g2d.drawString(, 1, 1);
        g2d.dispose();

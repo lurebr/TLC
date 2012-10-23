@@ -4,6 +4,7 @@
  */
 package Timeline.Entidade;
 
+import Timeline.Entidade.Shot.Shot;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -80,7 +81,7 @@ private int c = 100;
         if(c == 100){
             c = 0;
             //System.out.println("NovoProjetil");
-            Projectile p = new Projectile(alvo,this);
+            Shot p = new Shot(alvo,this);
             GameMain.objetos.add(p);
         }
         c++;

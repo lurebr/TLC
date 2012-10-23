@@ -50,33 +50,33 @@ public class GameMain extends JFrame {
     
     private void initialize(){
       
-      this.setUndecorated(true);
+      //this.setUndecorated(true);
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       setResizable(false);
-      setSize(800, 824);
+      //setSize(800, 824);
+      setSize(1024,768);
       this.setVisible(true);
       setLoading(this.getGraphics());
-      
-      
+            
       CarregaComponentes();
       CursorFactory.getCursor().mudarCursor(this);
         
        AddListerner();
-        
+       
+       objetos = new CopyOnWriteArrayList<>();
+       
        setGameState(EnumEstado.iniciandoLevel);
        rodarGameLoop();
     }
     
     private void CarregaComponentes(){
-      Container cp = getContentPane();
-      GridBagConstraints cons = new GridBagConstraints();  
+        Container cp = getContentPane();
+        GridBagConstraints cons = new GridBagConstraints();  
         GridBagLayout layout = new GridBagLayout();  
         cp.setLayout(layout);
         cons.fill = GridBagConstraints.BOTH;
         cons.weightx = 1;
         cons.insets = new Insets(10,10,10,10);
-
-
       
       ArrayList<Tower> towers = new ArrayList<Tower>();
       Tower t = new Tower("", 10);
@@ -136,7 +136,7 @@ public class GameMain extends JFrame {
              case jogando:
                 update();
                 draw();
-                try {Thread.sleep(80);} catch(Exception e) {System.out.println(e.getMessage());}                  
+                try {Thread.sleep(1);} catch(Exception e) {System.out.println(e.getMessage());}                  
                 break;
              case iniciandoLevel:
                 carregarLevel(jogador.getLevel());
@@ -178,7 +178,7 @@ public class GameMain extends JFrame {
     public void addTower(int posx, int posy){
         posx = Math.round(posx/32)*32;
         posy = Math.round(posy/32)*32;
-        Tower t = new Tower("resource/object/tower/tower.png",posx, posy);
+        Tower t = new Tower("Ressource/object/tower/tower.png",posx, posy);
         t.atributo.setDanoMinimo(10);
         t.atributo.setDanoMaximo(25);
         objetos.add(t);
@@ -187,7 +187,6 @@ public class GameMain extends JFrame {
     public void GameStart(Jogador jogador) {
         this.jogador = jogador;
         initialize();
-        objetos = new CopyOnWriteArrayList<>();
     }
 
     private void setLoading(Graphics graphics) {

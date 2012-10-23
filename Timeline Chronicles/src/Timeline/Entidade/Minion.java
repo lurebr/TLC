@@ -20,6 +20,7 @@ import Timeline.Imagem.Animacao;
 import Timeline.Imagem.Imagem;
 import Timeline.Chronicles.Game;
 import Timeline.Core.GameMain;
+import Timeline.Core.Level.LevelLoader;
 import Timeline.Entidade.Atributo.Tamanho;
 import Timeline.Entidade.Atributo.Posicao;
 import Timeline.Entidade.Behavior.isAttackable;
@@ -29,6 +30,7 @@ import Timeline.Entidade.Behavior.isWalkable;
 import Timeline.Enumerador.EnumDirecao;
 import Timeline.Core.Parametro;
 import Timeline.Util.Componente.BarraDeVida;
+import Timeline.Util.Matematica.Matematica;
 
 /**
  *
@@ -71,25 +73,31 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
             if(this.atributo.getVida() <= 0){
                 this.vivo = false;
             }
+
             direcaoAtual= getDirecao(movimento[posAtual]);
             count++;
-            if(count==32 && posAtual < movimento.length-1){
+            if(count==32 && posAtual < movimento.length){
                 posAtual++;
                 count = 0;
             }
-            if(posAtual == movimento.length-1){
-                direcaoAtual = getDirecao(0);
+            if(posAtual == movimento.length){
+                //direcaoAtual = getDirecao(0);
+                LevelLoader.getInstance().getLevel().DiminuiVida();
+                GameMain.objetos.remove(this);
             }
             move();        
         }
     }
-
+ 
     @Override
     public void calculaDano(int dano) {
+        //int danoTotal = Matematica.getInstance().CalculaDano(dano);
+        calculaDano(dano);
         this.atributo.setVida(this.atributo.getVida() -dano);
             if(this.atributo.getVida() <= 0){
                 this.vivo = false;
                 Game.jogador.setGold(Game.jogador.getGold() + this.gold);
+                GameMain.objetos.remove(this);
             }
     }
 
@@ -103,7 +111,7 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
 
     @Override
     public void move() {
-        System.out.println(direcaoAtual);
+        System.out.println("Direcao:" + super.localizacao.toString());
         switch(direcaoAtual){
                 case cima:
                    super.localizacao.setY(super.localizacao.getY()-1);
@@ -176,5 +184,9 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
         this.movimento = movimento;
     }
 
-   
+    public void setPosicaoInicial(Posicao spawnLocation) {
+        super.localizacao.setX(spawnLocation.getX());
+        super.localizacao.setY(spawnLocation.getY());
+    }
+  
 }

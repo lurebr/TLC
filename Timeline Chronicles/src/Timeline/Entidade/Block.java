@@ -47,9 +47,9 @@ public class Block extends GameObject implements isDrawable {
             case 2:
                 return "ressource/object/block/earth.JPG";
             case 3:
-                return "ressource/object/block/grass.JPG";
+                return "ressource/object/block/earth.JPG";
             case 4:
-                return "ressource/object/block/grass.JPG";                
+                return "ressource/object/block/earth.JPG";                
             default:
                 return "";
         }

@@ -33,6 +33,7 @@ public class levelBuilder {
         HashMap<EnumLevel, ArrayList<Integer>> level = LevelFactory.getLevel(idLevel);
         
         int i;
+        int vida;
         
         Set<EnumLevel> chaves = level.keySet();        
         for(EnumLevel chave : chaves){
@@ -58,6 +59,9 @@ public class levelBuilder {
                     }
                     break;
                 case evento:
+                    break;  
+                case vida:
+                    vida = level.get(chave).get(0);
                     break;
             }
         }

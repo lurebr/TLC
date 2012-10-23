@@ -71,7 +71,6 @@ public class Animacao{
             if(nMaxFrame-1 == frameAtual){
                 this.frameAtual = 0;
             }else{
-                System.out.println("FrameMaximo: " + nMaxFrame + " FrameAtual:" + this.frameAtual);
                 this.frameAtual++;
             }
             tempoUltimoFrame = 0;

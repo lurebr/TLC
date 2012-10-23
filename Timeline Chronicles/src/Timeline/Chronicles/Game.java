@@ -8,18 +8,19 @@ import Timeline.Core.Menu.ExternalMenu.ControlerExternalMenu;
 import Timeline.Core.Menu.ExternalMenu.DefaultExternalMenu;
 import Timeline.Jogador.Jogador;
 
-
-/**
- *
- * @author Desenv01
+/* Classe inicial do sistema que iniciará o login e o menu do jogo. 
+ * 
+ * @version 1.01
  */
+
 public class Game {
 
     public static Jogador jogador; 
-    
+
     public Game() {
         if (logar()) {
             fakejogador();
+            videoIntro();
             ControlerExternalMenu menu = new ControlerExternalMenu(jogador);
         }
     }
@@ -36,6 +37,10 @@ public class Game {
 
     public boolean logar() {
         return true;
+    }
+
+    private void videoIntro() {
+        
     }
 
 }

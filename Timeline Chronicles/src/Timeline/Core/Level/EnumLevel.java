@@ -9,5 +9,5 @@ package Timeline.Core.Level;
  * @author Lennon
  */
 public enum EnumLevel {
-    mapa, torre, minion, evento;
+    mapa, torre, minion, evento, vida;
 }

@@ -30,7 +30,7 @@ public class LevelFactory{
         //iniciaminion
         ArrayList<Integer> minions = new ArrayList<Integer>();
         
-        for(int i=0;i>10;i++){
+        for(int i=0;i<10;i++){
             minions.add(1);
         }
         level.put(EnumLevel.minion, minions);
@@ -41,6 +41,13 @@ public class LevelFactory{
         
         torres.add(1);
         level.put(EnumLevel.torre, torres);
+        
+        
+        //inicia vida
+        ArrayList<Integer> vida = new ArrayList<Integer>();
+        vida.add(10);
+        level.put(EnumLevel.vida, vida);
+        
         
         //iniciaevento
         level.put(EnumLevel.evento, new ArrayList<Integer>(1));

@@ -19,8 +19,8 @@ public class Map implements isDrawable{
     
     private ArrayList<Block> blocos;
     private int[] movimento;
-    public Posicao spawnLocation;
-    public Posicao endLocation;
+    private Posicao spawnLocation;
+    private Posicao endLocation;
     
     public Map(int[][] mapa, int[]movimento){
         spawnLocation = new Posicao();
@@ -54,6 +54,22 @@ public class Map implements isDrawable{
     
      public int[] getCaminho(){
         return this.movimento;
+    }
+
+    /**
+     * @return the spawnLocation
+     */
+    public Posicao getSpawnLocation() {
+        System.out.println("Spawn:" + spawnLocation.toString());
+        return spawnLocation;
+    }
+
+    /**
+     * @return the endLocation
+     */
+    public Posicao getEndLocation() {
+        System.out.println("EndSpawn:" + spawnLocation.toString());
+        return endLocation;
     }
 
 }

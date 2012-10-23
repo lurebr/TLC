@@ -16,10 +16,11 @@ import javazoom.jl.player.Player;
 import Timeline.Core.GameMain;
 import Timeline.Jogador.Jogador;
 
-/**
- * 
- * @author Desenv01 
- */
+    /* Menu principal do jogo.
+     * 
+     * @version 1.01
+     */
+
 public class ControlerExternalMenu implements ActionListener {
     
     private DefaultExternalMenu tela;
@@ -62,10 +63,6 @@ public class ControlerExternalMenu implements ActionListener {
         tela.btnSair.addActionListener(this);
     }
 
-    public DefaultExternalMenu getTela() {
-        return tela;
-    }
-    
     public void gameStart() {
        GameMain game = GameMain.getInstance();
        tela.setVisible(false);

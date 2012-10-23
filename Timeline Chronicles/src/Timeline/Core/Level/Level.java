@@ -17,6 +17,7 @@ public class Level {
     private Map mapa;
     private ArrayList<Tower> towers;
     private ArrayList<Minion> minions;
+    private int vida;
 
     public Level(Map mapa, ArrayList<Tower> towers, ArrayList<Minion> minions){
         this.mapa = mapa;
@@ -58,6 +59,24 @@ public class Level {
      */
     public void setMinions(ArrayList<Minion> minions) {
         this.minions = minions;
+    }
+
+    /**
+     * @return the vida
+     */
+    public int getVida() {
+        return vida;
+    }
+
+    /**
+     * @param vida the vida to set
+     */
+    public void DiminuiVida() {
+        this.vida -= 1;
+    }
+
+   public void DiminuiVida(int qt) {
+        this.vida -= qt;
     }
     
 }
