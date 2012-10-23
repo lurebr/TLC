@@ -25,7 +25,7 @@ public class LevelLoader {
     }
 
     private void iniciaLevel() {
-        spawner = new MinionSpawner(100, level.getMinions());
+        spawner = new MinionSpawner(700, level.getMinions());
         store = new Store(level.getTowers());
         mapa = level.getMapa();
     }

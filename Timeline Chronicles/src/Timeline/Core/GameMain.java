@@ -84,7 +84,7 @@ public class GameMain extends JFrame {
       gameMenu = new ControlerGameControls<Tower>(towers);
       
       
-      cons.gridy = 1;  
+      cons.gridy = 1;   
       cons.gridx = 0;  
       cons.weighty = 100;
       cp.add(debug, cons);

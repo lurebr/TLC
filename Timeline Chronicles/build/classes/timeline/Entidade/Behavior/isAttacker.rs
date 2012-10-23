@@ -1,0 +1,1 @@
+Timeline.Entidade.Behavior.isAttacker

@@ -13,8 +13,15 @@ public class Atributo {
     private int danoMaximo;
     private int vida;
     private int vidaMax;
+    private Armadura armadura = new Armadura();
 
     public Atributo() {}
+    public Atributo(int danoMinimo,int danoMaximo,int vida, int vidaMax) {
+        this.danoMaximo = danoMinimo;
+        this.danoMaximo = danoMaximo;
+        this.vida = vida;
+        this.vidaMax = vidaMax;
+    }
     public Atributo(Atributo atributo) {
         this.danoMaximo = atributo.danoMaximo;
         this.danoMinimo = atributo.danoMinimo;
@@ -76,5 +83,19 @@ public class Atributo {
      */
     public void setVidaMax(int vidaMax) {
         this.vidaMax = vidaMax;
+    }
+
+    /**
+     * @return the armadura
+     */
+    public Armadura getArmadura() {
+        return armadura;
+    }
+
+    /**
+     * @param armadura the armadura to set
+     */
+    public void setArmadura(Armadura armadura) {
+        this.armadura = armadura;
     }
 }

@@ -31,12 +31,12 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
     private int lastmove=0;
     private isAttacker atacante;
     private boolean mostradano;
-    private int dano;
+    private int dano =0;
     private int count = 0;
     private boolean calculou;
     private Elemento elemento;
     
-    public Shot(isAttackable alvo, isAttacker atacant) {
+    public Shot(isAttackable alvo, isAttacker atacante) {
         this.alvo = alvo;
         this.acertou = false;        
         this.atacante = atacante;
@@ -58,7 +58,7 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
         }else if(alvo.isAlive() && this.acertou == false){
             mover();
         }else{
-            GameMain.objetos.remove(this);
+           
         }
     }
     
@@ -104,6 +104,7 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
             count++;
             if(count==30){
                 mostradano = false;
+                 GameMain.objetos.remove(this);
             }
         }
     }
@@ -112,7 +113,8 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
     public int getDamage() {
         int danoTotal;
         danoTotal = Matematica.getInstance().getRandom(super.atributo.getDanoMinimo() , super.atributo.getDanoMaximo() );
-        dano = danoTotal; 
+        dano = danoTotal;
+        
         return danoTotal;
     }
 

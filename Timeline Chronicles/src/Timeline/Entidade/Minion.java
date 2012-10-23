@@ -4,18 +4,8 @@
  */
 package Timeline.Entidade;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Rectangle;
-import java.awt.geom.Dimension2D;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import Timeline.Imagem.Animacao;
 import Timeline.Imagem.Imagem;
 import Timeline.Chronicles.Game;
@@ -29,6 +19,7 @@ import Timeline.Entidade.Behavior.isDrawable;
 import Timeline.Entidade.Behavior.isWalkable;
 import Timeline.Enumerador.EnumDirecao;
 import Timeline.Core.Parametro;
+import Timeline.Entidade.Atributo.Atributo;
 import Timeline.Util.Componente.BarraDeVida;
 import Timeline.Util.Matematica.Matematica;
 
@@ -47,7 +38,7 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     private int gold;
     private BarraDeVida barraDeVida;
             
-     public Minion(String caminhoImagem, int gold, int vidaMax){        
+     public Minion(String caminhoImagem, int gold, int vidaMax, Atributo atributo){        
         this.movimento= null;
         posAtual = 0;
         
@@ -59,8 +50,8 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
         super.localizacao.setX(0);
         super.localizacao.setY(0);
 
-        super.atributo.setVidaMax(vidaMax);
-        super.atributo.setVida(vidaMax);
+        super.atributo = atributo;
+        
         this.barraDeVida = new BarraDeVida(super.atributo.getVidaMax());
         this.vivo = true;
         this.gold= gold;
@@ -91,8 +82,8 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
  
     @Override
     public void calculaDano(int dano) {
-        //int danoTotal = Matematica.getInstance().CalculaDano(dano);
-        calculaDano(dano);
+        int danoTotal = Matematica.getInstance().CalculaDano(dano, super.atributo);
+        //calculaDano(dano);
         this.atributo.setVida(this.atributo.getVida() -dano);
             if(this.atributo.getVida() <= 0){
                 this.vivo = false;

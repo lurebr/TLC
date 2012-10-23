@@ -1,0 +1,1 @@
+Timeline.Enumerador.EnumEstado
