@@ -22,7 +22,6 @@ public class Matematica {
     
         Random r = new Random();
         valorTotal = r.nextInt (valorMax- valorMin) + valorMin;
-        System.out.println("Dano:" + valorTotal);
         return valorTotal;
     }
     
@@ -32,13 +31,33 @@ public class Matematica {
       return matematica;
     }
 
-    public int CalculaDano(int dano) {
+   /* public int CalculaDano(int dano) {
         return dano;
-    }
+    } */
 
     public int CalculaDano(int dano, Atributo atributo) {
         int danoTotal;
+        if(CalculaEvasion(atributo.getEvasion())){
+            
+            return 0;
+        }
         danoTotal = Math.abs(dano - atributo.getArmadura().getArmadura(EnumElemento.normal));
+        
         return danoTotal;
+        
+    }
+    
+    public boolean CalculaEvasion(int evasion){
+        int i;
+        Random r = new Random();
+        i = r.nextInt(100)+1;
+       
+        if(i  <= evasion){
+          
+            return true;
+            
+        }
+        
+        return false;
     }
 }

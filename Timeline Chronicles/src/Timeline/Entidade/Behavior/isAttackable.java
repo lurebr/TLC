@@ -4,6 +4,7 @@
  */
 package Timeline.Entidade.Behavior;
 
+import Timeline.Entidade.Atributo.Atributo;
 import Timeline.Entidade.Atributo.Tamanho;
 import Timeline.Entidade.Atributo.Posicao;
 
@@ -13,6 +14,7 @@ import Timeline.Entidade.Atributo.Posicao;
  */
 public interface isAttackable {
     public void calculaDano(int dano);
+    public Atributo getAtributo();
     public Posicao getLocalizacao();
     public Tamanho getTamanho(); 
     public boolean isAlive();

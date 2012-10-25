@@ -55,6 +55,8 @@ public class GamePanel extends Canvas {
             }
         } 
         
+        GameMain.pintaTexto.drawTexto(g2d);
+        
         g2d.dispose();
         strategy.show();
     }

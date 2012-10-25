@@ -23,6 +23,7 @@ import Timeline.Entidade.Tower;
 import java.awt.Color;
 import Timeline.Core.Level.LevelLoader;
 import Timeline.Jogador.Jogador;
+import Timeline.Util.Componente.PintaTexto;
 import Timeline.Util.Cursor.CursorFactory;
 
 /**
@@ -44,6 +45,7 @@ public class GameMain extends JFrame {
    public static CopyOnWriteArrayList<GameObject> objetos;
    public static Mouse mouse;
    public static Jogador jogador;
+   public static PintaTexto pintaTexto;
    
     private GameMain(){ 
     }
@@ -67,6 +69,7 @@ public class GameMain extends JFrame {
        
        setGameState(EnumEstado.iniciandoLevel);
        rodarGameLoop();
+       pintaTexto = new PintaTexto();
     }
     
     private void CarregaComponentes(){

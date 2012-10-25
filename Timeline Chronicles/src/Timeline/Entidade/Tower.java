@@ -30,6 +30,7 @@ private int range;
 private double preco;
 private isAttackable alvo;
 private int c = 100;
+private int critico = 30;
 
     public Tower(String caminho,int posX, int posY){
         BufferedImage imagem = Imagem.getInstance().getResourceImage(caminho);

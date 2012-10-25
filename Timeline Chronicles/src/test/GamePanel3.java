@@ -4,10 +4,10 @@
  */
 package test;
 
+import Timeline.Core.GameMain;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import timeline.Core.GameMain;
 
 /**
  *

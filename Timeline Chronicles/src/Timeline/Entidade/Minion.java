@@ -22,12 +22,14 @@ import Timeline.Core.Parametro;
 import Timeline.Entidade.Atributo.Atributo;
 import Timeline.Util.Componente.BarraDeVida;
 import Timeline.Util.Matematica.Matematica;
+import java.util.HashMap;
 
 /**
  *
  * @author Desenv01
  */
 public class Minion extends GameObject implements isAttackable,isDrawable, isWalkable, isColide   {
+    
     
     private int posicao;
     private EnumDirecao direcaoAtual;
@@ -37,6 +39,7 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     private boolean vivo;
     private int gold;
     private BarraDeVida barraDeVida;
+    private HashMap<Integer,Integer> danoTomado = new HashMap<Integer,Integer>();
             
      public Minion(String caminhoImagem, int gold, int vidaMax, Atributo atributo){        
         this.movimento= null;
@@ -80,11 +83,13 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
         }
     }
  
-    @Override
-    public void calculaDano(int dano) {
+   @Override
+   public void calculaDano(int dano) {
         int danoTotal = Matematica.getInstance().CalculaDano(dano, super.atributo);
+        GameMain.pintaTexto.setTexto(danoTotal, super.localizacao);
+        System.out.println("Evasion: "+danoTotal);
         //calculaDano(dano);
-        this.atributo.setVida(this.atributo.getVida() -dano);
+        this.atributo.setVida(this.atributo.getVida() -danoTotal);
             if(this.atributo.getVida() <= 0){
                 this.vivo = false;
                 Game.jogador.setGold(Game.jogador.getGold() + this.gold);
@@ -102,7 +107,7 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
 
     @Override
     public void move() {
-        System.out.println("Direcao:" + super.localizacao.toString());
+        //System.out.println("Direcao:" + super.localizacao.toString());
         switch(direcaoAtual){
                 case cima:
                    super.localizacao.setY(super.localizacao.getY()-1);
@@ -178,6 +183,11 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     public void setPosicaoInicial(Posicao spawnLocation) {
         super.localizacao.setX(spawnLocation.getX());
         super.localizacao.setY(spawnLocation.getY());
+    }
+
+    @Override
+    public Atributo getAtributo() {
+        return super.atributo;
     }
   
 }

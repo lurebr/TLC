@@ -30,9 +30,6 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
     private boolean acertou;
     private int lastmove=0;
     private isAttacker atacante;
-    private boolean mostradano;
-    private int dano =0;
-    private int count = 0;
     private boolean calculou;
     private Elemento elemento;
     
@@ -40,7 +37,6 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
         this.alvo = alvo;
         this.acertou = false;        
         this.atacante = atacante;
-        this.mostradano = false;
       // this.elemento = elemento;
         super.localizacao = new Posicao(atacante.getLocalizacao());
         super.tamanho = new Tamanho(atacante.getTamanho());
@@ -50,15 +46,15 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
     
     @Override
     public void update() {
-       
+      
         if(alvo.isAlive() && this.acertou && this.calculou== false){
             alvo.calculaDano(this.getDamage());
-            mostradano= true;
             calculou = true;
         }else if(alvo.isAlive() && this.acertou == false){
+           
             mover();
         }else{
-           
+            GameMain.objetos.remove(this);
         }
     }
     
@@ -93,27 +89,18 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
         
         //super.animacao.draw(g, super.localizacao.getX(), super.localizacao.getY());
         if(!acertou){
+           
             g.setColor(Color.red);
             g.drawLine(super.localizacao.getX(), super.localizacao.getY(), super.localizacao.getX()+10, super.localizacao.getY());    
             g.setColor(Color.black);
         }
-        if(mostradano){
-            
-            g.drawString(Integer.toString(dano), super.localizacao.getX(), super.localizacao.getY());
-            
-            count++;
-            if(count==30){
-                mostradano = false;
-                 GameMain.objetos.remove(this);
-            }
-        }
+        
     }
 
     @Override
     public int getDamage() {
         int danoTotal;
-        danoTotal = Matematica.getInstance().getRandom(super.atributo.getDanoMinimo() , super.atributo.getDanoMaximo() );
-        dano = danoTotal;
+        danoTotal = Matematica.getInstance().getRandom(super.atributo.getDanoMinimo(), super.atributo.getDanoMaximo());
         
         return danoTotal;
     }

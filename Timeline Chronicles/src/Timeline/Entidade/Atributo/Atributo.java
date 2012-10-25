@@ -13,20 +13,26 @@ public class Atributo {
     private int danoMaximo;
     private int vida;
     private int vidaMax;
+    private int critico;
+    private int evasion;
     private Armadura armadura = new Armadura();
 
     public Atributo() {}
-    public Atributo(int danoMinimo,int danoMaximo,int vida, int vidaMax) {
+    public Atributo(int danoMinimo,int danoMaximo,int vida, int vidaMax, int critico, int evasion) {
         this.danoMaximo = danoMinimo;
         this.danoMaximo = danoMaximo;
         this.vida = vida;
         this.vidaMax = vidaMax;
+        this.critico = critico;
+        this.evasion = evasion;
     }
     public Atributo(Atributo atributo) {
         this.danoMaximo = atributo.danoMaximo;
         this.danoMinimo = atributo.danoMinimo;
         this.vida = atributo.vida;
         this.vidaMax = atributo.vidaMax;
+        this.critico = atributo.critico;
+        this.evasion = atributo.evasion;
     }
 
     /**
@@ -97,5 +103,33 @@ public class Atributo {
      */
     public void setArmadura(Armadura armadura) {
         this.armadura = armadura;
+    }
+
+    /**
+     * @return the critico
+     */
+    public int getCritico() {
+        return critico;
+    }
+
+    /**
+     * @param critico the critico to set
+     */
+    public void setCritico(int critico) {
+        this.critico = critico;
+    }
+
+    /**
+     * @return the evasion
+     */
+    public int getEvasion() {
+        return evasion;
+    }
+
+    /**
+     * @param evasion the evasion to set
+     */
+    public void setEvasion(int evasion) {
+        this.evasion = evasion;
     }
 }
