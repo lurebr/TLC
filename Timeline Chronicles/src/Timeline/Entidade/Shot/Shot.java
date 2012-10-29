@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.util.Random;
 import Timeline.Core.GameMain;
 import Timeline.Entidade.Atributo.Atributo;
+import Timeline.Entidade.Atributo.Dano;
 import Timeline.Entidade.Atributo.Tamanho;
 import Timeline.Entidade.Atributo.Posicao;
 import Timeline.Entidade.Behavior.isAttack;
@@ -98,21 +99,17 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
     }
 
     @Override
-    public int getDamage() {
+    public Dano getDamage() {
         int danoTotal;
-        danoTotal = Matematica.getInstance().getRandom(super.atributo.getDanoMinimo(), super.atributo.getDanoMaximo());
+        Dano dano = new Dano();
+        dano.setDanoProjetil(Matematica.getInstance().getRandom(super.atributo.getDanoMinimo(), super.atributo.getDanoMaximo()));
         
-        return danoTotal;
+        return dano;
     }
 
     @Override
     public boolean colide(isColide obj) {
-        if(obj.getLocalizacao().getX() >= this.localizacao.getX() &&  obj.getLocalizacao().getX() <= this.localizacao.getX() + super.tamanho.getWidth() && 
-           obj.getLocalizacao().getY() >= this.localizacao.getY() &&  obj.getLocalizacao().getY() <= this.localizacao.getY() + super.tamanho.getHeight()){
-            return true;
-        }else{
-           return false;
-        }
+        return Matematica.getInstance().colidir(obj,this);
     }
 
     @Override

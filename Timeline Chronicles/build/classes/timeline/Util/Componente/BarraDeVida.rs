@@ -1,1 +1,0 @@
-Timeline.Util.Componente.BarraDeVida

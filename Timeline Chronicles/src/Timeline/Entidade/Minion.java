@@ -20,6 +20,7 @@ import Timeline.Entidade.Behavior.isWalkable;
 import Timeline.Enumerador.EnumDirecao;
 import Timeline.Core.Parametro;
 import Timeline.Entidade.Atributo.Atributo;
+import Timeline.Entidade.Atributo.Dano;
 import Timeline.Util.Componente.BarraDeVida;
 import Timeline.Util.Matematica.Matematica;
 import java.util.HashMap;
@@ -84,8 +85,8 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     }
  
    @Override
-   public void calculaDano(int dano) {
-        int danoTotal = Matematica.getInstance().CalculaDano(dano, super.atributo);
+   public void calculaDano(Dano dano) {
+        int danoTotal = Matematica.getInstance().calculaDano(dano, super.atributo);
         GameMain.pintaTexto.setTexto(danoTotal, super.localizacao);
         System.out.println("Evasion: "+danoTotal);
         //calculaDano(dano);
@@ -155,7 +156,7 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
 
     @Override
     public boolean colide(isColide obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return Matematica.getInstance().colidir(obj, this);
     }
 
     @Override

@@ -1,1 +1,0 @@
-Timeline.Entidade.Shot.Shot

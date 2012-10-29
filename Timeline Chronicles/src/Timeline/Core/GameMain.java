@@ -139,7 +139,7 @@ public class GameMain extends JFrame {
              case jogando:
                 update();
                 draw();
-                try {Thread.sleep(1);} catch(Exception e) {System.out.println(e.getMessage());}                  
+                try {Thread.sleep(10);} catch(Exception e) {System.out.println(e.getMessage());}                  
                 break;
              case iniciandoLevel:
                 carregarLevel(jogador.getLevel());

@@ -4,6 +4,7 @@
  */
 package Timeline.Entidade.Behavior;
 
+import Timeline.Entidade.Atributo.Dano;
 import Timeline.Entidade.Atributo.Tamanho;
 import Timeline.Entidade.Atributo.Posicao;
 
@@ -12,7 +13,7 @@ import Timeline.Entidade.Atributo.Posicao;
  * @author Desenv01
  */
 public interface isAttack {
-    public int getDamage();
+    public Dano getDamage();
     public Posicao getLocalizacao();
     public Tamanho getTamanho(); 
 }

@@ -1,4 +1,0 @@
-resource.JLayer1.LayerIIDecoder
-resource.JLayer1.LayerIIDecoder$SubbandLayer2IntensityStereo
-resource.JLayer1.LayerIIDecoder$SubbandLayer2
-resource.JLayer1.LayerIIDecoder$SubbandLayer2Stereo
