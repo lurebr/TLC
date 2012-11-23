@@ -43,20 +43,20 @@ public class Block extends GameObject implements isDrawable {
     private String getCaminho(int i) {
         switch (i){
             case 1:
-                return "ressource/object/block/grass.JPG";
+                return "Ressource/Object/Block/grass.JPG";
             case 2:
-                return "ressource/object/block/earth.JPG";
+                return "Ressource/Object/Block/earth.JPG";
             case 3:
-                return "ressource/object/block/earth.JPG";
+                return "Ressource/Object/Block/earth.JPG";
             case 4:
-                return "ressource/object/block/earth.JPG";                
+                return "Ressource/Object/Block/earth.JPG";                
             default:
                 return "";
         }
     }
     
     @Override
-    public void update() {
+    public void update(double delta) {
     }
 
     @Override

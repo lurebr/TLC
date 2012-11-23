@@ -22,9 +22,11 @@ import Timeline.Entidade.GameObject;
 import Timeline.Entidade.Tower;
 import java.awt.Color;
 import Timeline.Core.Level.LevelLoader;
+import Timeline.Core.Sound.Player.SoundFactory;
 import Timeline.Jogador.Jogador;
 import Timeline.Util.Componente.PintaTexto;
 import Timeline.Util.Cursor.CursorFactory;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,7 +36,7 @@ public class GameMain extends JFrame {
     
    private static GameMain gameMain;
     
-   public static int fps;
+   public static long fps;
    public static int frameCount;
    public static GamePanel gamePanel = new GamePanel();
    public static ControlerGameControls gameMenu;
@@ -51,25 +53,25 @@ public class GameMain extends JFrame {
     }
     
     private void initialize(){
-      
-      //this.setUndecorated(true);
+
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       setResizable(false);
-      //setSize(800, 824);
       setSize(1024,768);
       this.setVisible(true);
       setLoading(this.getGraphics());
-            
+      SoundFactory.getSoundPlayer().tocar("Ressource/Sound/game.mp3");  
       CarregaComponentes();
+       
       CursorFactory.getCursor().mudarCursor(this);
-        
+                  
        AddListerner();
-       
+         
        objetos = new CopyOnWriteArrayList<>();
-       
+    
        setGameState(EnumEstado.iniciandoLevel);
        rodarGameLoop();
        pintaTexto = new PintaTexto();
+        
     }
     
     private void CarregaComponentes(){
@@ -99,7 +101,6 @@ public class GameMain extends JFrame {
       cons.gridx = 0;  
       cons.weighty = 1;
       cp.add(gameMenu.getTela(), cons);
-      
     }
     
     private void AddListerner(){
@@ -108,11 +109,11 @@ public class GameMain extends JFrame {
       gamePanel.addMouseMotionListener(mouse);
     }
     
-    private void update(){
-       LevelLoader.getInstance().getSpawner().update();
-        
+    private void update(double delta){
+       LevelLoader.getInstance().getSpawner().update(delta);
+       System.out.print("Delta:" + delta);
         for(GameObject obj: objetos){
-            obj.update();
+            obj.update(delta);
         }
     }
     
@@ -130,16 +131,36 @@ public class GameMain extends JFrame {
    
    private void gameLoop()
    {      
+      long tempoUltimoUpdate;
+      long tempoUltimoFrame = 0;
+
+      tempoUltimoUpdate = System.nanoTime();
+
+      
       while (state != EnumEstado.gameover)
-      {  
-          
+      {
+          long tempoAgora = System.nanoTime();
+          long duracaoUpdate = tempoAgora - tempoUltimoUpdate;
+          tempoUltimoUpdate = tempoAgora;
+          double delta = duracaoUpdate / ((double)Parametro.TEMPO_IDEAL);
+
+          tempoUltimoFrame += duracaoUpdate;
+          fps++;
+
+          if (tempoUltimoFrame >= 1000000000)
+          {
+             this.setTitle("Tower Defense - "+ "FPS: "+fps+")");
+             tempoUltimoFrame = 0;
+             fps = 0;
+          }
+
          switch(state){
              case pause:
                  break;
              case jogando:
-                update();
-                draw();
-                try {Thread.sleep(10);} catch(Exception e) {System.out.println(e.getMessage());}                  
+                update(delta);
+                draw();     
+                try {Thread.sleep((tempoUltimoFrame-System.nanoTime() + Parametro.TEMPO_IDEAL)/1000000 );} catch(Exception e) {System.out.println(e.getMessage());}                  
                 break;
              case iniciandoLevel:
                 carregarLevel(jogador.getLevel());
@@ -181,7 +202,7 @@ public class GameMain extends JFrame {
     public void addTower(int posx, int posy){
         posx = Math.round(posx/32)*32;
         posy = Math.round(posy/32)*32;
-        Tower t = new Tower("Ressource/object/tower/tower.png",posx, posy);
+        Tower t = new Tower("Ressource/Object/Tower/tower.png",posx, posy);
         t.atributo.setDanoMinimo(10);
         t.atributo.setDanoMaximo(25);
         objetos.add(t);

@@ -41,6 +41,7 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     private int gold;
     private BarraDeVida barraDeVida;
     private HashMap<Integer,Integer> danoTomado = new HashMap<Integer,Integer>();
+    private int speed=0;
             
      public Minion(String caminhoImagem, int gold, int vidaMax, Atributo atributo){        
         this.movimento= null;
@@ -59,28 +60,35 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
         this.barraDeVida = new BarraDeVida(super.atributo.getVidaMax());
         this.vivo = true;
         this.gold= gold;
+        super.atributo.setSpeed(1);
      }
 
     @Override
-    public void update() {
+    public void update(double delta) {
         
         if(this.vivo){
             if(this.atributo.getVida() <= 0){
                 this.vivo = false;
             }
-
-            direcaoAtual= getDirecao(movimento[posAtual]);
-            count++;
-            if(count==32 && posAtual < movimento.length){
-                posAtual++;
-                count = 0;
+          
+            if(delta >= 0.1){
+                speed++;
             }
-            if(posAtual == movimento.length){
-                //direcaoAtual = getDirecao(0);
-                LevelLoader.getInstance().getLevel().DiminuiVida();
-                GameMain.objetos.remove(this);
+            if(speed >= super.atributo.getSpeed()){
+                direcaoAtual= getDirecao(movimento[posAtual]);
+                count++;
+                if(count==32 && posAtual < movimento.length){
+                    posAtual++;
+                    count = 0;
+                }
+                if(posAtual == movimento.length){
+                    //direcaoAtual = getDirecao(0);
+                    LevelLoader.getInstance().getLevel().DiminuiVida();
+                    GameMain.objetos.remove(this);
+                }
+                move(delta);     
+                speed=0;
             }
-            move();        
         }
     }
  
@@ -107,8 +115,8 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     }
 
     @Override
-    public void move() {
-        //System.out.println("Direcao:" + super.localizacao.toString());
+    public void move(double delta) {
+       
         switch(direcaoAtual){
                 case cima:
                    super.localizacao.setY(super.localizacao.getY()-1);
@@ -131,9 +139,9 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
         }
     }
     @Override
-    public void move(EnumDirecao direcao) {
+    public void move(double delta, EnumDirecao direcao) {
         this.direcaoAtual = direcao;
-        move();
+        move(delta);
     }
 
    

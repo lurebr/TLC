@@ -10,5 +10,7 @@ package Timeline.Core.Sound;
  */
 public interface ISoundPlayer {
     public void tocar(String caminho);
+    public void parar();
+    public void tocarEfeito(String caminho);
 }
  

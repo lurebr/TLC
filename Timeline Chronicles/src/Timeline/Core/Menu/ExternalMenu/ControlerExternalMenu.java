@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import Timeline.Core.GameMain;
+import Timeline.Core.Sound.Player.SoundFactory;
 import Timeline.Jogador.Jogador;
 
     /* Menu principal do jogo.
@@ -32,7 +33,7 @@ public class ControlerExternalMenu implements ActionListener {
         this.jogador = jogador;
         iniciaTela();
         addListener();
-        //tocarMusica();
+        tocarMusica();
     }
     
     @Override
@@ -66,11 +67,16 @@ public class ControlerExternalMenu implements ActionListener {
     public void gameStart() {
        GameMain game = GameMain.getInstance();
        tela.setVisible(false);
+       SoundFactory.getSoundPlayer().parar();
        game.GameStart(jogador);
     }
     private void mostraTela(String nome){
         CardLayout card = (CardLayout) tela.pnlMenu.getLayout();
         card.show(tela.pnlMenu, nome);
+    }
+
+    private void tocarMusica() {
+       SoundFactory.getSoundPlayer().tocar("Ressource/Sound/menu.mp3");
     }
     
 }

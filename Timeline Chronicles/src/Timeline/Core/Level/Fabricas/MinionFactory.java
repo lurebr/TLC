@@ -23,9 +23,9 @@ public class MinionFactory{
         atb.getArmadura().setArmadura(EnumElemento.normal, 3);
         switch(id){
             case 0:
-                minion = new Minion("ressource/object/minion/minion.gif", 10, 100, atb);
+                minion = new Minion("Ressource/Object/Minion/minion.gif", 10, 100, atb);
             case 1:
-                minion = new Minion("ressource/object/minion/zombie.png", 10, 100, atb);
+                minion = new Minion("Ressource/Object/Minion/zombie.png", 10, 100, atb);
         }
 
         return minion;

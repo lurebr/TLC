@@ -42,41 +42,40 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
         super.localizacao = new Posicao(atacante.getLocalizacao());
         super.tamanho = new Tamanho(atacante.getTamanho());
         super.atributo = new Atributo(atacante.getAtributo());
-        
+        super.atributo.setSpeed(2);
     }
     
     @Override
-    public void update() {
+    public void update(double delta) {
       
         if(alvo.isAlive() && this.acertou && this.calculou== false){
             alvo.calculaDano(this.getDamage());
             calculou = true;
         }else if(alvo.isAlive() && this.acertou == false){
            
-            mover();
+            mover(delta);
         }else{
             GameMain.objetos.remove(this);
         }
     }
     
-    private void mover(){
+    private void mover(double delta){
          if (acertou == false){
-            int speed = 2;
             if(alvo.getLocalizacao().getX() != super.localizacao.getX()){
                 if(alvo.getLocalizacao().getX()> super.localizacao.getX()){
-                    super.localizacao.setX(super.localizacao.getX() +speed);
+                    super.localizacao.setX(super.localizacao.getX() + super.atributo.getSpeed());
                 }
                 else if(alvo.getLocalizacao().getX()< super.localizacao.getX()){
-                    super.localizacao.setX(super.localizacao.getX() -speed);
+                    super.localizacao.setX(super.localizacao.getX() -super.atributo.getSpeed());
                 }
 
             }
             if(alvo.getLocalizacao().getY() != super.localizacao.getY()){
                 if(alvo.getLocalizacao().getY()> super.localizacao.getY()){
-                    super.localizacao.setY(super.localizacao.getY() +speed);
+                    super.localizacao.setY(super.localizacao.getY() +super.atributo.getSpeed());
                 }
                 else if(alvo.getLocalizacao().getY()< super.localizacao.getY()){
-                    super.localizacao.setY(super.localizacao.getY() -speed);
+                    super.localizacao.setY(super.localizacao.getY() -super.atributo.getSpeed());
                 }
             }
             if(alvo.getLocalizacao().getX() == super.localizacao.getX() && alvo.getLocalizacao().getY() == super.localizacao.getY()){

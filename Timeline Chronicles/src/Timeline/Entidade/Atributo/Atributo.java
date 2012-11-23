@@ -15,6 +15,8 @@ public class Atributo {
     private int vidaMax;
     private int critico;
     private int evasion;
+    private int speed;
+    private int atkspeed;
     private Armadura armadura = new Armadura();
 
     public Atributo() {}
@@ -131,5 +133,33 @@ public class Atributo {
      */
     public void setEvasion(int evasion) {
         this.evasion = evasion;
+    }
+
+    /**
+     * @return the speed
+     */
+    public int getSpeed() {
+        return speed;
+    }
+
+    /**
+     * @param speed the speed to set
+     */
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    /**
+     * @return the atkspeed
+     */
+    public int getAtkspeed() {
+        return atkspeed;
+    }
+
+    /**
+     * @param atkspeed the atkspeed to set
+     */
+    public void setAtkspeed(int atkspeed) {
+        this.atkspeed = atkspeed;
     }
 }

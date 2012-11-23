@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import Timeline.Imagem.Animacao;
 import Timeline.Imagem.Imagem;
 import Timeline.Core.GameMain;
+import Timeline.Core.Sound.Player.SoundFactory;
 import Timeline.Entidade.Atributo.Atributo;
 import Timeline.Entidade.Atributo.Tamanho;
 import Timeline.Entidade.Atributo.Posicao;
@@ -31,6 +32,8 @@ private double preco;
 private isAttackable alvo;
 private int c = 100;
 private int critico = 30;
+private int atkSpeed = 100;
+private int atkSpeedDelay=0;
 
     public Tower(String caminho,int posX, int posY){
         BufferedImage imagem = Imagem.getInstance().getResourceImage(caminho);
@@ -50,7 +53,7 @@ private int critico = 30;
     }
      
     @Override
-    public void update() {
+    public void update(double delta) {
         
         if(alvo != null){
             if (attack(alvo)){
@@ -82,6 +85,8 @@ private int critico = 30;
         if(c == 100){
             c = 0;
             //System.out.println("NovoProjetil");
+            //C:/Users/Lennon/Documents/NetBeansProjects/timeline-chronicles/Timeline Chronicles/src/Ressource/
+            SoundFactory.getSoundPlayer().tocarEfeito("Ressource/Sound/shot.wav");
             Shot p = new Shot(alvo,this);
             GameMain.objetos.add(p);
         }

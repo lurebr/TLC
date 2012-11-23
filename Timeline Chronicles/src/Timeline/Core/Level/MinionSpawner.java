@@ -26,8 +26,7 @@ public class MinionSpawner {
         this.minionCount = 0;
     }
     
-    public void update(){
-       
+    public void update(double delta){
        if(minionCount < wave.size()){
             if(tempoAtual == tempoSpawn){
                 spawn(wave.get(minionCount));

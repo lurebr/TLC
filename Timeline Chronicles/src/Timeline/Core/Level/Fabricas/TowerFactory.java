@@ -21,7 +21,7 @@ public class TowerFactory{
         Tower tower = null;
         switch(id){
             case 1:
-                tower = new Tower("ressource/object/tower/tower.png",0, 0);
+                tower = new Tower("Ressource/Object/Tower/tower.png",0, 0);
         }
                 
         return tower;

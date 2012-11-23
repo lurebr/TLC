@@ -20,5 +20,5 @@ public abstract class GameObject {
     public Atributo atributo = new Atributo();
     protected Animacao animacao;
     
-    public abstract void update(); 
+    public abstract void update(double delta); 
 }

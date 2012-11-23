@@ -10,6 +10,7 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,11 +20,14 @@ public class CursorAzul implements ICursor {
     protected CursorAzul(){}
     @Override
     public void mudarCursor(JFrame tela) {
+        
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Point cursorHotSpot = new Point(0,0);
-        BufferedImage cursor =  Imagem.getInstance().getResourceImage("ressource/system/cursor/cursor.png");
+        BufferedImage cursor =  Imagem.getInstance().getResourceImage("Ressource/System/Cursor/cursor.png");
         Cursor c = toolkit.createCustomCursor(cursor,cursorHotSpot,"Cursor");
         tela.setCursor(c);
+        
+        
         
         // int mx = MouseInfo.getPointerInfo().getLocation().x;
        // int my = MouseInfo.getPointerInfo().getLocation().y;
