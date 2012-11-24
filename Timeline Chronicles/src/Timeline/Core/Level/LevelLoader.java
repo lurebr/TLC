@@ -4,7 +4,11 @@
  */
 package Timeline.Core.Level;
 
+import Timeline.Core.GameMain;
 import Timeline.Entidade.Map;
+import com.sun.xml.internal.bind.v2.runtime.reflect.Accessor.GetterOnlyReflection;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
 
 /**
  *
@@ -14,7 +18,7 @@ public class LevelLoader {
     private static LevelLoader levelLoader;
     private Level level;
     private MinionSpawner spawner;
-    private Store store;
+    private ControlerStore store;
     private Map mapa;
     
     private LevelLoader(){}
@@ -26,8 +30,20 @@ public class LevelLoader {
 
     private void iniciaLevel() {
         spawner = new MinionSpawner(700, level.getMinions());
-        store = new Store(level.getTowers());
+        
+        if (store == null){
+            store = new ControlerStore(level.getTowers());
+            Container cp = GameMain.getInstance().getContentPane();
+            GridBagConstraints cons = new GridBagConstraints();
+            cons.gridy = 3;  
+            cons.gridx = 0;  
+            cons.weighty = 1;
+            cp.add(store.getTela(),cons);
+        }else{
+            store.AtualizarLoja(level.getTowers());
+        }
         mapa = level.getMapa();
+        
     }
     
     public Level getLevel(){
@@ -36,7 +52,7 @@ public class LevelLoader {
     public MinionSpawner getSpawner(){
         return this.spawner;
     }
-    public Store getStore(){
+    public ControlerStore getStore(){
         return this.store;
     }
     public Map getMap(){

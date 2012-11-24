@@ -16,8 +16,8 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 import javax.swing.JFrame;
-import Timeline.Core.Menu.internalMenu.gameControls.ControlerGameControls;
-import Timeline.Core.Menu.internalMenu.DebugPane;
+import Timeline.Core.Level.ControlerStore;
+import Timeline.Core.Menu.DebugPane;
 import Timeline.Entidade.GameObject;
 import Timeline.Entidade.Tower;
 import java.awt.Color;
@@ -39,7 +39,7 @@ public class GameMain extends JFrame {
    public static long fps;
    public static int frameCount;
    public static GamePanel gamePanel = new GamePanel();
-   public static ControlerGameControls gameMenu;
+
    //public static testMenu gameMenu;
    public  EnumEstado state;
    public  DebugPane debug = new DebugPane();
@@ -83,10 +83,10 @@ public class GameMain extends JFrame {
         cons.weightx = 1;
         cons.insets = new Insets(10,10,10,10);
       
-      ArrayList<Tower> towers = new ArrayList<Tower>();
-      Tower t = new Tower("", 10);
-      towers.add(t);
-      gameMenu = new ControlerGameControls<Tower>(towers);
+      //ArrayList<Tower> towers = new ArrayList<Tower>();
+      //Tower t = new Tower("", 10);
+      //towers.add(t);
+      
       
       
       cons.gridy = 1;   
@@ -97,10 +97,10 @@ public class GameMain extends JFrame {
       cons.gridx = 0;  
       cons.weighty = 600;
       cp.add(gamePanel, cons);
-      cons.gridy = 3;  
-      cons.gridx = 0;  
-      cons.weighty = 1;
-      cp.add(gameMenu.getTela(), cons);
+    //  cons.gridy = 3;  
+     // cons.gridx = 0;  
+     // cons.weighty = 1;
+     // cp.add(gameMenu.getTela(), cons);
     }
     
     private void AddListerner(){

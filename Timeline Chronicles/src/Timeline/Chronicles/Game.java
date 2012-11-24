@@ -4,8 +4,8 @@
  */
 package Timeline.Chronicles;
 
-import Timeline.Core.Menu.ExternalMenu.ControlerExternalMenu;
-import Timeline.Core.Menu.ExternalMenu.DefaultExternalMenu;
+import Timeline.Core.Menu.ControlerExternalMenu;
+import Timeline.Core.Menu.DefaultExternalMenu;
 import Timeline.Jogador.Jogador;
 
 /* Classe inicial do sistema que iniciará o login e o menu do jogo. 
