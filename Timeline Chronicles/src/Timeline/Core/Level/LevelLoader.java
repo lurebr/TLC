@@ -29,7 +29,7 @@ public class LevelLoader {
     }
 
     private void iniciaLevel() {
-        spawner = new MinionSpawner(700, level.getMinions());
+        spawner = new MinionSpawner(700, level.getMinions(), level.getTempoSpawn());
         
         if (store == null){
             store = new ControlerStore(level.getTowers());

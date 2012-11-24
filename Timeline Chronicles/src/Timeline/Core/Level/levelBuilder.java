@@ -33,7 +33,8 @@ public class levelBuilder {
         HashMap<EnumLevel, ArrayList<Integer>> level = LevelFactory.getLevel(idLevel);
         
         int i;
-        int vida;
+        int vida = 0;
+        int tempoSpawn = 0;
         
         Set<EnumLevel> chaves = level.keySet();        
         for(EnumLevel chave : chaves){
@@ -63,10 +64,13 @@ public class levelBuilder {
                 case vida:
                     vida = level.get(chave).get(0);
                     break;
+                case tempoSpawn:
+                    tempoSpawn = level.get(chave).get(0);
+                    break;
             }
         }
         
-        Level levelAtual = new Level(mapa, listTower, listMinion);
+        Level levelAtual = new Level(mapa, listTower, listMinion, vida, tempoSpawn);
         return levelAtual;
     }
 }

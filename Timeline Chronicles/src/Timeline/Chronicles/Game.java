@@ -4,8 +4,8 @@
  */
 package Timeline.Chronicles;
 
-import Timeline.Core.Menu.ControlerExternalMenu;
-import Timeline.Core.Menu.DefaultExternalMenu;
+
+import Timeline.Core.Menu.ControlerMenuExterno;
 import Timeline.Jogador.Jogador;
 
 /* Classe inicial do sistema que iniciará o login e o menu do jogo. 
@@ -21,7 +21,7 @@ public class Game {
         if (logar()) {
             fakejogador();
             videoIntro();
-            ControlerExternalMenu menu = new ControlerExternalMenu(jogador);
+            ControlerMenuExterno menu = new ControlerMenuExterno(jogador);
         }
     }
 

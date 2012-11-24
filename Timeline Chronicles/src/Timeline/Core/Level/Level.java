@@ -18,11 +18,14 @@ public class Level {
     private ArrayList<Tower> towers;
     private ArrayList<Minion> minions;
     private int vida;
+    private int tempoSpawn;
 
-    public Level(Map mapa, ArrayList<Tower> towers, ArrayList<Minion> minions){
+    public Level(Map mapa, ArrayList<Tower> towers, ArrayList<Minion> minions,int vida,  int tempoSpawn){
         this.mapa = mapa;
         this.towers = towers;
         this.minions = minions;
+        this.vida = vida;
+        this.tempoSpawn = tempoSpawn;
     }
     
     
@@ -77,6 +80,20 @@ public class Level {
 
    public void DiminuiVida(int qt) {
         this.vida -= qt;
+    }
+
+    /**
+     * @return the tempoSpawn
+     */
+    public int getTempoSpawn() {
+        return tempoSpawn;
+    }
+
+    /**
+     * @param tempoSpawn the tempoSpawn to set
+     */
+    public void setTempoSpawn(int tempoSpawn) {
+        this.tempoSpawn = tempoSpawn;
     }
     
 }

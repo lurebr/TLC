@@ -48,6 +48,11 @@ public class LevelFactory{
         vida.add(10);
         level.put(EnumLevel.vida, vida);
         
+        //inicia tempo spawn
+        ArrayList<Integer> tempoSpawn = new ArrayList<Integer>();
+        tempoSpawn.add(10000);
+        level.put(EnumLevel.tempoSpawn, tempoSpawn);
+        
         
         //iniciaevento
         level.put(EnumLevel.evento, new ArrayList<Integer>(1));

@@ -8,6 +8,7 @@ import Timeline.Entidade.Minion;
 import java.util.ArrayList;
 import Timeline.Core.GameMain;
 import Timeline.Core.Level.LevelLoader;
+import Timeline.Core.Menu.DebugPane;
 
 /**
  *
@@ -18,22 +19,37 @@ public class MinionSpawner {
     private int tempoAtual;
     private ArrayList<Minion> wave;
     private int minionCount;
-    
-    public MinionSpawner(int tempoSpawn, ArrayList<Minion> wave){
+    private boolean spawn;
+    private int tempoInicio;
+    private int delta;
+    public MinionSpawner(int tempoSpawn, ArrayList<Minion> wave, int inicioSpawn){
         this.tempoSpawn = tempoSpawn;
         this.tempoAtual = tempoSpawn;
+        spawn = false;
+        this.tempoInicio = inicioSpawn;
         this.wave =wave;
         this.minionCount = 0;
     }
     
     public void update(double delta){
-       if(minionCount < wave.size()){
-            if(tempoAtual == tempoSpawn){
-                spawn(wave.get(minionCount));
-                minionCount++;
-                tempoAtual = 0;
-            }
-           tempoAtual++;
+       System.out.println(tempoInicio);
+       if (tempoInicio > 0 && delta >= 0.1){
+            tempoInicio--;
+        }
+       
+       if(tempoInicio == 0){
+           spawn = true;
+       }
+       
+       if (spawn){
+           if(minionCount < wave.size()){
+                if(tempoAtual == tempoSpawn){
+                    spawn(wave.get(minionCount));
+                    minionCount++;
+                    tempoAtual = 0;
+                }
+               tempoAtual++;
+           }
        }
     }
     

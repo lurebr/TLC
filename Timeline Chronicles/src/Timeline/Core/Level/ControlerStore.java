@@ -79,5 +79,9 @@ public class ControlerStore implements ActionListener {
         this.listaTorres = towers;
         iniciaLoja();
     }
+
+    private void showSelectedTower() {
+        
+    }
     
 }
