@@ -6,8 +6,4 @@ file.reference.jl1.0.1.jar-1=C:\\Users\\Lennon\\Documents\\NetBeansProjects\\tim
 file.reference.mysql-connector-java-5.1.22-bin.jar=C:\\Users\\Lennon\\Documents\\NetBeansProjects\\timeline-chronicles\\lib\\mysql-connector-java-5.1.22-bin.jar
 javac.debug=true
 javadoc.preview=true
-<<<<<<< .mine
-user.properties.file=C:\\Users\\Glauber\\AppData\\Roaming\\NetBeans\\7.2\\build.properties
-=======
-user.properties.file=C:\\Users\\Glauber\\AppData\\Roaming\\NetBeans\\7.2\\build.properties
->>>>>>> .r32
+user.properties.file=C:\\Users\\Lennon\\.netbeans\\7.0\\build.properties

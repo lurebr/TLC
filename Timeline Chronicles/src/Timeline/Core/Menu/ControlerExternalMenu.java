@@ -14,26 +14,26 @@ import java.io.FileNotFoundException;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import Timeline.Core.GameMain;
+import Timeline.Core.Sound.Player.SoundFactory;
 import Timeline.Jogador.Jogador;
-import javax.swing.ImageIcon;
-import javax.swing.plaf.IconUIResource;
 
-/**
- * 
- * @author Desenv01 
- */
-public class ControlerMenuExterno implements ActionListener {
+    /* Menu principal do jogo.
+     * 
+     * @version 1.01
+     */
+
+public class ControlerExternalMenu implements ActionListener {
     
-    private MenuExterno tela;
+    private DefaultExternalMenu tela;
     private Jogador jogador;
-    private ControlerMenuExterno(){
+    private ControlerExternalMenu(){
     }
 
-    public ControlerMenuExterno(Jogador jogador) {
+    public ControlerExternalMenu(Jogador jogador) {
         this.jogador = jogador;
         iniciaTela();
         addListener();
-        //tocarMusica();
+        tocarMusica();
     }
     
     @Override
@@ -45,8 +45,6 @@ public class ControlerMenuExterno implements ActionListener {
             mostraTela("cOpcoes");
         }else if(e.getSource() == tela.btnVoltar){
             mostraTela("cPrincipal");
-            
-            
         }else if(e.getSource() == tela.btnSair){
             tela.dispose();
          //   player.close();
@@ -54,7 +52,7 @@ public class ControlerMenuExterno implements ActionListener {
     }
 
     private void iniciaTela() {
-        tela = new MenuExterno();
+        tela = new DefaultExternalMenu();
         tela.setVisible(true);
     }
 
@@ -66,18 +64,19 @@ public class ControlerMenuExterno implements ActionListener {
         tela.btnSair.addActionListener(this);
     }
 
-    public MenuExterno getTela() {
-        return tela;
-    }
-    
     public void gameStart() {
        GameMain game = GameMain.getInstance();
        tela.setVisible(false);
+       SoundFactory.getSoundPlayer().parar();
        game.GameStart(jogador);
     }
     private void mostraTela(String nome){
         CardLayout card = (CardLayout) tela.pnlMenu.getLayout();
-        card.show(tela.pnlMenu, nome); 
+        card.show(tela.pnlMenu, nome);
+    }
+
+    private void tocarMusica() {
+       SoundFactory.getSoundPlayer().tocar("Ressource/Sound/menu.mp3");
     }
     
 }

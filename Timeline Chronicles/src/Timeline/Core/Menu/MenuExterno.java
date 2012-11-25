@@ -19,6 +19,7 @@ public class MenuExterno extends javax.swing.JFrame {
     /** Creates new form MenuExterno */
     public MenuExterno() {
         initComponents();
+        
     }
 
     /** This method is called from within the constructor to
@@ -32,55 +33,72 @@ public class MenuExterno extends javax.swing.JFrame {
 
         pnlMenu = new javax.swing.JPanel();
         cPrincipal = new javax.swing.JPanel();
-        btnIniciarJogo = new javax.swing.JButton();
-        btnOpcoes = new javax.swing.JButton();
-        btnSair = new javax.swing.JButton();
-        btnCreditos = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        btnIniciarJogo = new javax.swing.JRadioButton();
+        btnOpcoes = new javax.swing.JRadioButton();
+        btnCreditos = new javax.swing.JRadioButton();
+        btnSair = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
         cOpcoes = new javax.swing.JPanel();
         btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         pnlMenu.setLayout(new java.awt.CardLayout());
 
-        btnIniciarJogo.setText("Iniciar");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnOpcoes.setText("Op\u00e7\u00f5es");
+        btnIniciarJogo.setBorder(null);
+        btnIniciarJogo.setContentAreaFilled(false);
+        btnIniciarJogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoIniciar1.png"))); // NOI18N
+        btnIniciarJogo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoIniciar1Mouse.png"))); // NOI18N
+        btnIniciarJogo.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoIniciar1.png"))); // NOI18N
+        btnIniciarJogo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoIniciar1Mouse.png"))); // NOI18N
+        jPanel1.add(btnIniciarJogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 270, -1));
 
-        btnSair.setText("Sair");
+        btnOpcoes.setBorder(null);
+        btnOpcoes.setContentAreaFilled(false);
+        btnOpcoes.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        btnOpcoes.setDoubleBuffered(true);
+        btnOpcoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoOpcoes.png"))); // NOI18N
+        btnOpcoes.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoOpcoesMouse.png"))); // NOI18N
+        btnOpcoes.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoOpcoesMouse.png"))); // NOI18N
+        btnOpcoes.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoOpcoes.png"))); // NOI18N
+        btnOpcoes.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoOpcoesMouse.png"))); // NOI18N
+        jPanel1.add(btnOpcoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 270, -1));
 
-        btnCreditos.setText("Creditos");
+        btnCreditos.setContentAreaFilled(false);
+        btnCreditos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoCreditos.png"))); // NOI18N
+        btnCreditos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoCreditosMouse.png"))); // NOI18N
+        btnCreditos.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoCreditos.png"))); // NOI18N
+        btnCreditos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoCreditosMouse.png"))); // NOI18N
+        jPanel1.add(btnCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, -1, -1));
+
+        btnSair.setContentAreaFilled(false);
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoSair.png"))); // NOI18N
+        btnSair.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoSairMouse.png"))); // NOI18N
+        btnSair.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoSair.png"))); // NOI18N
+        btnSair.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoSairMouse.png"))); // NOI18N
+        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/Menugif2.gif"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout cPrincipalLayout = new javax.swing.GroupLayout(cPrincipal);
         cPrincipal.setLayout(cPrincipalLayout);
         cPrincipalLayout.setHorizontalGroup(
             cPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cPrincipalLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(cPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnIniciarJogo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .addComponent(btnOpcoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .addComponent(btnCreditos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .addComponent(btnSair, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
-                .addGap(78, 78, 78))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         cPrincipalLayout.setVerticalGroup(
             cPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cPrincipalLayout.createSequentialGroup()
-                .addContainerGap(164, Short.MAX_VALUE)
-                .addComponent(btnIniciarJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCreditos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pnlMenu.add(cPrincipal, "cPrincipal");
 
-        btnVoltar.setText("Voltar");
+        btnVoltar.setText("Voltar"); // NOI18N
 
         javax.swing.GroupLayout cOpcoesLayout = new javax.swing.GroupLayout(cOpcoes);
         cOpcoes.setLayout(cOpcoesLayout);
@@ -89,12 +107,12 @@ public class MenuExterno extends javax.swing.JFrame {
             .addGroup(cOpcoesLayout.createSequentialGroup()
                 .addGap(127, 127, 127)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
         cOpcoesLayout.setVerticalGroup(
             cOpcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cOpcoesLayout.createSequentialGroup()
-                .addContainerGap(296, Short.MAX_VALUE)
+                .addContainerGap(367, Short.MAX_VALUE)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
         );
@@ -105,11 +123,11 @@ public class MenuExterno extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
+            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -147,17 +165,20 @@ public class MenuExterno extends javax.swing.JFrame {
 
             public void run() {
                 new MenuExterno().setVisible(true);
+               
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCreditos;
-    public javax.swing.JButton btnIniciarJogo;
-    public javax.swing.JButton btnOpcoes;
-    public javax.swing.JButton btnSair;
+    public javax.swing.JRadioButton btnCreditos;
+    public javax.swing.JRadioButton btnIniciarJogo;
+    public javax.swing.JRadioButton btnOpcoes;
+    public javax.swing.JRadioButton btnSair;
     public javax.swing.JButton btnVoltar;
     public javax.swing.JPanel cOpcoes;
     public javax.swing.JPanel cPrincipal;
+    private javax.swing.JLabel jLabel1;
+    public javax.swing.JPanel jPanel1;
     public javax.swing.JPanel pnlMenu;
     // End of variables declaration//GEN-END:variables
 }
