@@ -13,10 +13,8 @@ import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 import javax.swing.JFrame;
-import Timeline.Core.Level.ControlerStore;
 import Timeline.Core.Menu.DebugPane;
 import Timeline.Entidade.GameObject;
 import Timeline.Entidade.Tower;
@@ -26,7 +24,6 @@ import Timeline.Core.Sound.Player.SoundFactory;
 import Timeline.Jogador.Jogador;
 import Timeline.Util.Componente.PintaTexto;
 import Timeline.Util.Cursor.CursorFactory;
-import javax.swing.JOptionPane;
 
 /**
  *

@@ -6,7 +6,6 @@ package Timeline.Core.Level;
 
 import Timeline.Core.GameMain;
 import Timeline.Entidade.Map;
-import com.sun.xml.internal.bind.v2.runtime.reflect.Accessor.GetterOnlyReflection;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 

@@ -4,11 +4,9 @@
  */
 package Timeline.Imagem;
 
-import com.sun.org.apache.bcel.internal.util.Class2HTML;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Driver;
 import javax.imageio.ImageIO;
 
 /**
