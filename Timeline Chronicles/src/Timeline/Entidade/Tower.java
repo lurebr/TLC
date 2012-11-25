@@ -138,4 +138,18 @@ private int atkSpeedDelay=0;
         return super.atributo;
     }
 
+    /**
+     * @return the preco
+     */
+    public double getPreco() {
+        return preco;
+    }
+
+    /**
+     * @param preco the preco to set
+     */
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
 }

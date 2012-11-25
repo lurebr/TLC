@@ -35,7 +35,7 @@ public class LevelLoader {
             Container cp = GameMain.getInstance().getContentPane();
             GridBagConstraints cons = new GridBagConstraints();
             cons.gridy = 3;  
-            cons.gridx = 0;  
+            cons.gridx = 0;
             cons.weighty = 1;
             cp.add(store.getTela(),cons);
         }else{
@@ -62,5 +62,10 @@ public class LevelLoader {
         if (levelLoader == null)
             levelLoader = new LevelLoader();
         return levelLoader;
+    }
+    
+    public void update(double delta){
+        this.spawner.update(delta);
+        this.store.update();
     }
 }

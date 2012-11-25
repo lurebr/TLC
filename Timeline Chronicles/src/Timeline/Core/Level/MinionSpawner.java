@@ -21,7 +21,7 @@ public class MinionSpawner {
     private int minionCount;
     private boolean spawn;
     private int tempoInicio;
-    private int delta;
+
     public MinionSpawner(int tempoSpawn, ArrayList<Minion> wave, int inicioSpawn){
         this.tempoSpawn = tempoSpawn;
         this.tempoAtual = tempoSpawn;
@@ -32,7 +32,7 @@ public class MinionSpawner {
     }
     
     public void update(double delta){
-       System.out.println(tempoInicio);
+       
        if (tempoInicio > 0 && delta >= 0.1){
             tempoInicio--;
         }

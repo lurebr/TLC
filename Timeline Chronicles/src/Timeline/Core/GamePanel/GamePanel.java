@@ -30,6 +30,7 @@ public class GamePanel extends Canvas {
     public GamePanel(){
        this.setVisible(true);
        this.setSize(800, 600);
+       this.setBackground(Color.red);
       
     }
     

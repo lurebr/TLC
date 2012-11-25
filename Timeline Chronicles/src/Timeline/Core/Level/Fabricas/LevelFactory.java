@@ -50,7 +50,7 @@ public class LevelFactory{
         
         //inicia tempo spawn
         ArrayList<Integer> tempoSpawn = new ArrayList<Integer>();
-        tempoSpawn.add(10000);
+        tempoSpawn.add(10);
         level.put(EnumLevel.tempoSpawn, tempoSpawn);
         
         

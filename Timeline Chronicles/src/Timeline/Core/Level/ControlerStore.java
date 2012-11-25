@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 import Timeline.Core.GameMain;
 import Timeline.Enumerador.EnumEstado;
 import Timeline.Entidade.Tower;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -32,7 +34,6 @@ public class ControlerStore implements ActionListener {
         addListener();
         iniciaJogador();
         iniciaLoja();
-        
     }
     
     @Override
@@ -56,7 +57,6 @@ public class ControlerStore implements ActionListener {
     }
     private void iniciaTela() {
         tela = new Store();
-        tela.setBackground(Color.red);
         tela.setVisible(true);
     }
 
@@ -70,8 +70,8 @@ public class ControlerStore implements ActionListener {
     }
 
     private void iniciaLoja() {
-        for(int i = 0;i<8;i++){
-            
+        for(int i = 0;i<8 && i<listaTorres.size();i++){
+            tela.b1.setIcon( new ImageIcon((Image)listaTorres.get(i).animacao.getImagem()));
         }
     }
 
@@ -82,6 +82,11 @@ public class ControlerStore implements ActionListener {
 
     private void showSelectedTower() {
         
+    }
+    
+    public void update(){
+        tela.lblGold.setText(Integer.toString(GameMain.jogador.getGold()));
+        tela.lblFPS.setText(Integer.toString(LevelLoader.getInstance().getLevel().getVida()));
     }
     
 }

@@ -28,9 +28,10 @@ public class Block extends GameObject implements isDrawable {
     private int posY;
     private int altura;
     private int largura;
+    private boolean allowTower;
 
     
-    public Block(int typeBlock,int posX, int posY){
+    public Block(int typeBlock,int posX, int posY, boolean allowTower){
         BufferedImage imagem = Imagem.getInstance().getResourceImage(getCaminho(typeBlock));
 
         super.animacao = new Animacao(imagem);
@@ -38,6 +39,7 @@ public class Block extends GameObject implements isDrawable {
         this.largura = imagem.getWidth();
         this.posX = posX;
         this.posY = posY;
+        this.allowTower = allowTower;
     }
     
     private String getCaminho(int i) {
@@ -62,6 +64,13 @@ public class Block extends GameObject implements isDrawable {
     @Override
     public void draw(Graphics g) {
         super.animacao.draw(g, posY*altura, posX * largura);
+    }
+
+    /**
+     * @return the allowTower
+     */
+    public boolean isAllowTower() {
+        return allowTower;
     }
 
     

@@ -71,9 +71,7 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
                 this.vivo = false;
             }
           
-            if(delta >= 0.1){
                 speed++;
-            }
             if(speed >= super.atributo.getSpeed()){
                 direcaoAtual= getDirecao(movimento[posAtual]);
                 count++;

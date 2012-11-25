@@ -65,7 +65,12 @@ public class MenuExterno extends javax.swing.JFrame {
         btnOpcoes.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoOpcoesMouse.png"))); // NOI18N
         btnOpcoes.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoOpcoesMouse.png"))); // NOI18N
         btnOpcoes.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoOpcoes.png"))); // NOI18N
-        btnOpcoes.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoOpcoesMouse.png"))); // NOI18N
+        btnOpcoes.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoOpcoes.png"))); // NOI18N
+        btnOpcoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpcoesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnOpcoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 270, -1));
 
         btnCreditos.setContentAreaFilled(false);
@@ -98,7 +103,7 @@ public class MenuExterno extends javax.swing.JFrame {
 
         pnlMenu.add(cPrincipal, "cPrincipal");
 
-        btnVoltar.setText("Voltar"); // NOI18N
+        btnVoltar.setText("Voltar");
 
         javax.swing.GroupLayout cOpcoesLayout = new javax.swing.GroupLayout(cOpcoes);
         cOpcoes.setLayout(cOpcoesLayout);
@@ -132,6 +137,10 @@ public class MenuExterno extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnOpcoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcoesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOpcoesActionPerformed
 
     /**
      * @param args the command line arguments

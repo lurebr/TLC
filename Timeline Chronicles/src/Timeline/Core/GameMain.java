@@ -24,6 +24,7 @@ import Timeline.Core.Sound.Player.SoundFactory;
 import Timeline.Jogador.Jogador;
 import Timeline.Util.Componente.PintaTexto;
 import Timeline.Util.Cursor.CursorFactory;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,6 +46,7 @@ public class GameMain extends JFrame {
    public static Mouse mouse;
    public static Jogador jogador;
    public static PintaTexto pintaTexto;
+   public static int time;
    
     private GameMain(){ 
     }
@@ -68,6 +70,7 @@ public class GameMain extends JFrame {
        setGameState(EnumEstado.iniciandoLevel);
        rodarGameLoop();
        pintaTexto = new PintaTexto();
+       this.setBackground(Color.yellow);
         
     }
     
@@ -86,10 +89,10 @@ public class GameMain extends JFrame {
       
       
       
-      cons.gridy = 1;   
-      cons.gridx = 0;  
-      cons.weighty = 100;
-      cp.add(debug, cons);
+      //cons.gridy = 1;   
+     // cons.gridx = 0;  
+     // cons.weighty = 100;
+     // cp.add(debug, cons);
       cons.gridy = 2;  
       cons.gridx = 0;  
       cons.weighty = 600;
@@ -107,8 +110,7 @@ public class GameMain extends JFrame {
     }
     
     private void update(double delta){
-       LevelLoader.getInstance().getSpawner().update(delta);
-       System.out.print("Delta:" + delta);
+       LevelLoader.getInstance().update(delta);
         for(GameObject obj: objetos){
             obj.update(delta);
         }
@@ -116,7 +118,7 @@ public class GameMain extends JFrame {
     
     private void draw(){
         gamePanel.draw();
-        debug.draw();
+        //debug.draw();
     }
     
     public static GameMain getInstance(){
@@ -143,27 +145,30 @@ public class GameMain extends JFrame {
 
           tempoUltimoFrame += duracaoUpdate;
           fps++;
-
-          if (tempoUltimoFrame >= 1000000000)
-          {
-             this.setTitle("Tower Defense - "+ "FPS: "+fps+")");
-             tempoUltimoFrame = 0;
-             fps = 0;
-          }
+          System.out.println(tempoUltimoFrame);
 
          switch(state){
              case pause:
                  break;
              case jogando:
-                update(delta);
-                draw();     
-                try {Thread.sleep((tempoUltimoFrame-System.nanoTime() + Parametro.TEMPO_IDEAL)/1000000 );} catch(Exception e) {System.out.println(e.getMessage());}                  
+                    update(delta);
+                    draw();     
+                    try {Thread.sleep((tempoUltimoFrame-System.nanoTime() + Parametro.TEMPO_IDEAL)/1000000 );} catch(Exception e) {System.out.println(e.getMessage());}                  
                 break;
              case iniciandoLevel:
                 carregarLevel(jogador.getLevel());
                 break;
          }
 
+         
+          if (tempoUltimoFrame >= 1000000000)
+          {
+             this.setTitle("Tower Defense - "+ "FPS: "+fps+" time:" + time);
+             tempoUltimoFrame = 0;
+             time++;
+             fps = 0;
+          }
+         
       }
       this.dispose();
    }
@@ -199,10 +204,17 @@ public class GameMain extends JFrame {
     public void addTower(int posx, int posy){
         posx = Math.round(posx/32)*32;
         posy = Math.round(posy/32)*32;
-        Tower t = new Tower("Ressource/Object/Tower/tower.png",posx, posy);
-        t.atributo.setDanoMinimo(10);
-        t.atributo.setDanoMaximo(25);
-        objetos.add(t);
+        if(jogador.getGold() >= 10 ){
+            if(LevelLoader.getInstance().getMap().getBlock(posx, posy).isAllowTower()){
+                Tower t = new Tower("Ressource/Object/Tower/tower.png",posx, posy);
+                t.atributo.setDanoMinimo(10);
+                t.atributo.setDanoMaximo(65);
+                objetos.add(t);
+                jogador.setGold(jogador.getGold() - 10);
+            }else{
+                JOptionPane.showMessageDialog(null, "Não permitido torre no caminho");
+            }
+        }
     }
 
     public void GameStart(Jogador jogador) {

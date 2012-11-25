@@ -15,6 +15,7 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import Timeline.Core.GameMain;
 import Timeline.Jogador.Jogador;
+import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
 import javax.swing.ImageIcon;
 import javax.swing.plaf.IconUIResource;
 
@@ -43,6 +44,7 @@ public class ControlerMenuExterno implements ActionListener {
          //   player.close();
         }else if(e.getSource() == tela.btnOpcoes){
             mostraTela("cOpcoes");
+            
         }else if(e.getSource() == tela.btnVoltar){
             mostraTela("cPrincipal");
             

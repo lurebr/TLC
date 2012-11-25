@@ -10,6 +10,11 @@ import Timeline.Core.Parametro;
 import Timeline.Entidade.Atributo.Posicao;
 import Timeline.Entidade.Behavior.isDrawable;
 import Timeline.Enumerador.EnumDirecao;
+import javax.swing.JOptionPane;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+import sun.java2d.pipe.ValidatePipe;
+import sun.swing.PrintColorUIResource;
+import sun.text.normalizer.UBiDiProps;
 
 /**
  *
@@ -21,17 +26,19 @@ public class Map implements isDrawable{
     private int[] movimento;
     private Posicao spawnLocation;
     private Posicao endLocation;
+    private int arraySize;
     
-    public Map(int[][] mapa, int[]movimento){
+    public Map(int[][] mapa,int [][] visibilidade, int[]movimento){
         spawnLocation = new Posicao();
         endLocation = new Posicao();
         blocos = new ArrayList<Block>();
         
         this.movimento = movimento;
+        this.arraySize = mapa[0].length;
         
         for (int i=0;i<mapa.length;i++){
             for(int x=0;x<mapa[i].length;x++){
-                Block b = new Block(mapa[i][x],i,x);
+                Block b = new Block(mapa[i][x],i,x,visibilidade[i][x] == 1);
                 switch(mapa[i][x]){
                     case 3:
                         spawnLocation.setX(x*Parametro.SPRITE_WIDTH);
@@ -70,6 +77,14 @@ public class Map implements isDrawable{
     public Posicao getEndLocation() {
         System.out.println("EndSpawn:" + spawnLocation.toString());
         return endLocation;
+    }
+    
+    public Block getBlock(int x, int y){
+        int nx = Math.abs(x/32);
+        int ny = Math.abs(y/32);
+        int indice = ny*arraySize + nx;
+        //JOptionPane.showMessageDialog(null, "nx:" + nx + " ny:" + ny + " indice: " + indice + " size:" +  arraySize );
+        return blocos.get(indice);   
     }
 
 }

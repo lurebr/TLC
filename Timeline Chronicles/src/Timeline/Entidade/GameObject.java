@@ -18,7 +18,7 @@ public abstract class GameObject {
     public Posicao localizacao = new Posicao();
     public Tamanho tamanho = new Tamanho();
     public Atributo atributo = new Atributo();
-    protected Animacao animacao;
+    public Animacao animacao;
     
     public abstract void update(double delta); 
 }
