@@ -19,13 +19,13 @@ public class Game {
 
     public Game() {
         if (logar()) {
-            fakejogador();
+            iniciaJogador();
             videoIntro();
             ControlerMenuExterno menu = new ControlerMenuExterno(jogador);
         }
     }
 
-    public void fakejogador(){
+    public void iniciaJogador(){
         jogador = new Jogador();
         jogador.setGold(100);
         jogador.setLevel(1);

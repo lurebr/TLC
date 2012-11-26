@@ -55,11 +55,7 @@ private BarraDeAcao barraDeAcao;
         this.preco = preco;
         range = 10;
     }
-   @Override  
-    public Object clone() throws CloneNotSupportedException {  
-        Tower copia = (Tower) super.clone();  
-        return copia;  
-   }
+
      
     @Override
     public void update(double delta) {

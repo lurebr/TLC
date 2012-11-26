@@ -8,7 +8,7 @@ package Timeline.Entidade.Atributo;
  *
  * @author Lennon
  */
-public class Dano {
+public class Dano implements Cloneable{
     private int danoProjetil;
     private int danoCritico;
     private boolean critico;
@@ -84,4 +84,8 @@ public class Dano {
     public void setEsquiva(boolean esquiva) {
         this.esquiva = esquiva;
     }
+    
+   public Object clone() throws CloneNotSupportedException {
+    return super.clone();
+  }
 }

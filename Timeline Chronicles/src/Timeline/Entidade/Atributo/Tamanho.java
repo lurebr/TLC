@@ -8,7 +8,7 @@ package Timeline.Entidade.Atributo;
  *
  * @author Desenv01
  */
-public class Tamanho {
+public class Tamanho implements Cloneable {
     private int width;
     private int height;
     
@@ -53,5 +53,7 @@ public class Tamanho {
         return "Height: " + this.height + " Width: " + this.width;
     }
 
-    
+  public Object clone() throws CloneNotSupportedException {
+    return super.clone();
+  }
 }

@@ -99,7 +99,6 @@ public class ControlerStore implements ActionListener {
     }
 
     private void showSelectedTower(Tower t) {
-        
         GameMain.mouse.build(t);
     }
     
@@ -109,7 +108,7 @@ public class ControlerStore implements ActionListener {
     }
 
     public void Select(isSelectable s) {
-       // s.Select();
+       tela.lblStatusTower.setText(s.Select());
     }
     
 }

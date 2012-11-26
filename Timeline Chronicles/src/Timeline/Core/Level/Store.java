@@ -45,13 +45,15 @@ public class Store extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblStatusTower.setForeground(new java.awt.Color(255, 255, 255));
         add(lblStatusTower, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 21, 200, 100));
 
-        lblLife.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblLife.setFont(new java.awt.Font("Segoe UI", 0, 12));
         lblLife.setForeground(new java.awt.Color(255, 255, 255));
         add(lblLife, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 97, 170, 20));
 
-        lblGold.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblGold.setFont(new java.awt.Font("Segoe UI", 0, 12));
         lblGold.setForeground(new java.awt.Color(255, 255, 255));
         add(lblGold, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 170, 20));
 

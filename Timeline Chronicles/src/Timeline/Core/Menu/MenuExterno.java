@@ -38,7 +38,7 @@ public class MenuExterno extends javax.swing.JFrame {
         btnOpcoes = new javax.swing.JRadioButton();
         btnCreditos = new javax.swing.JRadioButton();
         btnSair = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblFundo = new javax.swing.JLabel();
         cOpcoes = new javax.swing.JPanel();
         btnVoltar = new javax.swing.JButton();
 
@@ -92,8 +92,8 @@ public class MenuExterno extends javax.swing.JFrame {
         btnSair.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoSairMouse.png"))); // NOI18N
         jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/Menugif2.gif"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/Menugif2.gif"))); // NOI18N
+        jPanel1.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout cPrincipalLayout = new javax.swing.GroupLayout(cPrincipal);
         cPrincipal.setLayout(cPrincipalLayout);
@@ -108,7 +108,7 @@ public class MenuExterno extends javax.swing.JFrame {
 
         pnlMenu.add(cPrincipal, "cPrincipal");
 
-        btnVoltar.setText("Voltar");
+        btnVoltar.setText("Voltar"); // NOI18N
 
         javax.swing.GroupLayout cOpcoesLayout = new javax.swing.GroupLayout(cOpcoes);
         cOpcoes.setLayout(cOpcoesLayout);
@@ -195,8 +195,8 @@ public class MenuExterno extends javax.swing.JFrame {
     public javax.swing.JButton btnVoltar;
     public javax.swing.JPanel cOpcoes;
     public javax.swing.JPanel cPrincipal;
-    private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblFundo;
     public javax.swing.JPanel pnlMenu;
     // End of variables declaration//GEN-END:variables
 }

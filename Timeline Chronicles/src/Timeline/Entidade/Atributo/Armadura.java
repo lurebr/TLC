@@ -11,7 +11,7 @@ import java.util.HashMap;
  *
  * @author Lennon
  */
-public class Armadura {
+public class Armadura implements Cloneable {
     private HashMap<EnumElemento,Integer> armadura = new HashMap<EnumElemento,Integer> ();
     
     public int getArmadura(EnumElemento elemento){
@@ -23,4 +23,7 @@ public class Armadura {
     public void setArmadura(EnumElemento elemento, int valor){
         armadura.put(elemento, valor);
     }
+   public Object clone() throws CloneNotSupportedException {
+    return super.clone();
+  }
 }

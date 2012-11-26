@@ -8,10 +8,8 @@ import java.awt.Canvas;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
-import sun.io.ConversionBufferFullException;
 import Timeline.Core.GameMain;
 import Timeline.Core.Level.LevelLoader;
-import Timeline.Enumerador.EnumEstado;
 
 /**
  *

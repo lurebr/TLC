@@ -7,15 +7,8 @@ package Timeline.Core.GamePanel;
 import Timeline.Core.GameMain;
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
-import java.util.ArrayList;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
-import javax.swing.JPanel;
-import sun.awt.image.OffScreenImage;
-import sun.security.acl.OwnerImpl;
 import Timeline.Entidade.GameObject;
 import Timeline.Entidade.Behavior.isDrawable;
 import Timeline.Core.Level.LevelLoader;
@@ -30,7 +23,7 @@ public class GamePanel extends Canvas {
     public GamePanel(){
        this.setVisible(true);
        this.setSize(800, 600);
-       this.setBackground(Color.red);
+       
       
     }
     

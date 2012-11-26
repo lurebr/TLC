@@ -19,7 +19,7 @@ import Timeline.Core.Parametro;
  *
  * @author Desenv01
  */
-public class Animacao{
+public class Animacao implements Cloneable{
     private Map<String, List<BufferedImage>> listaImagem;
     private int frameAtual = 0;
     private int estilo = 0;
@@ -80,5 +80,7 @@ public class Animacao{
             tempoUltimoFrame = 0;
         }
     }
-    
+    public Object clone() throws CloneNotSupportedException {
+    return super.clone();
+  }
 }

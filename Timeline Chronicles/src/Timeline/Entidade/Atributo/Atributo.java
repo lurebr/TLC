@@ -8,7 +8,7 @@ package Timeline.Entidade.Atributo;
  *
  * @author Lennon
  */
-public class Atributo {
+public class Atributo implements Cloneable{
     private int danoMinimo;
     private int danoMaximo;
     private int vida;
@@ -19,7 +19,7 @@ public class Atributo {
     private int atkspeed;
     private Armadura armadura = new Armadura();
 
-    public Atributo() {}
+    public Atributo()  {}
     public Atributo(int danoMinimo,int danoMaximo,int vida, int vidaMax, int critico, int evasion, int speed, int atkspeed) {
         this.danoMaximo = danoMinimo;
         this.danoMaximo = danoMaximo;
@@ -164,4 +164,11 @@ public class Atributo {
     public void setAtkspeed(int atkspeed) {
         this.atkspeed = atkspeed;
     }
+    
+  public Object clone() throws CloneNotSupportedException {
+      Atributo clone = (Atributo) super.clone();
+      Armadura armadura = (Armadura) this.armadura.clone();
+      clone.armadura = armadura;
+      return clone;
+  }
 }

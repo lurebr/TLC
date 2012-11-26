@@ -115,7 +115,7 @@ public class GameMain extends JFrame {
       cons.gridy = 3;  
       cons.gridx = 0;  
       cons.weighty = 1;
-      cp.add(LevelLoader.getInstance().getStore().getTela(), cons);
+      cp.add(LevelLoader.getInstance().getStore().getTela(), cons); 
     }
     
     private void AddListerner(){
@@ -226,6 +226,7 @@ public class GameMain extends JFrame {
             if(LevelLoader.getInstance().getMap().getBlock(posx, posy).isAllowTower()){
                 t.getLocalizacao().setX(posx);
                 t.getLocalizacao().setY(posy);
+                
                 objetos.add(t);
                 jogador.setGold(jogador.getGold() - 10);
                 mouse.empty();

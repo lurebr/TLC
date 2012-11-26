@@ -8,7 +8,7 @@ package Timeline.Entidade.Atributo;
  *
  * @author Desenv01
  */
-public class Posicao{
+public class Posicao implements Cloneable{
     private double x;
     private double y;
 
@@ -52,5 +52,7 @@ public class Posicao{
     public String toString(){
         return "X: " + this.x + " Y: " + this.y;
     }
-    
+   public Object clone() throws CloneNotSupportedException {
+    return super.clone();
+  }  
 }
