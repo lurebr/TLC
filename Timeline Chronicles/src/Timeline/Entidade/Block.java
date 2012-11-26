@@ -49,39 +49,39 @@ public class Block extends GameObject implements isDrawable {
             case 2:
                 return "Ressource/Object/Block/earth.png";
             case 3:
-                return "ressource/object/block/earth6.png";
+                return "Ressource/Object/Block/earth6.png";
             case 4:
-                return "ressource/object/block/earth6.png";
+                return "Ressource/Object/Block/earth6.png";
             case 5:
-                return "ressource/object/block/earth2.png";
+                return "Ressource/Object/Block/earth2.png";
             case 6:
-                return "ressource/object/block/earth3.png";
+                return "Ressource/Object/Block/earth3.png";
             case 7:
-                return "ressource/object/block/earth4.png";
+                return "Ressource/Object/Block/earth4.png";
             case 8:
-                return "ressource/object/block/earth5.png";
+                return "Ressource/Object/Block/earth5.png";
             case 9:
-                return "ressource/object/block/earth6.png"; 
+                return "Ressource/Object/Block/earth6.png"; 
             case 10:
-                return "ressource/object/block/earth7.png";
+                return "Ressource/Object/Block/earth7.png";
             case 11:
-                return "ressource/object/block/earth8.png";
+                return "Ressource/Object/Block/earth8.png";
             case 12:
-                return "ressource/object/block/TreeBot.png";
+                return "Ressource/Object/Block/TreeBot.png";
             case 13:
-                return "ressource/object/block/TreeTop.png";
+                return "Ressource/Object/Block/TreeTop.png";
             case 14:
-                return "ressource/object/block/deadTreeBot.png";
+                return "Ressource/Object/Block/deadTreeBot.png";
             case 15:
-                return "ressource/object/block/deadTreeTop.png";
+                return "Ressource/Object/Block/deadTreeTop.png";
             case 16:
-                return "ressource/object/block/rock2.png";
+                return "Ressource/Object/Block/rock2.png";
             case 17:
-                return "ressource/object/block/rock3.png";
+                return "Ressource/Object/Block/rock3.png";
             case 18:
-                return "ressource/object/block/moitaNaMoita.png";
+                return "Ressource/Object/Block/moitaNaMoita.png";
             case 19:
-                return "ressource/object/block/moitaNaMoitinha.png";
+                return "Ressource/Object/Block/moitaNaMoitinha.png";
             default:
                 return "";
         }
