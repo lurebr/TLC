@@ -24,6 +24,7 @@ import Timeline.Core.Sound.Player.SoundFactory;
 import Timeline.Jogador.Jogador;
 import Timeline.Util.Componente.PintaTexto;
 import Timeline.Util.Cursor.CursorFactory;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -40,7 +41,7 @@ public class GameMain extends JFrame {
 
    //public static testMenu gameMenu;
    public  EnumEstado state;
-   public  DebugPane debug = new DebugPane();
+   //public  DebugPane debug = new DebugPane();
      
    public static CopyOnWriteArrayList<GameObject> objetos;
    public static Mouse mouse;
@@ -53,18 +54,20 @@ public class GameMain extends JFrame {
     
     private void initialize(){
 
+      
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       setResizable(false);
       setSize(1024,768);
       this.setVisible(true);
       setLoading(this.getGraphics());
       SoundFactory.getSoundPlayer().tocar("Ressource/Sound/game.mp3");  
+
       CarregaComponentes();
        
       CursorFactory.getCursor().mudarCursor(this);
                   
        AddListerner();
-         
+   
        objetos = new CopyOnWriteArrayList<>();
     
        setGameState(EnumEstado.iniciandoLevel);
@@ -168,7 +171,10 @@ public class GameMain extends JFrame {
              time++;
              fps = 0;
           }
-         
+          
+          if(this.state== EnumEstado.gameover){
+              exibeMensagemGameOver();
+          }
       }
       this.dispose();
    }
@@ -232,6 +238,10 @@ public class GameMain extends JFrame {
         graphics.drawString("Loading...", Math.abs(Parametro.SCREEN_HEIGHT/2), Math.abs(Parametro.SCREEN_WIDTH/2));
         graphics.setColor(Color.black);
         
+    }
+
+    private void exibeMensagemGameOver() {
+        JOptionPane.showMessageDialog(null, "Game Over!");
     }
 
 }

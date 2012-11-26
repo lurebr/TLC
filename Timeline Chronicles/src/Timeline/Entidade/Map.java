@@ -9,12 +9,7 @@ import java.util.ArrayList;
 import Timeline.Core.Parametro;
 import Timeline.Entidade.Atributo.Posicao;
 import Timeline.Entidade.Behavior.isDrawable;
-import Timeline.Enumerador.EnumDirecao;
-import javax.swing.JOptionPane;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-import sun.java2d.pipe.ValidatePipe;
-import sun.swing.PrintColorUIResource;
-import sun.text.normalizer.UBiDiProps;
+
 
 /**
  *

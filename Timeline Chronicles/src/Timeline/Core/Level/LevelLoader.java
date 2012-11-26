@@ -5,7 +5,10 @@
 package Timeline.Core.Level;
 
 import Timeline.Core.GameMain;
+import Timeline.Entidade.GameObject;
 import Timeline.Entidade.Map;
+import Timeline.Entidade.Minion;
+import Timeline.Enumerador.EnumEstado;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 
@@ -65,7 +68,30 @@ public class LevelLoader {
     }
     
     public void update(double delta){
-        this.spawner.update(delta);
-        this.store.update();
+        if(isGameOver()){
+            GameMain.getInstance().setGameState(EnumEstado.gameover);
+        }else{
+            this.spawner.update(delta);
+            this.store.update();
+        }
+    }
+    
+    private boolean isGameOver(){
+        if(this.spawner.endSpawn() &&! isMonsterSpawn()){
+            return true;
+        }
+        if(this.level.getVida() <= 0){
+            return true;
+        }
+        
+        return false;
+    }
+    private boolean isMonsterSpawn(){
+        for(GameObject obj: GameMain.objetos){
+            if(obj instanceof Minion){
+                return true;
+            }
+        } 
+        return false;
     }
 }

@@ -86,7 +86,7 @@ public class ControlerStore implements ActionListener {
     
     public void update(){
         tela.lblGold.setText(Integer.toString(GameMain.jogador.getGold()));
-        tela.lblFPS.setText(Integer.toString(LevelLoader.getInstance().getLevel().getVida()));
+        tela.lblLife.setText(Integer.toString(LevelLoader.getInstance().getLevel().getVida()));
     }
     
 }

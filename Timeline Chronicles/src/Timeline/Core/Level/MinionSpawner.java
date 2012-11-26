@@ -51,7 +51,7 @@ public class MinionSpawner {
                tempoAtual++;
            }
        }
-    }
+     }
     
     private void spawn(Minion minion) { 
         minion.setMovimento(LevelLoader.getInstance().getMap().getCaminho());
@@ -61,5 +61,9 @@ public class MinionSpawner {
     
     public String getTempoSpawn(){
         return "Tempo Spawn:" + tempoAtual + "/" + tempoSpawn;
+    }
+    
+    public boolean endSpawn(){
+        return (minionCount >= wave.size());
     }
 }

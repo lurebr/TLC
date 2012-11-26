@@ -55,6 +55,11 @@ public class MenuExterno extends javax.swing.JFrame {
         btnIniciarJogo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoIniciar1Mouse.png"))); // NOI18N
         btnIniciarJogo.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoIniciar1.png"))); // NOI18N
         btnIniciarJogo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Timeline/Core/Menu/BotaoIniciar1Mouse.png"))); // NOI18N
+        btnIniciarJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarJogoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnIniciarJogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 270, -1));
 
         btnOpcoes.setBorder(null);
@@ -141,6 +146,10 @@ public class MenuExterno extends javax.swing.JFrame {
     private void btnOpcoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcoesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOpcoesActionPerformed
+
+    private void btnIniciarJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarJogoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIniciarJogoActionPerformed
 
     /**
      * @param args the command line arguments

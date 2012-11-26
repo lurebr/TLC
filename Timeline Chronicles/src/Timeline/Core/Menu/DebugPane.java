@@ -18,7 +18,7 @@ import Timeline.Enumerador.EnumEstado;
  * @author Lennon
  */
 public class DebugPane extends Canvas {
-    BufferStrategy strategy;
+    private BufferStrategy strategy;
     
     public DebugPane(){
       this.setVisible(true);
