@@ -26,7 +26,7 @@ import Timeline.Util.Componente.BarraDeAcao;
  *
  * @author Desenv01
  */
-public class Tower extends GameObject implements isAttacker, isDrawable, isColide, isSelectable {
+public class Tower extends GameObject implements isAttacker, isDrawable, isColide, isSelectable, Cloneable {
 private boolean selected ;
 private int range;
 private double preco;
@@ -37,7 +37,7 @@ private int atkSpeed = 100;
 private int atkSpeedDelay=0;
 private BarraDeAcao barraDeAcao;
 
-    public Tower(String caminho,double posX, double posY){
+    public Tower(String caminho,double posX, double posY, Atributo atributo){
         BufferedImage imagem = Imagem.getInstance().getResourceImage(caminho);
         
         super.animacao = new Animacao(imagem);
@@ -45,6 +45,7 @@ private BarraDeAcao barraDeAcao;
         super.localizacao.setY(posY);
         super.tamanho.setHeight(imagem.getHeight());
         super.tamanho.setWidth(imagem.getWidth());
+        super.atributo = atributo;
         range = 100;
         this.barraDeAcao = new BarraDeAcao(this.atkSpeed);
     }
@@ -54,6 +55,11 @@ private BarraDeAcao barraDeAcao;
         this.preco = preco;
         range = 10;
     }
+   @Override  
+    public Object clone() throws CloneNotSupportedException {  
+        Tower copia = (Tower) super.clone();  
+        return copia;  
+   }
      
     @Override
     public void update(double delta) {
@@ -127,8 +133,11 @@ private BarraDeAcao barraDeAcao;
     }
 
     @Override
-    public void Select(int x, int y) {
-        this.selected = true;
+    public String Select() {
+        String selectText;
+        selectText = "Atk:" + this.atributo.getDanoMinimo() + "-" + this.atributo.getDanoMaximo();
+        selectText += "\nSpeed:" + this.atkSpeed;
+        return selectText;
     }
     @Override
     public Posicao getLocalizacao() {

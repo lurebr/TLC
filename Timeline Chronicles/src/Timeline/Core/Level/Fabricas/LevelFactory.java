@@ -29,10 +29,13 @@ public class LevelFactory{
         
         //iniciaminion
         ArrayList<Integer> minions = new ArrayList<Integer>();
+        minions.add(0);
+        minions.add(0);
         
         for(int i=0;i<10;i++){
             minions.add(1);
         }
+        
         level.put(EnumLevel.minion, minions);
         
         //iniciatorre

@@ -4,6 +4,9 @@
  */
 package Timeline.Core.Level;
 
+import Timeline.Core.Componente.EnumEstadoMouse;
+import Timeline.Core.Componente.Mouse;
+import Timeline.Entidade.Behavior.isSelectable;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -55,8 +58,12 @@ public class ControlerStore implements ActionListener {
         }else if (e.getSource() == tela.btnSair){
             GameMain.getInstance().setGameState(EnumEstado.gameover);
         }else if (e.getSource() == tela.b1){
-            selectedTower = listaTorres.get(1);
-            showSelectedTower();
+            try {
+                selectedTower = (Tower) listaTorres.get(0).clone();
+            } catch (CloneNotSupportedException ex) {
+                ex.printStackTrace();
+            }
+            showSelectedTower(selectedTower);
         }
     }
     private void iniciaJogador(){
@@ -71,6 +78,7 @@ public class ControlerStore implements ActionListener {
     private void addListener() {
         tela.btnPausar.addActionListener(this);
         tela.btnSair.addActionListener(this);
+        tela.b1.addActionListener(this);
     }
 
     public Store getTela() {
@@ -90,13 +98,18 @@ public class ControlerStore implements ActionListener {
         iniciaLoja();
     }
 
-    private void showSelectedTower() {
+    private void showSelectedTower(Tower t) {
         
+        GameMain.mouse.build(t);
     }
     
     public void update(){
         tela.lblGold.setText(Integer.toString(GameMain.jogador.getGold()));
         tela.lblLife.setText(Integer.toString(LevelLoader.getInstance().getLevel().getVida()));
+    }
+
+    public void Select(isSelectable s) {
+       // s.Select();
     }
     
 }

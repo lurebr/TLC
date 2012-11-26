@@ -220,17 +220,20 @@ public class GameMain extends JFrame {
     }
 
     
-    public void addTower(int posx, int posy){
+    public void addTower(int posx, int posy, Tower t){
         posx = Math.round(posx/32)*32;
         posy = Math.round(posy/32)*32;
         if(jogador.getGold() >= 10 ){
             if(LevelLoader.getInstance().getMap().getBlock(posx, posy).isAllowTower()){
-                
-                Tower t = new Tower("Ressource/Object/Tower/tower.png",posx, posy);
-                t.atributo.setDanoMinimo(5);
-                t.atributo.setDanoMaximo(30);
+                t.getLocalizacao().setX(posx);
+                t.getLocalizacao().setY(posy);
                 objetos.add(t);
                 jogador.setGold(jogador.getGold() - 10);
+                mouse.empty();
+                //Tower t = new Tower("Ressource/Object/Tower/tower.png",posx, posy);
+                //t.atributo.setDanoMinimo(5);
+                //t.atributo.setDanoMaximo(30);
+                
             }else{
                 JOptionPane.showMessageDialog(null, "Não permitido torre neste bloco");
             }

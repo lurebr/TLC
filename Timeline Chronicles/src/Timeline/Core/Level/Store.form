@@ -142,82 +142,63 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="b1">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="t1"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="t1" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b1ActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="t6"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="t6" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="t7"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="t7" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="t2"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="t2" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="t8"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="t8" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton6">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="t3"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="t3" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton7">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="t9"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="t9" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton8">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="t4"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="t4" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton11">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="t0"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="t0" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton12">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="t5"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="t5" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnSair">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="Sair"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Sair" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -225,9 +206,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnPausar">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="Pausar"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Pausar" noResource="true"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -292,9 +271,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="Nome:"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Nome:" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblLife">
@@ -314,16 +291,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="Ouro:"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Ouro:" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <PlainString value="Vida:"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Vida:" noResource="true"/>
               </Properties>
             </Component>
           </SubComponents>

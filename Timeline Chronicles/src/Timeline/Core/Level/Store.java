@@ -52,29 +52,34 @@ public class Store extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(100, 120));
         setLayout(new java.awt.GridLayout(1, 0));
 
-        b1.setText("t1");
+        b1.setText("t1"); // NOI18N
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("t6");
+        jButton2.setText("t6"); // NOI18N
 
-        jButton3.setText("t7");
+        jButton3.setText("t7"); // NOI18N
 
-        jButton4.setText("t2");
+        jButton4.setText("t2"); // NOI18N
 
-        jButton5.setText("t8");
+        jButton5.setText("t8"); // NOI18N
 
-        jButton6.setText("t3");
+        jButton6.setText("t3"); // NOI18N
 
-        jButton7.setText("t9");
+        jButton7.setText("t9"); // NOI18N
 
-        jButton8.setText("t4");
+        jButton8.setText("t4"); // NOI18N
 
-        jButton11.setText("t0");
+        jButton11.setText("t0"); // NOI18N
 
-        jButton12.setText("t5");
+        jButton12.setText("t5"); // NOI18N
 
-        btnSair.setText("Sair");
+        btnSair.setText("Sair"); // NOI18N
 
-        btnPausar.setText("Pausar");
+        btnPausar.setText("Pausar"); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -141,11 +146,11 @@ public class Store extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setText("Nome:");
+        jLabel1.setText("Nome:"); // NOI18N
 
-        jLabel2.setText("Ouro:");
+        jLabel2.setText("Ouro:"); // NOI18N
 
-        jLabel3.setText("Vida:");
+        jLabel3.setText("Vida:"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -207,6 +212,11 @@ public class Store extends javax.swing.JPanel {
 
         add(jPanel3);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton b1;
     public javax.swing.JButton btnPausar;
