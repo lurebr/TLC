@@ -206,13 +206,14 @@ public class GameMain extends JFrame {
         posy = Math.round(posy/32)*32;
         if(jogador.getGold() >= 10 ){
             if(LevelLoader.getInstance().getMap().getBlock(posx, posy).isAllowTower()){
+                
                 Tower t = new Tower("Ressource/Object/Tower/tower.png",posx, posy);
                 t.atributo.setDanoMinimo(10);
                 t.atributo.setDanoMaximo(65);
                 objetos.add(t);
                 jogador.setGold(jogador.getGold() - 10);
             }else{
-                JOptionPane.showMessageDialog(null, "Não permitido torre no caminho");
+                JOptionPane.showMessageDialog(null, "Não permitido torre neste bloco");
             }
         }
     }
