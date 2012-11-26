@@ -35,12 +35,6 @@ public class LevelLoader {
         
         if (store == null){
             store = new ControlerStore(level.getTowers());
-            Container cp = GameMain.getInstance().getContentPane();
-            GridBagConstraints cons = new GridBagConstraints();
-            cons.gridy = 3;  
-            cons.gridx = 0;
-            cons.weighty = 1;
-            cp.add(store.getTela(),cons);
         }else{
             store.AtualizarLoja(level.getTowers());
         }
@@ -55,6 +49,9 @@ public class LevelLoader {
         return this.spawner;
     }
     public ControlerStore getStore(){
+        if (this.store == null){
+            store = new ControlerStore();
+        }
         return this.store;
     }
     public Map getMap(){

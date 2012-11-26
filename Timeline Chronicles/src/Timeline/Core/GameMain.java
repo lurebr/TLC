@@ -24,7 +24,9 @@ import Timeline.Core.Sound.Player.SoundFactory;
 import Timeline.Jogador.Jogador;
 import Timeline.Util.Componente.PintaTexto;
 import Timeline.Util.Cursor.CursorFactory;
+import java.awt.Canvas;
 import java.util.ArrayList;
+import javax.media.j3d.Canvas3D;
 import javax.swing.JOptionPane;
 
 /**
@@ -63,10 +65,12 @@ public class GameMain extends JFrame {
 
       
       setDefaultCloseOperation(EXIT_ON_CLOSE);
-      setResizable(false);
-      setSize(1024,768);
+      this.setBackground(Color.black);
+      this.setResizable(false);
+      this.setSize(1024,768);
       this.setVisible(true);
       setLoading(this.getGraphics());
+     // setLoading(this.getGraphics());
       SoundFactory.getSoundPlayer().tocar("Ressource/Sound/game.mp3");  
 
       CarregaComponentes();
@@ -78,9 +82,11 @@ public class GameMain extends JFrame {
        objetos = new CopyOnWriteArrayList<>();
     
        setGameState(EnumEstado.iniciandoLevel);
+       
+       
        rodarGameLoop();
+
        pintaTexto = new PintaTexto();
-       this.setBackground(Color.yellow);
         
     }
     
@@ -107,10 +113,10 @@ public class GameMain extends JFrame {
       cons.gridx = 0;  
       cons.weighty = 600;
       cp.add(gamePanel, cons);
-    //  cons.gridy = 3;  
-     // cons.gridx = 0;  
-     // cons.weighty = 1;
-     // cp.add(gameMenu.getTela(), cons);
+      cons.gridy = 3;  
+      cons.gridx = 0;  
+      cons.weighty = 1;
+      cp.add(LevelLoader.getInstance().getStore().getTela(), cons);
     }
     
     private void AddListerner(){
@@ -145,7 +151,7 @@ public class GameMain extends JFrame {
 
       tempoUltimoUpdate = System.nanoTime();
 
-      
+      setLoading(this.getGraphics());
       while (state != EnumEstado.gameover)
       {
           long tempoAgora = System.nanoTime();
@@ -243,6 +249,17 @@ public class GameMain extends JFrame {
         graphics.fillRect(0, 0, Parametro.SCREEN_HEIGHT,Parametro.SCREEN_WIDTH);
         graphics.setColor(Color.white);
         graphics.drawString("Loading...", Math.abs(Parametro.SCREEN_HEIGHT/2), Math.abs(Parametro.SCREEN_WIDTH/2));
+        graphics.setColor(Color.black);
+        
+    }
+    
+    private void setPause(Graphics graphics) {
+        
+        graphics.setColor(Color.black);
+        graphics.drawRect(0, 0, Parametro.SCREEN_HEIGHT,Parametro.SCREEN_WIDTH);
+        graphics.fillRect(0, 0, Parametro.SCREEN_HEIGHT,Parametro.SCREEN_WIDTH);
+        graphics.setColor(Color.white);
+        graphics.drawString("Pause..", Math.abs(Parametro.SCREEN_HEIGHT/2), Math.abs(Parametro.SCREEN_WIDTH/2));
         graphics.setColor(Color.black);
         
     }

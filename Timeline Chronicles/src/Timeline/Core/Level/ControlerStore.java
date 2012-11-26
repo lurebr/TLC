@@ -35,6 +35,14 @@ public class ControlerStore implements ActionListener {
         iniciaJogador();
         iniciaLoja();
     }
+    public ControlerStore(){
+       // this.listaTorres = towers;
+        iniciaTela();
+        addListener();
+        iniciaJogador();
+        iniciaLoja();
+    }
+    
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -70,8 +78,10 @@ public class ControlerStore implements ActionListener {
     }
 
     private void iniciaLoja() {
-        for(int i = 0;i<8 && i<listaTorres.size();i++){
-            tela.b1.setIcon( new ImageIcon((Image)listaTorres.get(i).animacao.getImagem()));
+        if(listaTorres != null){
+            for(int i = 0;i<8 && i<listaTorres.size();i++){
+                tela.b1.setIcon( new ImageIcon((Image)listaTorres.get(i).animacao.getImagem()));
+            }
         }
     }
 
