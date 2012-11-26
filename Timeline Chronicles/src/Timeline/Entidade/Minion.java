@@ -36,14 +36,14 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     private EnumDirecao direcaoAtual;
     private int[] movimento;
     private int posAtual;
-    private int count;
+    private double count;
     private boolean vivo;
     private int gold;
     private BarraDeVida barraDeVida;
     private HashMap<Integer,Integer> danoTomado = new HashMap<Integer,Integer>();
     private int speed=0;
             
-     public Minion(String caminhoImagem, int gold, int vidaMax, Atributo atributo){        
+     public Minion(String caminhoImagem, int gold, Atributo atributo){        
         this.movimento= null;
         posAtual = 0;
         
@@ -58,6 +58,7 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
         super.atributo = atributo;
         
         this.barraDeVida = new BarraDeVida(super.atributo.getVidaMax());
+       
         this.vivo = true;
         this.gold= gold;
         super.atributo.setSpeed(1);
@@ -70,12 +71,12 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
             if(this.atributo.getVida() <= 0){
                 this.vivo = false;
             }
-          
-                speed++;
+            
+            speed++;
             if(speed >= super.atributo.getSpeed()){
                 direcaoAtual= getDirecao(movimento[posAtual]);
                 count++;
-                if(count==32 && posAtual < movimento.length){
+                if(count >=32 && posAtual < movimento.length){
                     posAtual++;
                     count = 0;
                 }
@@ -94,7 +95,6 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
    public void calculaDano(Dano dano) {
         int danoTotal = Matematica.getInstance().calculaDano(dano, super.atributo);
         GameMain.pintaTexto.setTexto(danoTotal, super.localizacao);
-        System.out.println("Evasion: "+danoTotal);
         //calculaDano(dano);
         this.atributo.setVida(this.atributo.getVida() -danoTotal);
             if(this.atributo.getVida() <= 0){
@@ -107,8 +107,8 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
     @Override
     public void draw(Graphics g) {
         if (this.vivo){
-         super.animacao.draw(g, super.localizacao.getX(), super.localizacao.getY());
-         this.barraDeVida.draw(g, super.localizacao.getX(), super.localizacao.getY(), super.tamanho.getWidth(), super.tamanho.getHeight(), super.atributo.getVida());
+         super.animacao.draw(g, (int) super.localizacao.getX(), (int) super.localizacao.getY());
+         this.barraDeVida.draw(g, (int)super.localizacao.getX(), (int)super.localizacao.getY(), super.tamanho.getWidth(), super.tamanho.getHeight(), super.atributo.getVida());
         }
     }
 
@@ -117,19 +117,19 @@ public class Minion extends GameObject implements isAttackable,isDrawable, isWal
        
         switch(direcaoAtual){
                 case cima:
-                   super.localizacao.setY(super.localizacao.getY()-1);
+                   super.localizacao.setY(super.localizacao.getY()-(1));
                    super.animacao.mudarEstilo(3);
                     break;
                 case baixo:
-                   super.localizacao.setY(super.localizacao.getY()+1);
+                   super.localizacao.setY(super.localizacao.getY()+(1));
                    super.animacao.mudarEstilo(0);
                     break;
                 case direita:
-                   super.localizacao.setX(super.localizacao.getX()-1);
+                   super.localizacao.setX(super.localizacao.getX()-(1));
                    super.animacao.mudarEstilo(1);
                     break;
                 case esquerda:
-                   super.localizacao.setX(super.localizacao.getX()+1);
+                   super.localizacao.setX(super.localizacao.getX()+(1));
                    super.animacao.mudarEstilo(2);
                     break;
                 case parado:

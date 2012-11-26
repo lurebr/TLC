@@ -36,11 +36,11 @@ public class Map implements isDrawable{
                 Block b = new Block(mapa[i][x],i,x,visibilidade[i][x] == 1);
                 switch(mapa[i][x]){
                     case 3:
-                        spawnLocation.setX(x*Parametro.SPRITE_WIDTH);
-                        spawnLocation.setY(i*Parametro.SPRITE_HEIGHT);
+                        spawnLocation.setX((double)x*Parametro.SPRITE_WIDTH);
+                        spawnLocation.setY((double)i*Parametro.SPRITE_HEIGHT);
                     case 4:
-                        endLocation.setX(x*Parametro.SPRITE_WIDTH);
-                        endLocation.setY(i*Parametro.SPRITE_HEIGHT);
+                        endLocation.setX((double)x*Parametro.SPRITE_WIDTH);
+                        endLocation.setY((double)i*Parametro.SPRITE_HEIGHT);
                 }
                 blocos.add(b);
             }

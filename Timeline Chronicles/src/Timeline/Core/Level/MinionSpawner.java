@@ -32,12 +32,8 @@ public class MinionSpawner {
     }
     
     public void update(double delta){
-       
-       if (tempoInicio > 0 && delta >= 0.1){
-            tempoInicio--;
-        }
-       
-       if(tempoInicio == 0){
+             
+       if(tempoInicio == GameMain.getTime()){
            spawn = true;
        }
        

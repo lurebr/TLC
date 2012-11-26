@@ -91,7 +91,7 @@ public class Shot extends GameObject implements isDrawable, isAttack, isColide {
         if(!acertou){
            
             g.setColor(Color.red);
-            g.drawLine(super.localizacao.getX(), super.localizacao.getY(), super.localizacao.getX()+10, super.localizacao.getY());    
+            g.drawLine((int)super.localizacao.getX(), (int)super.localizacao.getY(), (int)super.localizacao.getX()+10, (int)super.localizacao.getY());    
             g.setColor(Color.black);
         }
         

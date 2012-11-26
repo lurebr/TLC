@@ -5,6 +5,7 @@
 package Timeline.Util.Componente;
 
 import Timeline.Entidade.Atributo.Posicao;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -23,8 +24,8 @@ public class PintaTexto {
         Integer[] coisas = new Integer[4];
         coisas[0] = 0;
         coisas[1] = valor;
-        coisas[2] = localizacao.getX();
-        coisas[3] = localizacao.getY();
+        coisas[2] = (int)localizacao.getX();
+        coisas[3] =(int) localizacao.getY();
         listaTexto.add(coisas);
         
     }
@@ -34,7 +35,7 @@ public class PintaTexto {
         System.out.println("lista : "+listaTexto.size());
         Font f = new Font("Arial", 1, 20);
         g.setFont(f);
-        
+        g.setColor(Color.red);
         for(int i=0; i<listaTexto.size() ; i++){
             if(listaTexto.get(i)[0]<90){
                 if(listaTexto.get(i)[1] ==0){
@@ -49,6 +50,7 @@ public class PintaTexto {
                 listaTexto.remove(i);
             }
         }
+        g.setColor(Color.black);
         
     }
     

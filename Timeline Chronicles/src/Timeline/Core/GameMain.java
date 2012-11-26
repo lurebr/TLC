@@ -39,6 +39,13 @@ public class GameMain extends JFrame {
    public static int frameCount;
    public static GamePanel gamePanel = new GamePanel();
 
+    /**
+     * @return the time
+     */
+    public static int getTime() {
+        return time;
+    }
+
    //public static testMenu gameMenu;
    public  EnumEstado state;
    //public  DebugPane debug = new DebugPane();
@@ -47,7 +54,7 @@ public class GameMain extends JFrame {
    public static Mouse mouse;
    public static Jogador jogador;
    public static PintaTexto pintaTexto;
-   public static int time;
+   private static int time;
    
     private GameMain(){ 
     }
@@ -166,7 +173,7 @@ public class GameMain extends JFrame {
          
           if (tempoUltimoFrame >= 1000000000)
           {
-             this.setTitle("Tower Defense - "+ "FPS: "+fps+" time:" + time);
+             this.setTitle("Tower Defense - "+ "FPS: "+fps+" time:" + getTime());
              tempoUltimoFrame = 0;
              time++;
              fps = 0;
@@ -214,8 +221,8 @@ public class GameMain extends JFrame {
             if(LevelLoader.getInstance().getMap().getBlock(posx, posy).isAllowTower()){
                 
                 Tower t = new Tower("Ressource/Object/Tower/tower.png",posx, posy);
-                t.atributo.setDanoMinimo(10);
-                t.atributo.setDanoMaximo(65);
+                t.atributo.setDanoMinimo(5);
+                t.atributo.setDanoMaximo(30);
                 objetos.add(t);
                 jogador.setGold(jogador.getGold() - 10);
             }else{

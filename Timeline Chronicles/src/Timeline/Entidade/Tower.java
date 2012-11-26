@@ -20,6 +20,7 @@ import Timeline.Entidade.Behavior.isAttacker;
 import Timeline.Entidade.Behavior.isColide;
 import Timeline.Entidade.Behavior.isDrawable;
 import Timeline.Entidade.Behavior.isSelectable;
+import Timeline.Util.Componente.BarraDeAcao;
 
 /**
  *
@@ -34,8 +35,9 @@ private int c = 100;
 private int critico = 30;
 private int atkSpeed = 100;
 private int atkSpeedDelay=0;
+private BarraDeAcao barraDeAcao;
 
-    public Tower(String caminho,int posX, int posY){
+    public Tower(String caminho,double posX, double posY){
         BufferedImage imagem = Imagem.getInstance().getResourceImage(caminho);
         
         super.animacao = new Animacao(imagem);
@@ -44,6 +46,7 @@ private int atkSpeedDelay=0;
         super.tamanho.setHeight(imagem.getHeight());
         super.tamanho.setWidth(imagem.getWidth());
         range = 100;
+        this.barraDeAcao = new BarraDeAcao(this.atkSpeed);
     }
     
     public Tower(String caminho, double preco){
@@ -55,25 +58,27 @@ private int atkSpeedDelay=0;
     @Override
     public void update(double delta) {
         
-        if(alvo != null){
-            if (attack(alvo)){
-                return;
+        if(atkSpeedDelay == atkSpeed){
+            if(alvo != null){
+                if (attack(alvo)){
+                    return;
+                }
             }
-        }
-         for(GameObject obj: GameMain.objetos){
-            if(obj instanceof isColide ){
-                if (colide((isColide)obj)){
-                    if(alvo == null && obj instanceof isAttackable){
-                        if(attack((isAttackable) obj)){
-                           //break; 
+             for(GameObject obj: GameMain.objetos){
+                if(obj instanceof isColide ){
+                    if (colide((isColide)obj)){
+                        if(alvo == null && obj instanceof isAttackable){
+                            if(attack((isAttackable) obj)){
+                               //break; 
+                            }
                         }
                     }
                 }
-            }
-         }
-        
+             }
+        }else{
+            atkSpeedDelay++;
+        }
     }
-
     @Override
     public boolean attack(isAttackable alvo) {
         if(!colide((isColide)alvo) ||! alvo.isAlive()){
@@ -82,26 +87,28 @@ private int atkSpeedDelay=0;
             return false;
         }
         //System.out.println(c);
-        if(c == 100){
+    //    if(c == atkSpeed){
             c = 0;
             //System.out.println("NovoProjetil");
             //C:/Users/Lennon/Documents/NetBeansProjects/timeline-chronicles/Timeline Chronicles/src/Ressource/
             SoundFactory.getSoundPlayer().tocarEfeito("Ressource/Sound/shot.wav");
             Shot p = new Shot(alvo,this);
             GameMain.objetos.add(p);
-        }
-        c++;
+      //  }
+     //   c++;
+        atkSpeedDelay= 0;
         return true;
     }
 
     @Override
     public void draw(Graphics g) {
-        super.animacao.draw(g, super.localizacao.getX(), super.localizacao.getY());
-        g.drawRect( super.localizacao.getX() - range,  super.localizacao.getY() -range, range*2, range*2);
+        super.animacao.draw(g, (int)super.localizacao.getX(), (int)super.localizacao.getY());
+        //g.drawRect((int) super.localizacao.getX() - range, (int) super.localizacao.getY() -range, range*2, range*2);
         //System.out.println("X: " + super.localizacao.getX() + " Y:" + super.localizacao.getY());
+        this.barraDeAcao.draw(g, (int)super.localizacao.getX(), (int)super.localizacao.getY(), super.tamanho.getWidth(), super.tamanho.getHeight(), atkSpeedDelay);
         if(selected){
             Graphics2D g2d= (Graphics2D)g;
-            g2d.drawOval(super.localizacao.getX(), super.localizacao.getY(), range, range);
+            g2d.drawOval((int)super.localizacao.getX(),(int) super.localizacao.getY(), range, range);
         }
     }
 

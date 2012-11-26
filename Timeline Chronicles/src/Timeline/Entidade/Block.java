@@ -5,15 +5,7 @@
 package Timeline.Entidade;
 
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import test.testTela;
 import Timeline.Imagem.Animacao;
 import Timeline.Imagem.Imagem;
 import Timeline.Entidade.Behavior.isDrawable;

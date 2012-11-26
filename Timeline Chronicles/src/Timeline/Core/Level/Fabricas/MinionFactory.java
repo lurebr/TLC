@@ -19,13 +19,13 @@ public class MinionFactory{
     
     public static Minion getMinion(int id) {
         Minion minion = null;
-       Atributo atb = new Atributo(1, 10, 100, 100, 0, 90);
+        Atributo atb = new Atributo(1, 10, 500, 500, 0, 20, 100, 0);
         atb.getArmadura().setArmadura(EnumElemento.normal, 3);
         switch(id){
             case 0:
-                minion = new Minion("Ressource/Object/Minion/minion.gif", 10, 100, atb);
+                minion = new Minion("Ressource/Object/Minion/minion.gif", 10, atb);
             case 1:
-                minion = new Minion("Ressource/Object/Minion/zombie.png", 10, 100, atb);
+                minion = new Minion("Ressource/Object/Minion/zombie.png", 1, atb);
         }
 
         return minion;

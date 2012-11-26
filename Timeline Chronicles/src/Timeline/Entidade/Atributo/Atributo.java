@@ -20,13 +20,15 @@ public class Atributo {
     private Armadura armadura = new Armadura();
 
     public Atributo() {}
-    public Atributo(int danoMinimo,int danoMaximo,int vida, int vidaMax, int critico, int evasion) {
+    public Atributo(int danoMinimo,int danoMaximo,int vida, int vidaMax, int critico, int evasion, int speed, int atkspeed) {
         this.danoMaximo = danoMinimo;
         this.danoMaximo = danoMaximo;
         this.vida = vida;
         this.vidaMax = vidaMax;
         this.critico = critico;
         this.evasion = evasion;
+        this.speed = speed;
+        this.atkspeed = atkspeed;
     }
     public Atributo(Atributo atributo) {
         this.danoMaximo = atributo.danoMaximo;
