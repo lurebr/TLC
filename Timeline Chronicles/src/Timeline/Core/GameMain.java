@@ -26,7 +26,6 @@ import Timeline.Util.Componente.PintaTexto;
 import Timeline.Util.Cursor.CursorFactory;
 import java.awt.Canvas;
 import java.util.ArrayList;
-import javax.media.j3d.Canvas3D;
 import javax.swing.JOptionPane;
 
 /**
