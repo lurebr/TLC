@@ -1,9 +1,0 @@
-compile.on.save=true
-do.depend=false
-do.jar=true
-file.reference.jl1.0.1.jar=C:\\Users\\Lennon\\Documents\\NetBeansProjects\\timeline-chronicles\\lib\\jl1.0.1.jar
-file.reference.jl1.0.1.jar-1=C:\\Users\\Lennon\\Documents\\NetBeansProjects\\timeline-chronicles\\lib\\jl1.0.1.jar
-file.reference.mysql-connector-java-5.1.22-bin.jar=C:\\Users\\Lennon\\Documents\\NetBeansProjects\\timeline-chronicles\\lib\\mysql-connector-java-5.1.22-bin.jar
-javac.debug=true
-javadoc.preview=true
-user.properties.file=C:\\Users\\Lennon\\.netbeans\\7.0\\build.properties
