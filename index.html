@@ -1,74 +1,122 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Tlc : " />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Tlc</title>
+<!-- 
+    Document   : Cabecalho
+    Created on : 02/10/2012, 13:34:38
+    Author     : Glauber
+-->
+<html lang="en-US">
+<head>
+	<title><%=title %></title>
+    
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="css/TLCcss.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
   </head>
-
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/lurebr/TLC">View on GitHub</a>
-
-          <h1 id="project_title">Tlc</h1>
-          <h2 id="project_tagline"></h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/lurebr/TLC/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/lurebr/TLC/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+         <div class="navbar navbar-fixed-top">
+              <div class="navbar-inner">
+                   <div class="container">
+                       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <a class="brand" href="/SiteTLC/PaginaPrincipal.jsp">Timeline Chronicles</a>
+                   <div class="nav-collapse collapse">
+                          <ul class="nav">
+                      <li class="active">
+                          <a href="/SiteTLC/PaginaPrincipal.jsp">Home</a>
+                      </li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              Jogos
+                          <b class="caret"></b>
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li>
+                                  <a href="#">TLC TD</a>
+                              </li>
+                              <li>
+                                  <a href="#">Opcao 2</a>
+                              </li>
+                              <li>
+                                  <a href="#">Opcao 3</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li>
+                          <a href="http://timelinechronicles.forumeiros.com/" alt="Forum TLC" >Forum</a>
+                      </li>
+                      <li>
+                          <a href="#">About</a>
+                      </li>
+                      <li>
+                          <a href="#">Login</a>
+                      </li>    
+                  </ul>
+                  <form class="navbar-search pull-right">
+                      <input type="text" class="search-query" placeholder="Procurar">
+                  </form>
+                   </div>
+                   </div>
+                   </div>    
+          </div>
+            
+			<div class="hero-unit">
+    <center><img src="img/heroimg.png" alt="tlc" class="img-rounded"></center>
+</div>
+<div class="container">
+    <center><h1>Timeline Chronicles</h1></center>
+    <div class="row-fluid">
+        <div class="span6">
+            <center>
+                <h4>Fique por dentro das novidades do TLC.</h4>
+            </center>    
+            <p>Patch 12.1.6 notes:</p> 
+            <p>- Correção das fases 75 e 93;</p>
+            <p>- Adicionado 3 Arquivamentos by Lennon;</p>
+            <p>- Adicionado mais 3 fanarts by Arthur.</p>
+            <a href="#" class="btn btn-large btn-info">Todas Atualizações</a>         
+        </div>
+        <div class="span6">
+            <center>
+                <h4>Eventos na cidade do Acre!</h4>
+            </center>
+            <p>Evento TLC no fim do Mundo, dia 30/02!</p>
+            <a href="#" class="btn btn-large btn-info">Saiba Mais</a> 
+        </div>
     </div>
+</div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+     <footer class="footer">
+      <div class="container">
+          <p> TLC. © 2012 </p>
+      </div>
+    </footer>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and weâ€™ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Tlc maintained by <a href="https://github.com/lurebr">lurebr</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+   </body>
 </html>
