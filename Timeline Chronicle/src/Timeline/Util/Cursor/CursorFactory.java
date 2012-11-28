@@ -5,14 +5,15 @@
 package Timeline.Util.Cursor;
 
 /**
- *
+ * 
  * @author Lennon
  */
 public class CursorFactory {
-   
-    private CursorFactory(){}
-    
-    public static ICursor getCursor(){
-        return new CursorAzul();
-    }
+
+	private CursorFactory() {
+	}
+
+	public static ICursor getCursor() {
+		return new CursorAzul();
+	}
 }

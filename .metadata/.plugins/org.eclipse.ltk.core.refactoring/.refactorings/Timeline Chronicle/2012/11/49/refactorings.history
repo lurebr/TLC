@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Menugif2.gif&apos; to &apos;Timeline Chronicle/resource/Menu.MenuExterno&apos;&#x0D;&#x0A;- Original project: &apos;Timeline Chronicle&apos;&#x0D;&#x0A;- Destination element: &apos;Timeline Chronicle/resource/Menu.MenuExterno&apos;&#x0D;&#x0A;- Original element: &apos;Menugif2.gif&apos;" description="Copy file" destination="/resource&lt;Menu.MenuExterno" element1="build/classes/timeline/core/menu/Menugif2.gif" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1354053575928" units="0" version="1.0"/>
+</session>

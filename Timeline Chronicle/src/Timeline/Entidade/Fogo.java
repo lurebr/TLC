@@ -7,14 +7,14 @@ package Timeline.Entidade;
 import Timeline.Entidade.Elemento.Elemento;
 
 /**
- *
+ * 
  * @author Lennon
  */
-public class Fogo extends Elemento{
+public class Fogo extends Elemento {
 
-    @Override
-    public void Executa() {
-        
-    }
-    
+	@Override
+	public void Executa() {
+
+	}
+
 }

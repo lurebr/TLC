@@ -5,9 +5,9 @@
 package Timeline.Core.Level;
 
 /**
- *
+ * 
  * @author Lennon
  */
 public enum EnumEvento {
-    background, foto, texto, start, som, video;
+	background, foto, texto, start, som, video;
 }

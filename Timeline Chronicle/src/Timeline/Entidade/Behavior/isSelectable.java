@@ -5,9 +5,9 @@
 package Timeline.Entidade.Behavior;
 
 /**
- *
+ * 
  * @author Lennon
  */
 public interface isSelectable {
-     public String Select();
+	public String Select();
 }

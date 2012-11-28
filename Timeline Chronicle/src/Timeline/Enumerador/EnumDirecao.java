@@ -5,13 +5,9 @@
 package Timeline.Enumerador;
 
 /**
- *
+ * 
  * @author Desenv01
  */
 public enum EnumDirecao {
-    direita, 
-    cima, 
-    esquerda,
-    baixo,
-    parado
+	direita, cima, esquerda, baixo, parado
 }

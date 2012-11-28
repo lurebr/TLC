@@ -5,12 +5,10 @@
 package Timeline.Core.Componente;
 
 /**
- *
+ * 
  * @author Lennon
  */
 public enum EnumEstadoMouse {
-    empty,
-    build,
-    display
-    
+	empty, build, display
+
 }

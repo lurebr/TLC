@@ -5,55 +5,59 @@
 package Timeline.Entidade.Atributo;
 
 /**
- *
+ * 
  * @author Desenv01
  */
 public class Tamanho implements Cloneable {
-    private int width;
-    private int height;
-    
-    public Tamanho(){
-         
-    }
+	private int width;
+	private int height;
 
-    public Tamanho(Tamanho tamanho) {
-        this.width = tamanho.width;
-        this.height = tamanho.height;
-    }
+	public Tamanho() {
 
-    /**
-     * @return the width
-     */
-    public int getWidth() {
-        return width;
-    }
+	}
 
-    /**
-     * @param width the width to set
-     */
-    public void setWidth(int width) {
-        this.width = width;
-    }
+	public Tamanho(Tamanho tamanho) {
+		this.width = tamanho.width;
+		this.height = tamanho.height;
+	}
 
-    /**
-     * @return the height
-     */
-    public int getHeight() {
-        return height;
-    }
+	/**
+	 * @return the width
+	 */
+	public int getWidth() {
+		return width;
+	}
 
-    /**
-     * @param height the height to set
-     */
-    public void setHeight(int height) {
-        this.height = height;
-    }
-    
-    public String toString(){
-        return "Height: " + this.height + " Width: " + this.width;
-    }
+	/**
+	 * @param width
+	 *            the width to set
+	 */
+	public void setWidth(int width) {
+		this.width = width;
+	}
 
-  public Object clone() throws CloneNotSupportedException {
-    return super.clone();
-  }
+	/**
+	 * @return the height
+	 */
+	public int getHeight() {
+		return height;
+	}
+
+	/**
+	 * @param height
+	 *            the height to set
+	 */
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	@Override
+	public String toString() {
+		return "Height: " + this.height + " Width: " + this.width;
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 }

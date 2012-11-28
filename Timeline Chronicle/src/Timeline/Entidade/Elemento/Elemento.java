@@ -5,9 +5,9 @@
 package Timeline.Entidade.Elemento;
 
 /**
- *
+ * 
  * @author Lennon
  */
 public abstract class Elemento {
-    public abstract void Executa();
+	public abstract void Executa();
 }

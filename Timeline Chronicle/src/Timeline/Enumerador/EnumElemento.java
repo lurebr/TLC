@@ -5,11 +5,9 @@
 package Timeline.Enumerador;
 
 /**
- *
+ * 
  * @author Beatriz B
  */
 public enum EnumElemento {
-    normal,
-    fogo,
-    agua;
+	normal, fogo, agua;
 }

@@ -4,7 +4,6 @@
  */
 package Timeline.Chronicles;
 
-
 import Timeline.Core.Menu.ControlerMenuExterno;
 import Timeline.Jogador.Jogador;
 
@@ -15,32 +14,33 @@ import Timeline.Jogador.Jogador;
 
 public class Game {
 
-    public static Jogador jogador; 
+	public static Jogador jogador;
 
-    public Game() {
-        if (logar()) {
-            iniciaJogador();
-            videoIntro();
-            ControlerMenuExterno menu = new ControlerMenuExterno(jogador);
-        }
-    }
+	public Game() {
+		if (logar()) {
+			iniciaJogador();
+			videoIntro();
+			ControlerMenuExterno menu = new ControlerMenuExterno(jogador);
+		}
+	}
 
-    public void iniciaJogador(){
-        jogador = new Jogador();
-        jogador.setGold(100);
-        jogador.setLevel(1);
-        jogador.setNick("Lure");
-    }
-    public static void main(String[] args) {
-        new Game();
-    }
+	public void iniciaJogador() {
+		jogador = new Jogador();
+		jogador.setGold(100);
+		jogador.setLevel(1);
+		jogador.setNick("Lure");
+	}
 
-    public boolean logar() {
-        return true;
-    }
+	public static void main(String[] args) {
+		new Game();
+	}
 
-    private void videoIntro() {
-        
-    }
+	public boolean logar() {
+		return true;
+	}
+
+	private void videoIntro() {
+
+	}
 
 }

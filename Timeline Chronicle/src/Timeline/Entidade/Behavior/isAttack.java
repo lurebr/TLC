@@ -5,15 +5,17 @@
 package Timeline.Entidade.Behavior;
 
 import Timeline.Entidade.Atributo.Dano;
-import Timeline.Entidade.Atributo.Tamanho;
 import Timeline.Entidade.Atributo.Posicao;
+import Timeline.Entidade.Atributo.Tamanho;
 
 /**
- *
+ * 
  * @author Desenv01
  */
 public interface isAttack {
-    public Dano getDamage();
-    public Posicao getLocalizacao();
-    public Tamanho getTamanho(); 
+	public Dano getDamage();
+
+	public Posicao getLocalizacao();
+
+	public Tamanho getTamanho();
 }

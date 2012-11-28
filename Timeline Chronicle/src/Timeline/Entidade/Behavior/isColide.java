@@ -4,16 +4,17 @@
  */
 package Timeline.Entidade.Behavior;
 
-import java.awt.geom.Dimension2D;
-import Timeline.Entidade.Atributo.Tamanho;
 import Timeline.Entidade.Atributo.Posicao;
+import Timeline.Entidade.Atributo.Tamanho;
 
 /**
- *
+ * 
  * @author Desenv01
  */
 public interface isColide {
-    public boolean colide(isColide obj);
-    public Posicao getLocalizacao();
-    public Tamanho getTamanho();
+	public boolean colide(isColide obj);
+
+	public Posicao getLocalizacao();
+
+	public Tamanho getTamanho();
 }

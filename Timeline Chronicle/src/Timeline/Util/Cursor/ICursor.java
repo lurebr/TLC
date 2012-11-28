@@ -4,13 +4,12 @@
  */
 package Timeline.Util.Cursor;
 
-import java.awt.Graphics;
 import javax.swing.JFrame;
 
 /**
- *
+ * 
  * @author Lennon
  */
 public interface ICursor {
-    public void mudarCursor(JFrame tela);
+	public void mudarCursor(JFrame tela);
 }
